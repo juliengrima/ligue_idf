@@ -1,0 +1,24 @@
+clubs_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Clubs:index" }
+    methods:  GET
+
+clubs_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Clubs:show" }
+    methods:  GET
+
+clubs_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Clubs:new" }
+    methods:  [GET, POST]
+
+clubs_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Clubs:edit" }
+    methods:  [GET, POST]
+
+clubs_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Clubs:delete" }
+    methods:  DELETE

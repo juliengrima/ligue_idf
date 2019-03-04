@@ -1,0 +1,4 @@
+app_clubs:
+    resource: "@AppBundle/Resources/config/routing/clubs.yml"
+    prefix:   /clubs
+

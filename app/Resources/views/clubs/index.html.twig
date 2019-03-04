@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clubs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Clubname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for club in clubs %}
+            <tr>
+                <td><a href="{{ path('clubs_show', { 'id': club.id }) }}">{{ club.id }}</a></td>
+                <td>{{ club.clubName }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('clubs_show', { 'id': club.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('clubs_edit', { 'id': club.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clubs_new') }}">Create a new club</a>
+        </li>
+    </ul>
+{% endblock %}
