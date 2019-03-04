@@ -13,4 +13,8 @@ AppBundle\Entity\Groups:
             type: string
             length: 255
             column: group_name
+
+    clubs:
+        targetEntity: AppBundle\Entity\Categories
+        mappedBy: groups
     lifecycleCallbacks: {  }

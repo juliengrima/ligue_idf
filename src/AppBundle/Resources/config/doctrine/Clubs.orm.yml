@@ -13,4 +13,17 @@ AppBundle\Entity\Clubs:
             type: string
             length: 255
             column: club_name
+
+    manyToMany:
+        categories:
+            targetEntity: AppBundle\Entity\Categories
+            inversedBy: clubs
+            joinTable:
+                name: clubs_categories
+                joinColumns:
+                    clubs_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    categories_id:
+                        referencedColumnName: id
     lifecycleCallbacks: {  }
