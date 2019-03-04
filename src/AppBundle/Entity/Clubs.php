@@ -51,5 +51,50 @@ class Clubs
     {
         return $this->clubName;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $categories;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\Categories $category
+     *
+     * @return Clubs
+     */
+    public function addCategory(\AppBundle\Entity\Categories $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\Categories $category
+     */
+    public function removeCategory(\AppBundle\Entity\Categories $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+}

@@ -52,4 +52,3 @@ class Groups
         return $this->groupName;
     }
 }
-
