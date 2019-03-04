@@ -1,0 +1,16 @@
+AppBundle\Entity\Clubs:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ClubsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        clubName:
+            type: string
+            length: 255
+            column: club_name
+    lifecycleCallbacks: {  }
