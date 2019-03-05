@@ -33,7 +33,7 @@ class CategoriesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $category = new Category();
+        $category = new Categories();
         $form = $this->createForm('AppBundle\Form\CategoriesType', $category);
         $form->handleRequest($request);
 
@@ -42,7 +42,7 @@ class CategoriesController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('categories_show', array('id' => $category->getId()));
+            return $this->redirectToRoute('categories_index', array('id' => $category->getId()));
         }
 
         return $this->render('categories/new.html.twig', array(

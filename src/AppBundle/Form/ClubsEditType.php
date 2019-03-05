@@ -5,22 +5,26 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Entity\Categories;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class CategoriesType extends AbstractType
+class ClubsEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('categoryName');
+        $builder->add('clubName')
+                ->add('categories');
+
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Categories'
+            'data_class' => 'AppBundle\Entity\Clubs'
         ));
     }
 
@@ -29,7 +33,7 @@ class CategoriesType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_categories';
+        return 'appbundle_clubs';
     }
 
 

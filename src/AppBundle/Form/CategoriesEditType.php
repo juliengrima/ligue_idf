@@ -6,14 +6,15 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CategoriesType extends AbstractType
+class CategoriesEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('categoryName');
+        $builder->add('categoryName')
+                ->add('groupName');
     }/**
      * {@inheritdoc}
      */

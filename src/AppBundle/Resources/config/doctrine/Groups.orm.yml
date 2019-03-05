@@ -13,8 +13,6 @@ AppBundle\Entity\Groups:
             type: string
             length: 255
             column: group_name
+            unique: true
 
-    clubs:
-        targetEntity: AppBundle\Entity\Categories
-        mappedBy: groups
     lifecycleCallbacks: {  }

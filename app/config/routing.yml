@@ -13,9 +13,19 @@ app:
 ###########################################################
 ###########################################################
 
+homeadmin:
+    path:     /admin
+    defaults: { _controller: "AppBundle:Default:homeAdmin" }
+    methods:  GET
+
 app_clubs:
     resource: "@AppBundle/Resources/config/routing/clubs.yml"
     prefix:   /clubs
+
+admin_clubs:
+    path:     /admin_clubs
+    defaults: { _controller: "AppBundle:Clubs:add" }
+    methods:  [GET, POST]
 
 app_categories:
     resource: "@AppBundle/Resources/config/routing/categories.yml"

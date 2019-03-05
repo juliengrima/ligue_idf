@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Categories;
 use AppBundle\Entity\Clubs;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +34,7 @@ class ClubsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $club = new Club();
+        $club = new Clubs();
         $form = $this->createForm('AppBundle\Form\ClubsType', $club);
         $form->handleRequest($request);
 
@@ -42,11 +43,35 @@ class ClubsController extends Controller
             $em->persist($club);
             $em->flush();
 
-            return $this->redirectToRoute('clubs_show', array('id' => $club->getId()));
+            return $this->redirectToRoute('clubs_index', array('id' => $club->getId()));
         }
 
         return $this->render('clubs/new.html.twig', array(
             'club' => $club,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Creates a new club entity.
+     *
+     */
+    public function addAction(Request $request)
+    {
+        $clubs = new Clubs();
+        $form = $this->createForm('AppBundle\Form\ClubsEditType', $clubs);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($clubs);
+            $em->flush();
+
+            return $this->redirectToRoute('clubs_index', array('id' => $clubs->getId()));
+        }
+
+        return $this->render('clubs/new.html.twig', array(
+            'club' => $clubs,
             'form' => $form->createView(),
         ));
     }
@@ -72,13 +97,13 @@ class ClubsController extends Controller
     public function editAction(Request $request, Clubs $club)
     {
         $deleteForm = $this->createDeleteForm($club);
-        $editForm = $this->createForm('AppBundle\Form\ClubsType', $club);
+        $editForm = $this->createForm('AppBundle\Form\ClubsEditType', $club);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('clubs_edit', array('id' => $club->getId()));
+            return $this->redirectToRoute('clubs_index', array('id' => $club->getId()));
         }
 
         return $this->render('clubs/edit.html.twig', array(

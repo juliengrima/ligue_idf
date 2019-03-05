@@ -33,7 +33,7 @@ class GroupsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $group = new Group();
+        $group = new Groups();
         $form = $this->createForm('AppBundle\Form\GroupsType', $group);
         $form->handleRequest($request);
 
@@ -42,7 +42,7 @@ class GroupsController extends Controller
             $em->persist($group);
             $em->flush();
 
-            return $this->redirectToRoute('groups_show', array('id' => $group->getId()));
+            return $this->redirectToRoute('groups_index', array('id' => $group->getId()));
         }
 
         return $this->render('groups/new.html.twig', array(

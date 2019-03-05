@@ -7,8 +7,9 @@ namespace AppBundle\Entity;
  */
 class Groups
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -21,7 +22,7 @@ class Groups
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {

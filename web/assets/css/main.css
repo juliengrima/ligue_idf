@@ -198,6 +198,10 @@ input, select, textarea {
 			margin: 3em 0;
 		}
 
+	li{
+		list-style-type: none;
+	}
+
 	blockquote {
 		border-left: solid 6px #efefef;
 		font-style: italic;

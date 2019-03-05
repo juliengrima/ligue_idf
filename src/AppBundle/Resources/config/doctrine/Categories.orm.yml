@@ -13,15 +13,11 @@ AppBundle\Entity\Categories:
             type: string
             length: 255
             column: category_name
-
+            unique: true
 
     manyToMany:
-        clubs:
-            targetEntity: AppBundle\Entity\Clubs
-            mappedBy: categories
         groups:
             targetEntity: AppBundle\Entity\Groups
-            inversedBy: categories
             joinTable:
                 name: categories_groups
                 joinColumns:
@@ -30,4 +26,5 @@ AppBundle\Entity\Categories:
                 inverseJoinColumns:
                     groups_id:
                         referencedColumnName: id
+                        unique: true
     lifecycleCallbacks: {  }

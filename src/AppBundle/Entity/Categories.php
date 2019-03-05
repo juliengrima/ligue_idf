@@ -7,8 +7,15 @@ namespace AppBundle\Entity;
  */
 class Categories
 {
+//    public function __toString()
+//    {
+//        // TODO: Implement __toString() method.
+//        return $this->categoryName;
+//    }
+
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -17,11 +24,23 @@ class Categories
      */
     private $categoryName;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -50,58 +69,6 @@ class Categories
     public function getCategoryName()
     {
         return $this->categoryName;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $clubs;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $groups;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->clubs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add club
-     *
-     * @param \AppBundle\Entity\Clubs $club
-     *
-     * @return Categories
-     */
-    public function addClub(\AppBundle\Entity\Clubs $club)
-    {
-        $this->clubs[] = $club;
-
-        return $this;
-    }
-
-    /**
-     * Remove club
-     *
-     * @param \AppBundle\Entity\Clubs $club
-     */
-    public function removeClub(\AppBundle\Entity\Clubs $club)
-    {
-        $this->clubs->removeElement($club);
-    }
-
-    /**
-     * Get clubs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getClubs()
-    {
-        return $this->clubs;
     }
 
     /**
