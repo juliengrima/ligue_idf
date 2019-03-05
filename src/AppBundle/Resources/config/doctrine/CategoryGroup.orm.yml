@@ -1,0 +1,18 @@
+AppBundle\Entity\CategoryGroup:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CategoryGroupRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        categoryId:
+            type: integer
+            column: category_id
+        groupId:
+            type: integer
+            column: group_id
+    lifecycleCallbacks: {  }
