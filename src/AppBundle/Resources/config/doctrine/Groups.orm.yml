@@ -15,4 +15,8 @@ AppBundle\Entity\Groups:
             column: group_name
             unique: true
 
+    oneToMany:
+        group:
+            targetEntity: AppBundle\Entity\CategoryGroup
+            mappedBy: groups
     lifecycleCallbacks: {  }

@@ -80,5 +80,62 @@ class CategoryGroup
     {
         return $this->groupId;
     }
-}
+    /**
+     * @var \AppBundle\Entity\Categories
+     */
+    private $categories;
 
+    /**
+     * @var \AppBundle\Entity\Groups
+     */
+    private $group;
+
+
+    /**
+     * Set categories
+     *
+     * @param \AppBundle\Entity\Categories $categories
+     *
+     * @return CategoryGroup
+     */
+    public function setCategories(\AppBundle\Entity\Categories $categories = null)
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \AppBundle\Entity\Categories
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set group
+     *
+     * @param \AppBundle\Entity\Groups $group
+     *
+     * @return CategoryGroup
+     */
+    public function setGroup(\AppBundle\Entity\Groups $group = null)
+    {
+        $this->group = $group;
+
+        return $this;
+    }
+
+    /**
+     * Get group
+     *
+     * @return \AppBundle\Entity\Groups
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+}

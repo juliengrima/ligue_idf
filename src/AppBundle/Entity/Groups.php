@@ -51,4 +51,50 @@ class Groups
     {
         return $this->groupName;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $group;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add group
+     *
+     * @param \AppBundle\Entity\CategoryGroup $group
+     *
+     * @return Groups
+     */
+    public function addGroup(\AppBundle\Entity\CategoryGroup $group)
+    {
+        $this->group[] = $group;
+
+        return $this;
+    }
+
+    /**
+     * Remove group
+     *
+     * @param \AppBundle\Entity\CategoryGroup $group
+     */
+    public function removeGroup(\AppBundle\Entity\CategoryGroup $group)
+    {
+        $this->group->removeElement($group);
+    }
+
+    /**
+     * Get group
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
 }
