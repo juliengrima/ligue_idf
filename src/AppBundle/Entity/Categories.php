@@ -13,7 +13,6 @@ class Categories
         return $this->categoryName;
     }
 
-
     /**
      * @var integer
      */
@@ -57,5 +56,51 @@ class Categories
     public function getCategoryName()
     {
         return $this->categoryName;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\ClubCategory $category
+     *
+     * @return Categories
+     */
+    public function addCategory(\AppBundle\Entity\ClubCategory $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\ClubCategory $category
+     */
+    public function removeCategory(\AppBundle\Entity\ClubCategory $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

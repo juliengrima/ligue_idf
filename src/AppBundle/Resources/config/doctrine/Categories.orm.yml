@@ -15,4 +15,8 @@ AppBundle\Entity\Categories:
             column: category_name
             unique: true
 
+    oneToMany:
+        category:
+            targetEntity: AppBundle\Entity\ClubCategory
+            mappedBy: categories
     lifecycleCallbacks: {  }

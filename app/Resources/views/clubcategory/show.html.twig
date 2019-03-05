@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Clubcategory</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ clubCategory.id }}</td>
+            </tr>
+            <tr>
+                <th>Clubid</th>
+                <td>{{ clubCategory.clubId }}</td>
+            </tr>
+            <tr>
+                <th>Categoryid</th>
+                <td>{{ clubCategory.categoryId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('clubcategory_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('clubcategory_edit', { 'id': clubCategory.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

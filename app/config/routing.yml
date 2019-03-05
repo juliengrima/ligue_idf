@@ -22,11 +22,6 @@ app_clubs:
     resource: "@AppBundle/Resources/config/routing/clubs.yml"
     prefix:   /clubs
 
-admin_clubs:
-    path:     /admin_clubs
-    defaults: { _controller: "AppBundle:Clubs:add" }
-    methods:  [GET, POST]
-
 app_categories:
     resource: "@AppBundle/Resources/config/routing/categories.yml"
     prefix:   /categories
@@ -34,3 +29,7 @@ app_categories:
 app_groups:
     resource: "@AppBundle/Resources/config/routing/groups.yml"
     prefix:   /groups
+
+app_clubcategory:
+    resource: "@AppBundle/Resources/config/routing/clubcategory.yml"
+    prefix:   /clubcategory

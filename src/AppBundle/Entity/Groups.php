@@ -7,7 +7,6 @@ namespace AppBundle\Entity;
  */
 class Groups
 {
-
     /**
      * @var integer
      */

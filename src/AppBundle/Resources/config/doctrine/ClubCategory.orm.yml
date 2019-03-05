@@ -1,0 +1,33 @@
+AppBundle\Entity\ClubCategory:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ClubCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        clubId:
+            type: integer
+            column: club_id
+        categoryId:
+            type: integer
+            column: category_id
+
+    manyToOne:
+        club:
+            targetEntity: AppBundle\Entity\Clubs
+            inversedBy: category
+            joinColumn:
+                name: club_id
+                referencedColumnName: id
+        categories:
+            targetEntity: AppBundle\Entity\Categories
+            inversedBy: category
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+
+    lifecycleCallbacks: {  }
