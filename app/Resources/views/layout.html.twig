@@ -5,10 +5,17 @@
     <!-- Header -->
     <header id="header">
         <div class="inner">
-            <a href="#" class="image avatar"><img src="{{ asset('assets/images/avatar.jpg') }}" alt="" /></a>
+            <a href="{{ path('homepage') }}" class="image avatar"><img src="{{ asset('assets/images/avatar.jpg') }}" alt="" /></a>
             <h1><strong>I am Strata</strong>, a super simple<br />
                 responsive site template freebie<br />
                 crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+
+            <div>
+                <ul>
+                    <li><a href="{{ path('homepage') }}">accueil</a></li>
+                    <li><a href="{{ path('homeadmin') }}">administrateur</a></li>
+                </ul>
+            </div>
         </div>
     </header>
 

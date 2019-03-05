@@ -42,7 +42,7 @@ class ClubCategoryController extends Controller
             $em->persist($clubCategory);
             $em->flush();
 
-            return $this->redirectToRoute('clubcategory_show', array('id' => $clubCategory->getId()));
+            return $this->redirectToRoute('clubcategory_index', array('id' => $clubCategory->getId()));
         }
 
         return $this->render('clubcategory/new.html.twig', array(
@@ -51,19 +51,19 @@ class ClubCategoryController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a clubCategory entity.
-     *
-     */
-    public function showAction(ClubCategory $clubCategory)
-    {
-        $deleteForm = $this->createDeleteForm($clubCategory);
-
-        return $this->render('clubcategory/show.html.twig', array(
-            'clubCategory' => $clubCategory,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
+//    /**
+//     * Finds and displays a clubCategory entity.
+//     *
+//     */
+//    public function showAction(ClubCategory $clubCategory)
+//    {
+//        $deleteForm = $this->createDeleteForm($clubCategory);
+//
+//        return $this->render('clubcategory/show.html.twig', array(
+//            'clubCategory' => $clubCategory,
+//            'delete_form' => $deleteForm->createView(),
+//        ));
+//    }
 
     /**
      * Displays a form to edit an existing clubCategory entity.
@@ -78,7 +78,7 @@ class ClubCategoryController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('clubcategory_edit', array('id' => $clubCategory->getId()));
+            return $this->redirectToRoute('clubcategory_index', array('id' => $clubCategory->getId()));
         }
 
         return $this->render('clubcategory/edit.html.twig', array(

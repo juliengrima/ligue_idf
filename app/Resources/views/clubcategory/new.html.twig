@@ -1,16 +1,20 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Clubcategory creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div id="main">
+        <h1>Clubcategory creation</h1>
 
-    <ul>
-        <li>
-            <a href="{{ path('clubcategory_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input type="submit" value="Create" />
+        {{ form_end(form) }}
+
+        <ul>
+            <li>
+                <a href="{{ path('clubcategory_index') }}">Back to the list</a>
+            </li>
+        </ul>
+    </div>
+
 {% endblock %}

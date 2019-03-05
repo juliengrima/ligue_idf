@@ -7,11 +7,11 @@ namespace AppBundle\Entity;
  */
 class Clubs
 {
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->clubName;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->clubName;
+    }
 
     /**
      * @var integer

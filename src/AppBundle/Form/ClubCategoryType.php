@@ -13,7 +13,8 @@ class ClubCategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('clubId')->add('categoryId');
+        $builder->add('club')
+                ->add('categories');
     }/**
      * {@inheritdoc}
      */
