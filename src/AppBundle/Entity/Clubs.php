@@ -7,11 +7,12 @@ namespace AppBundle\Entity;
  */
 class Clubs
 {
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->clubName . $this->categories;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->clubName;
+    }
+
 
     /**
      * @var integer
@@ -23,18 +24,6 @@ class Clubs
      */
     private $clubName;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -68,39 +57,5 @@ class Clubs
     public function getClubName()
     {
         return $this->clubName;
-    }
-
-    /**
-     * Add category
-     *
-     * @param \AppBundle\Entity\Categories $category
-     *
-     * @return Clubs
-     */
-    public function addCategory(\AppBundle\Entity\Categories $category)
-    {
-        $this->category[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \AppBundle\Entity\Categories $category
-     */
-    public function removeCategory(\AppBundle\Entity\Categories $category)
-    {
-        $this->category->removeElement($category);
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 }

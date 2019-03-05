@@ -53,30 +53,6 @@ class ClubsController extends Controller
     }
 
     /**
-     * Creates a new club entity.
-     *
-     */
-    public function addAction(Request $request)
-    {
-        $clubs = new Clubs();
-        $form = $this->createForm('AppBundle\Form\ClubsEditType', $clubs);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($clubs);
-            $em->flush();
-
-            return $this->redirectToRoute('clubs_index', array('id' => $clubs->getId()));
-        }
-
-        return $this->render('clubs/new.html.twig', array(
-            'club' => $clubs,
-            'form' => $form->createView(),
-        ));
-    }
-
-    /**
      * Finds and displays a club entity.
      *
      */

@@ -15,16 +15,4 @@ AppBundle\Entity\Categories:
             column: category_name
             unique: true
 
-    manyToMany:
-        groups:
-            targetEntity: AppBundle\Entity\Groups
-            joinTable:
-                name: categories_groups
-                joinColumns:
-                    categories_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    groups_id:
-                        referencedColumnName: id
-                        unique: true
     lifecycleCallbacks: {  }

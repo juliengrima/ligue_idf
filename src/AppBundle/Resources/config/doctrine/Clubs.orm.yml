@@ -15,16 +15,4 @@ AppBundle\Entity\Clubs:
             column: club_name
             unique: true
 
-    manyToMany:
-        category:
-            targetEntity: AppBundle\Entity\Categories
-            joinTable:
-                name: clubs_categories
-                joinColumns:
-                    clubs_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    categories_id:
-                        referencedColumnName: id
-                        unique: true
     lifecycleCallbacks: {  }

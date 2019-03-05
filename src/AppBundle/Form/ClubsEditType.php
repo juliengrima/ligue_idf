@@ -16,7 +16,7 @@ class ClubsEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('clubName')
-                ->add('categories');
+                ->add('category');
 
     }/**
      * {@inheritdoc}
