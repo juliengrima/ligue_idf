@@ -13,6 +13,7 @@ class Categories
         return $this->categoryName;
     }
 
+
     /**
      * @var integer
      */
@@ -23,6 +24,18 @@ class Categories
      */
     private $categoryName;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -57,18 +70,6 @@ class Categories
     {
         return $this->categoryName;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add category
@@ -102,20 +103,5 @@ class Categories
     public function getCategory()
     {
         return $this->category;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $categories;
-
-
-    /**
-     * Get categories
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategories()
-    {
-        return $this->categories;
     }
 }

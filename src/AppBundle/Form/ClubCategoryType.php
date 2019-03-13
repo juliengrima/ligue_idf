@@ -14,7 +14,8 @@ class ClubCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('club')
-                ->add('categories');
+                ->add('categories')
+                ->add('group');
     }/**
      * {@inheritdoc}
      */

@@ -7,6 +7,13 @@ namespace AppBundle\Entity;
  */
 class Groups
 {
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->groupName;
+    }
+
+
     /**
      * @var integer
      */
@@ -17,6 +24,18 @@ class Groups
      */
     private $groupName;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -51,57 +70,6 @@ class Groups
     {
         return $this->groupName;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $group;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->group = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add group
-     *
-     * @param \AppBundle\Entity\CategoryGroup $group
-     *
-     * @return Groups
-     */
-    public function addGroup(\AppBundle\Entity\CategoryGroup $group)
-    {
-        $this->group[] = $group;
-
-        return $this;
-    }
-
-    /**
-     * Remove group
-     *
-     * @param \AppBundle\Entity\CategoryGroup $group
-     */
-    public function removeGroup(\AppBundle\Entity\CategoryGroup $group)
-    {
-        $this->group->removeElement($group);
-    }
-
-    /**
-     * Get group
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getGroup()
-    {
-        return $this->group;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
-
 
     /**
      * Add category

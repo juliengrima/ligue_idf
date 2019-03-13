@@ -29,10 +29,16 @@ AppBundle\Entity\ClubCategory:
             joinColumn:
                 name: category_id
                 referencedColumnName: id
+        group:
+            targetEntity: AppBundle\Entity\Groups
+            inversedBy: group
+            joinColumn:
+                name: group_id
+                referencedColumnName: id
 
-    oneToMany:
-        category:
-            targetEntity: AppBundle\Entity\CategoryGroup
-            mappedBy: category
+#    oneToMany:
+#        category:
+#            targetEntity: AppBundle\Entity\CategoryGroup
+#            mappedBy: category
 
     lifecycleCallbacks: {  }

@@ -7,26 +7,47 @@ namespace AppBundle\Entity;
  */
 class ClubCategory
 {
+//    public function __toString()
+//    {
+//        // TODO: Implement __toString() method.
+//        return $this->categories . $this->categories;
+//    }
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var int
+     * @var integer
      */
     private $clubId;
 
     /**
-     * @var int
+     * @var integer
      */
     private $categoryId;
+
+    /**
+     * @var \AppBundle\Entity\Clubs
+     */
+    private $club;
+
+    /**
+     * @var \AppBundle\Entity\Categories
+     */
+    private $categories;
+
+    /**
+     * @var \AppBundle\Entity\Groups
+     */
+    private $group;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -50,7 +71,7 @@ class ClubCategory
     /**
      * Get clubId
      *
-     * @return int
+     * @return integer
      */
     public function getClubId()
     {
@@ -74,17 +95,12 @@ class ClubCategory
     /**
      * Get categoryId
      *
-     * @return int
+     * @return integer
      */
     public function getCategoryId()
     {
         return $this->categoryId;
     }
-    /**
-     * @var \AppBundle\Entity\Clubs
-     */
-    private $club;
-
 
     /**
      * Set club
@@ -109,11 +125,6 @@ class ClubCategory
     {
         return $this->club;
     }
-    /**
-     * @var \AppBundle\Entity\Categories
-     */
-    private $categories;
-
 
     /**
      * Set categories
@@ -138,50 +149,28 @@ class ClubCategory
     {
         return $this->categories;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add category
+     * Set group
      *
-     * @param \AppBundle\Entity\CategoryGroup $category
+     * @param \AppBundle\Entity\Groups $group
      *
      * @return ClubCategory
      */
-    public function addCategory(\AppBundle\Entity\CategoryGroup $category)
+    public function setGroup(\AppBundle\Entity\Groups $group = null)
     {
-        $this->category[] = $category;
+        $this->group = $group;
 
         return $this;
     }
 
     /**
-     * Remove category
+     * Get group
      *
-     * @param \AppBundle\Entity\CategoryGroup $category
+     * @return \AppBundle\Entity\Groups
      */
-    public function removeCategory(\AppBundle\Entity\CategoryGroup $category)
+    public function getGroup()
     {
-        $this->category->removeElement($category);
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategory()
-    {
-        return $this->category;
+        return $this->group;
     }
 }

@@ -33,3 +33,7 @@ app_groups:
 app_clubcategory:
     resource: "@AppBundle/Resources/config/routing/clubcategory.yml"
     prefix:   /clubcategory
+
+app_categorygroup:
+    resource: "@AppBundle/Resources/config/routing/categorygroup.yml"
+    prefix:   /categorygroup

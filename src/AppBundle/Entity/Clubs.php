@@ -13,6 +13,7 @@ class Clubs
         return $this->clubName;
     }
 
+
     /**
      * @var integer
      */
@@ -23,6 +24,18 @@ class Clubs
      */
     private $clubName;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -56,18 +69,6 @@ class Clubs
     public function getClubName()
     {
         return $this->clubName;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
