@@ -138,4 +138,50 @@ class ClubCategory
     {
         return $this->categories;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\CategoryGroup $category
+     *
+     * @return ClubCategory
+     */
+    public function addCategory(\AppBundle\Entity\CategoryGroup $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\CategoryGroup $category
+     */
+    public function removeCategory(\AppBundle\Entity\CategoryGroup $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

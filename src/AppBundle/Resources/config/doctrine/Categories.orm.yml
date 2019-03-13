@@ -19,7 +19,5 @@ AppBundle\Entity\Categories:
         category:
             targetEntity: AppBundle\Entity\ClubCategory
             mappedBy: categories
-        categories:
-            targetEntity: AppBundle\Entity\CategoryGroup
-            mappedBy: categories
+
     lifecycleCallbacks: {  }

@@ -30,4 +30,9 @@ AppBundle\Entity\ClubCategory:
                 name: category_id
                 referencedColumnName: id
 
+    oneToMany:
+        category:
+            targetEntity: AppBundle\Entity\CategoryGroup
+            mappedBy: category
+
     lifecycleCallbacks: {  }

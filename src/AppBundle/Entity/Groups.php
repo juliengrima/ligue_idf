@@ -97,4 +97,43 @@ class Groups
     {
         return $this->group;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\ClubCategory $category
+     *
+     * @return Groups
+     */
+    public function addCategory(\AppBundle\Entity\ClubCategory $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\ClubCategory $category
+     */
+    public function removeCategory(\AppBundle\Entity\ClubCategory $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

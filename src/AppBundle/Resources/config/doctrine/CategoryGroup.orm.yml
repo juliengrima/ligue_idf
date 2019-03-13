@@ -18,10 +18,10 @@ AppBundle\Entity\CategoryGroup:
 
     manyToOne:
         categories:
-            targetEntity: AppBundle\Entity\Categories
+            targetEntity: AppBundle\Entity\ClubCategory
             inversedBy: categories
             joinColumn:
-                name: category_id
+                name: clubcategory_id
                 referencedColumnName: id
         group:
             targetEntity: AppBundle\Entity\Groups
