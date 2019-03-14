@@ -8,7 +8,6 @@
         <table>
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Clubname</th>
                     <th>Actions</th>
                 </tr>
@@ -20,9 +19,6 @@
                     <td>{{ club.clubName }}</td>
                     <td>
                         <ul>
-                            {#<li>#}
-                                {#<a href="{{ path('clubs_show', { 'id': club.id }) }}" class="button small">show</a>#}
-                            {#</li>#}
                             <li>
                                 <a href="{{ path('clubs_edit', { 'id': club.id }) }}" class="button primary">edit</a>
                             </li>

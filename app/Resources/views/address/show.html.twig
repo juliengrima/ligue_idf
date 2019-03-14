@@ -1,52 +1,93 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/maps.css') }}" />
+{% endblock %}
 
 {% block body %}
-    <h1>Address</h1>
+    <div id="main">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ address.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ address.nom }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ address.address }}</td>
-            </tr>
-            <tr>
-                <th>Postal</th>
-                <td>{{ address.postal }}</td>
-            </tr>
-            <tr>
-                <th>City</th>
-                <td>{{ address.city }}</td>
-            </tr>
-            <tr>
-                <th>Lat</th>
-                <td>{{ address.lat }}</td>
-            </tr>
-            <tr>
-                <th>Lng</th>
-                <td>{{ address.lng }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <h1>Nouveau lieu</h1>
 
-    <ul>
-        <li>
-            <a href="{{ path('address_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('address_edit', { 'id': address.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        <section id="one">
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{ address.nom }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ address.address }}</td>
+                </tr>
+                <tr>
+                    <th>Postal</th>
+                    <td>{{ address.postal }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ address.city }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="two">
+
+            <div id="maps"></div>
+
+        </section>
+
+        <section id="three">
+
+            <ul>
+                <li>
+                    <a href="{{ path('address_index') }}">Back to the list</a>
+                </li>
+                <li>
+                    <a href="{{ path('address_edit', { 'id': address.id }) }}">Edit</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+
+        </section>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+
+    <script>
+        function initMap() {
+            var myLatLng = { lat: {{ address.lat }}, lng: {{ address.lng }} };
+
+            // Create a map object and specify the DOM element
+            // for display.
+            var map = new google.maps.Map(document.getElementById('maps'), {
+                center: {
+                    lat: myLatLng,
+                    zoom: 4
+                }});
+
+            // Create a marker and set its position.
+            var marker = new google.maps.Marker({
+                map: map,
+                position: {
+                    lat: myLatLng,
+                    title: '{{ address.nom }}'
+                }});
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ apikey }}&callback=initMap"
+            async defer>
+    </script>
+
 {% endblock %}

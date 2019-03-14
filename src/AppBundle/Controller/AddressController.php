@@ -38,11 +38,34 @@ class AddressController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+//            Keep address / postal /city
+            $street = $form->getData()->getAddress();
+            $postal = $form->getData()->getPostal();
+            $city = $form->getData()->getCity();
+
+            $lat_lng = $this->getLatLng($street, $postal, $city);
+            if ($lat_lng == 500){
+                $this->addFlash(
+                    'notice',
+                    'Une erreur est survenue lors de l\'enregistrement de l\'adresse, veuillez vérifier'
+                );
+                return $this->render('address/new.html.twig', array(
+                    'form' => $form->createView(),
+                    'commercant' => $address,
+                ));
+            }
+
+            $address->setLat($lat_lng['lat']);
+            $address->setLng($lat_lng['lng']);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($address);
             $em->flush();
 
-            return $this->redirectToRoute('address_show', array('id' => $address->getId()));
+            return $this->redirectToRoute('address_show', array(
+                'id' => $address->getId(),
+            ));
         }
 
         return $this->render('address/new.html.twig', array(
@@ -57,11 +80,13 @@ class AddressController extends Controller
      */
     public function showAction(Address $address)
     {
+        $apiKey = "AIzaSyDWi3w0hvwNzy1OYnVcRImnDH2bhBFNV8M";
         $deleteForm = $this->createDeleteForm($address);
 
         return $this->render('address/show.html.twig', array(
             'address' => $address,
             'delete_form' => $deleteForm->createView(),
+            'apikey' => $apiKey,
         ));
     }
 
@@ -76,9 +101,30 @@ class AddressController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            //            Keep address / postal /city
+            $street = $editForm->getData()->getAddress();
+            $postal = $editForm->getData()->getPostal();
+            $city = $editForm->getData()->getCity();
+
+            $lat_lng = $this->getLatLng($street, $postal, $city);
+            if ($lat_lng == 500){
+                $this->addFlash(
+                    'notice',
+                    'Une erreur est survenue lors de l\'enregistrement de l\'adresse, veuillez vérifier'
+                );
+                return $this->render('address/new.html.twig', array(
+                    'form' => $editForm->createView(),
+                    'commercant' => $address,
+                ));
+            }
+
+            $address->setLat($lat_lng['lat']);
+            $address->setLng($lat_lng['lng']);
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('address_edit', array('id' => $address->getId()));
+            return $this->redirectToRoute('address_show', array('id' => $address->getId()));
         }
 
         return $this->render('address/edit.html.twig', array(
@@ -120,5 +166,26 @@ class AddressController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function getLatLng($street, $postal, $city){
+
+        $street = str_replace(" ", "%20", $street);
+
+//        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=". $street . "%20" . $postal . "%20" . $city . "&key=AIzaSyD0M1-1_fcOUWWPgI3L_RXGOJSjZu88oVg";
+        $geocode = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $street . "%20" . $postal . "%20" . $city . "&key=AIzaSyD0M1-1_fcOUWWPgI3L_RXGOJSjZu88oVg";
+
+        $result_string = file_get_contents($geocode);
+
+        $result = json_decode($result_string, true);
+
+        if (isset($result['results'][0])){
+            $location['lat'] = $result['results'][0]['geometry']['location']['lat'];
+            $location['lng'] = $result['results'][0]['geometry']['location']['lng'];
+
+            return $location;
+        }
+        else
+            return $location = 500;
     }
 }
