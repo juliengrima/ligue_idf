@@ -7,11 +7,11 @@ namespace AppBundle\Entity;
  */
 class ClubCategory
 {
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->categories . $this->categories;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->clubId;
+    }
 
     /**
      * @var integer
@@ -42,6 +42,16 @@ class ClubCategory
      * @var \AppBundle\Entity\Groups
      */
     private $group;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $calendar1;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $calendar2;
 
 
     /**
@@ -173,15 +183,6 @@ class ClubCategory
     {
         return $this->group;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $calendar1;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $calendar2;
 
     /**
      * Constructor
