@@ -37,4 +37,17 @@ class DefaultController extends Controller
             'key' => $apiKey,
         ));
     }
+
+    public function fullCalendarAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $map = $em->getRepository('AppBundle:Address')->findAll();
+
+
+//        $map = $em->getRepository('AppBundle:Address')->findBy( array('slider' => 1) );
+        // replace this example code with whatever you need
+        return $this->render('default/calendar.html.twig', array(
+            'maps' => $map,
+        ));
+    }
 }

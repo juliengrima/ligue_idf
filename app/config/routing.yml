@@ -46,3 +46,8 @@ map_index:
     path:     /map
     defaults: { _controller: "AppBundle:Default:map" }
     methods:  GET
+
+calendar_index:
+    path:     /fullcalendar
+    defaults: { _controller: "AppBundle:Default:fullCalendar" }
+    methods:  GET

@@ -14,7 +14,8 @@
 
         <!-- Two -->
         <section id="two">
-            <h2>Clubs / Catégories / Groupes</h2>
+            <h2>Administration</h2>
+            <h2>Clubs / Catégories / Groupes / Lieux de rencontres</h2>
             <div class="row">
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('clubs_index') }}" class="button primary">Administration des clubs</a>
@@ -25,14 +26,15 @@
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('groups_index') }}" class="button primary">Administration des poules</a>
                 </article>
-
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('address_index') }}" class="button primary">Administration des adresses</a>
+                </article>
             </div>
         </section>
 
         <!-- Three -->
         <section id="three">
-            <h2>lien des clubs avec les catégories et les groupes</h2>
-
+            <h2>Gestion des Clubs</h2>
             <div class="row">
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('clubcategory_index') }}" class="button primary">Lier une catégorie et une poule</a>
@@ -40,12 +42,11 @@
             </div>
         </section>
         <section id="four">
-            <h2>Enregistrement des lieux de matchs</h2>
+            <h2>Gestion des maths matchs</h2>
             <div class="row">
                 <article class="col-6 col-12-xsmall work-item">
-                    <a href="{{ path('address_index') }}" class="button primary">Administration des adresses</a>
+                    <a href="{{ path('calendar_index') }}" class="button primary">Calendrier</a>
                 </article>
-
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('map_index') }}" class="button primary">map</a>
                 </article>
