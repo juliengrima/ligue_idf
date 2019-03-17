@@ -30,4 +30,9 @@ AppBundle\Entity\Address:
             type: string
             length: 255
             nullable: true
+
+    oneToMany:
+        calendar3:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: address
     lifecycleCallbacks: {  }

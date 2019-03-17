@@ -196,5 +196,50 @@ class Address
     {
         return $this->lng;
     }
-}
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $calendar3;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->calendar3 = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add calendar3
+     *
+     * @param \AppBundle\Entity\Calendar $calendar3
+     *
+     * @return Address
+     */
+    public function addCalendar3(\AppBundle\Entity\Calendar $calendar3)
+    {
+        $this->calendar3[] = $calendar3;
+
+        return $this;
+    }
+
+    /**
+     * Remove calendar3
+     *
+     * @param \AppBundle\Entity\Calendar $calendar3
+     */
+    public function removeCalendar3(\AppBundle\Entity\Calendar $calendar3)
+    {
+        $this->calendar3->removeElement($calendar3);
+    }
+
+    /**
+     * Get calendar3
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCalendar3()
+    {
+        return $this->calendar3;
+    }
+}
