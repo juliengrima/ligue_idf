@@ -41,3 +41,8 @@ app_categorygroup:
 app_address:
     resource: "@AppBundle/Resources/config/routing/address.yml"
     prefix:   /address
+
+map_index:
+    path:     /map
+    defaults: { _controller: "AppBundle:Default:map" }
+    methods:  GET

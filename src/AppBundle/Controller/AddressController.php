@@ -81,12 +81,13 @@ class AddressController extends Controller
     public function showAction(Address $address)
     {
         $apiKey = "AIzaSyDWi3w0hvwNzy1OYnVcRImnDH2bhBFNV8M";
+        $apiKey2 = "AIzaSyAa232Ch8q6OuI0qAkNV4s36dSJKSCaswc";
         $deleteForm = $this->createDeleteForm($address);
 
         return $this->render('address/show.html.twig', array(
             'address' => $address,
             'delete_form' => $deleteForm->createView(),
-            'apikey' => $apiKey,
+            'apikey' => $apiKey2,
         ));
     }
 
