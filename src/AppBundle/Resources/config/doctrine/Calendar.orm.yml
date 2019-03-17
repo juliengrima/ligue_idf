@@ -1,0 +1,17 @@
+AppBundle\Entity\Calendar:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CalendarRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        start:
+            type: datetime
+        end:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks: {  }
