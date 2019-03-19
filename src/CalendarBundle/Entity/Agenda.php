@@ -4,7 +4,8 @@ namespace CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use AppBundle\Entity\Media;
+use AppBundle\Entity\ClubCategory;
+use AppBundle\Entity\Address;
 
 /**
  * Agenda
@@ -22,6 +23,7 @@ class Agenda
 
 //    GENERATED CODE
 
+
     /**
      * @var integer
      */
@@ -38,34 +40,19 @@ class Agenda
     private $end;
 
     /**
-     * @var string
+     * @var \AppBundle\Entity\ClubCategory
      */
-    private $titre;
+    private $club1;
 
     /**
-     * @var string
+     * @var \AppBundle\Entity\ClubCategory
      */
-    private $texte;
+    private $club2;
 
     /**
-     * @var string
+     * @var \AppBundle\Entity\Address
      */
-    private $lieu;
-
-    /**
-     * @var string
-     */
-    private $color;
-
-    /**
-     * @var \AppBundle\Entity\Media
-     */
-    private $media;
-
-    /**
-     * @var boolean
-     */
-    private $slider;
+    private $address;
 
 
     /**
@@ -127,146 +114,74 @@ class Agenda
     }
 
     /**
-     * Set titre
+     * Set club1
      *
-     * @param string $titre
+     * @param \AppBundle\Entity\ClubCategory $club1
      *
      * @return Agenda
      */
-    public function setTitre($titre)
+    public function setClub1(\AppBundle\Entity\ClubCategory $club1 = null)
     {
-        $this->titre = $titre;
+        $this->club1 = $club1;
 
         return $this;
     }
 
     /**
-     * Get titre
+     * Get club1
      *
-     * @return string
+     * @return \AppBundle\Entity\ClubCategory
      */
-    public function getTitre()
+    public function getClub1()
     {
-        return $this->titre;
+        return $this->club1;
     }
 
     /**
-     * Set texte
+     * Set club2
      *
-     * @param string $texte
+     * @param \AppBundle\Entity\ClubCategory $club2
      *
      * @return Agenda
      */
-    public function setTexte($texte)
+    public function setClub2(\AppBundle\Entity\ClubCategory $club2 = null)
     {
-        $this->texte = $texte;
+        $this->club2 = $club2;
 
         return $this;
     }
 
     /**
-     * Get texte
+     * Get club2
      *
-     * @return string
+     * @return \AppBundle\Entity\ClubCategory
      */
-    public function getTexte()
+    public function getClub2()
     {
-        return $this->texte;
+        return $this->club2;
     }
 
     /**
-     * Set lieu
+     * Set address
      *
-     * @param string $lieu
+     * @param \AppBundle\Entity\Address $address
      *
      * @return Agenda
      */
-    public function setLieu($lieu)
+    public function setAddress(\AppBundle\Entity\Address $address = null)
     {
-        $this->lieu = $lieu;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get lieu
+     * Get address
      *
-     * @return string
+     * @return \AppBundle\Entity\Address
      */
-    public function getLieu()
+    public function getAddress()
     {
-        return $this->lieu;
-    }
-
-    /**
-     * Set color
-     *
-     * @param string $color
-     *
-     * @return Agenda
-     */
-    public function setColor($color)
-    {
-        $this->color = $color;
-
-        return $this;
-    }
-
-    /**
-     * Get color
-     *
-     * @return string
-     */
-    public function getColor()
-    {
-        return $this->color;
-    }
-
-    /**
-     * Set media
-     *
-     * @param \AppBundle\Entity\Media $media
-     *
-     * @return Agenda
-     */
-    public function setMedia(\AppBundle\Entity\Media $media = null)
-    {
-        $this->media = $media;
-
-        return $this;
-    }
-
-    /**
-     * Get media
-     *
-     * @return \AppBundle\Entity\Media
-     */
-    public function getMedia()
-    {
-        return $this->media;
-    }
-
-    /**
-     * Set slider
-     *
-     * @param boolean $slider
-     *
-     * @return Agenda
-     */
-    public function setSlider($slider)
-    {
-        $this->slider = $slider;
-
-        return $this;
-    }
-
-    /**
-     * Get slider
-     *
-     * @return boolean
-     */
-    public function getSlider()
-    {
-        return $this->slider;
+        return $this->address;
     }
 }

@@ -23,6 +23,8 @@ agenda_show:
 agenda_show_all:
     path:     /show
     defaults: { _controller: "CalendarBundle:Calendar:showAll" }
+    options:
+        expose: true
 
 agenda_new:
     path:     /{start}/new

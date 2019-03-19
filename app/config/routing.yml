@@ -59,6 +59,16 @@ app_calendar:
     prefix:   /calendar
 
 ##########################################
+########   Routes Calendrier   ###########
+##########################################
+
+calendar:
+    resource: "@CalendarBundle/Resources/config/routing.yml"
+    prefix:   /
+    options:
+        expose: true
+
+##########################################
 ############   FosJSRoutung   ############
 ##########################################
 

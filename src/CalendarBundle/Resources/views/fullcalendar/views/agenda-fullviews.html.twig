@@ -1,20 +1,24 @@
-{% extends '@Calendar/layout.html.twig' %}
+{% extends 'layout.html.twig' %}
+
+{% block links %}
+    {{ parent() }}
+<link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
+<link href='{{ asset('assets/css/fullcalendar/fullcalendar.css') }}' rel='stylesheet' />
+<link href='{{ asset('assets/css/fullcalendar/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
+{% endblock %}
 
 {% block body %}
 
-    <div class="container">
-        <div class="col s12">
+    <div class="main">
+        <div class="">
             <div id='calendar'></div>
+            {% if is_granted('ROLE_ADMIN') %}
             <div class="row center">
-
-                {% if is_granted('ROLE_ADMIN') %}
-
-                    <a href="{{ path('agenda_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
-                        <i class=" material-icons">add</i>
-                    </a>
-
-                {% endif %}
+                <a href="{{ path('agenda_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
+                    <i class=" material-icons">add</i>
+                </a>
             </div>
+            {% endif %}
         </div>
     </div>
 
@@ -97,8 +101,14 @@
         {% endif %}
     </script>
 
-    <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
-    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
-    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
+    {#<script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>#}
+    {#<script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>#}
+
+
+    <script src="{{ asset('assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/js/fullcalendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('assets/js/fullcalendar/mainFullCalendar.js') }}"></script>
+    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
 {% endblock %}
