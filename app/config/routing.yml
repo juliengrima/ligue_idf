@@ -53,10 +53,14 @@ fullcalendar_index:
     path:     /fullcalendar
     defaults: { _controller: "AppBundle:Default:fullCalendar" }
     methods:  GET
+    options:
+        expose: true
 
 app_calendar:
     resource: "@AppBundle/Resources/config/routing/calendar.yml"
     prefix:   /calendar
+    options:
+        expose: true
 
 ##########################################
 ########   Routes Calendrier   ###########

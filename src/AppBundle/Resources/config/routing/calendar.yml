@@ -2,7 +2,7 @@
 ########   Routes Agenda Json  ###########
 ##########################################
 
-agenda_index:
+calendarJson_index:
     path:     /events_json
     defaults: { _controller: "AppBundle:Calendar:getEventsJsonObject" }
     methods:  GET
