@@ -1,3 +1,16 @@
+##########################################
+########   Routes Agenda Json  ###########
+##########################################
+
+agenda_index:
+    path:     /events_json
+    defaults: { _controller: "AppBundle:Calendar:getEventsJsonObject" }
+    methods:  GET
+
+##########################################
+########  Routes Calendar CRUD  ##########
+##########################################
+
 calendar_index:
     path:     /
     defaults: { _controller: "AppBundle:Calendar:index" }
@@ -10,7 +23,7 @@ calendar_show:
 
 calendar_new:
     path:     /new
-    defaults: { _controller: "AppBundle:Calendar:new" }
+    defaults: { _controller: "AppBundle:Calendar:new", start: 0 }
     methods:  [GET, POST]
 
 calendar_edit:

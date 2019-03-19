@@ -1,0 +1,146 @@
+{% extends '@Calendar/layout.html.twig' %}
+
+{% block body %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center">
+                    <h2 class="soustitrePage">Création d'un évènement</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="container center">
+            <div class="row">
+                <div class="col s12">
+
+                    {{ form_start(form) }}
+
+                    <div class="calendar-responsive-table">
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Titre de l'évènement :<span class="asterix">*</span></p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.titre, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                                {{ form_errors(form.titre) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Date et heure de début :<span class="asterix">*</span></p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.start, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                                {{ form_errors(form.start) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Date et heure de fin :<span class="asterix">*</span></p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.end, { 'attr': {'class': 'calendar-responsive-input center'} }) }}
+                                {{ form_errors(form.end) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Description de l'évènement :<span class="asterix">*</span></p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.texte, { 'id': 'textarea' }, { 'attr': {'col': '70'} }) }}
+                                {{ form_errors(form.texte) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Lieu de l'évènemen :<span class="asterix">*</span></p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.lieu, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                                {{ form_errors(form.lieu) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Couleur de l'évènement :</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.color , { 'id': 'colorpicker' }) }}
+                                {{ form_errors(form.color) }}
+                            </div>
+                        </div>
+                        <div class="row calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Mettre en avant :</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <div class="switch">
+                                    <label>
+                                        Off
+                                        {{ form_widget(form.slider, { 'id': 'hide' }, { 'attr': {'class': 'checksize'} }) }}
+                                        {{ form_errors(form.slider) }}
+                                        <span class="lever"></span>
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row upload_file_event calendar-row valign-wrapper">
+                            <div class="col s12 m6 l6 calendar-td valign-wrapper">
+                                <p class="calendar-p valign">Ajouter une image (Max : 2Mo) :</p>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                {{ form_widget(form.media, { 'attr': {'class': 'calendar-responsive-input'} }) }}
+                                {{ form_errors(form.media) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="center">
+                        <button class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close"
+                                type="submit">
+                            <i class="material-icons">check</i>
+                        </button>
+
+                        <a href="{{ path('agenda_show_all') }}">
+                            <button class=" btn-floating btn-large waves-effect tooltipped icon-background6" type="submit" name="action"
+                                    data-position="bottom"
+                                    data-delay="50"
+                                    data-tooltip="Accueil">
+                                <i class="material-icons">view_list</i>
+                            </button>
+                        </a>
+
+                        <a class="btn-floating btn-large waves-effect waves-light blue darken-1 modal-action modal-close"
+                           href="{{ path('homepage') }}">
+                            <i class="small material-icons">view_list</i>
+                        </a>
+                    </div>
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+
+    {% else %}
+
+        <div class="container">
+            <div class="row center">
+                <div class="col s12">
+                    <img src="{{ asset('images/local/icons/warning-icon1.svg') }}" class="warning">
+                </div>
+                <div class="col s12">
+                    <h2 class="center-align">La page Que vous recherchez n'existe pas</h2>
+                </div>
+            </div>
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

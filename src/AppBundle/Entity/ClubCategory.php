@@ -10,7 +10,7 @@ class ClubCategory
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->clubId;
+        return $this->group . $this->categories . $this->club;
     }
 
     /**

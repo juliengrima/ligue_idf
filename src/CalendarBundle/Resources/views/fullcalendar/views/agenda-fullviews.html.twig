@@ -1,0 +1,104 @@
+{% extends '@Calendar/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="col s12">
+            <div id='calendar'></div>
+            <div class="row center">
+
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    <a href="{{ path('agenda_new') }}" class="btn-floating btn-large waves-effect waves-light green darken-1 modal-action modal-close bouton-new">
+                        <i class=" material-icons">add</i>
+                    </a>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- MODAL STRUCTURE ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <!------------------------------- --------------- ------------------------------------->
+    <div id="fullCalModal" class="modal modal-corps"> <!--- DEBUT DE LA MODAL --><!-- modal-fixed-footer -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="center">
+                    <h5 id="modalTitle" class="modal-title"></h5>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="card horizontal modal-horizontal">
+                    <div class="card-image modal-body-image">
+                        <h6 id="modalTime" class="modal-body-card"></h6>
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content modal-body-text">
+                            <p><span id="modalTexte"></span></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        {% if is_granted("ROLE_ADMIN") %}
+
+        <div class="modal-footer modal-bouton"> <!----- DEBUT MODAL FOOTER ----->
+            <div class="row right">
+
+                <div class="col s6">
+                    <a href="#" id="edit_event" class="btn-floating btn-large waves-effect waves-light orange darken-1 modal-action modal-close modal-bt-edit">
+                        <i class=" material-icons">edit</i>
+                    </a>
+                </div>
+                <div class="col s6">
+                    <a href="#" id="delete_event" class="btn-floating btn-large waves-effect waves-light red darken-1 modal-action modal-close modal-bt-delete">
+                        <i class=" material-icons">delete_sweep</i>
+                    </a>
+                </div>
+
+        {% endif %}
+
+            </div>
+        </div> <!---- FIN DU MODAL FOOTER ---->
+
+    </div>  <!----- FIN DE LA MODAL ----->
+
+    <script>
+        {% if app.user == null %}
+        var roles = null;
+        {% else %}
+        var roles = {{ app.user.roles|json_encode|raw }};
+        {% endif %}
+    </script>
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+    {# FOS JS ROUTING SCRIPT #}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
+
+    <script src="{{ asset('bundles/calendar/js/calendar/moment.min.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/fullcalendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
+    <script src="{{ asset('bundles/calendar/js/calendar/calendar-events.js') }}"></script>
+{% endblock %}

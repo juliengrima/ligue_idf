@@ -14,7 +14,7 @@ class CalendarType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('start')
-            ->add('end')
+//            ->add('end')
             ->add('club1')
             ->add('club2')
             ->add('address');

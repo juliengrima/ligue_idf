@@ -1,9 +1,56 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1>Calendar creation</h1>
+
+    <div id="main">
+
+    <h1>Nouveau match</h1>
 
     {{ form_start(form) }}
+
+        <div>
+            <div>
+                <p>Date et heure de match : </p>
+            </div>
+            <div>
+                {{ form_widget(form.start) }}
+                {{ form_errors(form.start) }}
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Club Domicile : </p>
+            </div>
+            <div>
+                {{ form_widget(form.club1) }}
+                {{ form_errors(form.club1) }}
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Club extérieur : </p>
+            </div>
+            <div>
+                {{ form_widget(form.club2) }}
+                {{ form_errors(form.club2) }}
+            </div>
+        </div>
+        <div>
+            <div>
+                <p>Lieu de rencontre : </p>
+            </div>
+            <div>
+                {{ form_widget(form.address) }}
+                {{ form_errors(form.address) }}
+            </div>
+        </div>
+
+
+
+
+
+
+
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
@@ -13,4 +60,6 @@
             <a href="{{ path('calendar_index') }}">Back to the list</a>
         </li>
     </ul>
+
+    </div>
 {% endblock %}

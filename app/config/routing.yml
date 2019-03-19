@@ -17,6 +17,8 @@ homeadmin:
     path:     /admin
     defaults: { _controller: "AppBundle:Default:homeAdmin" }
     methods:  GET
+#    option:
+#        expose: true
 
 app_clubs:
     resource: "@AppBundle/Resources/config/routing/clubs.yml"
@@ -47,7 +49,7 @@ map_index:
     defaults: { _controller: "AppBundle:Default:map" }
     methods:  GET
 
-calendar_index:
+fullcalendar_index:
     path:     /fullcalendar
     defaults: { _controller: "AppBundle:Default:fullCalendar" }
     methods:  GET
@@ -55,3 +57,18 @@ calendar_index:
 app_calendar:
     resource: "@AppBundle/Resources/config/routing/calendar.yml"
     prefix:   /calendar
+
+##########################################
+############   FosJSRoutung   ############
+##########################################
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    prefix:   /
+
+##########################################
+##############   FosJUser   ##############
+##########################################
+
+#fos_user:
+#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        <link rel="stylesheet" href="{{ asset('bundles/calendar/css/materialize-colorpicker.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/calendar/css/calendar_main.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script src="{{ asset('bundles/calendar/js/materialize-colorpicker.min.js') }}"></script>
+        <script src="{{ asset('bundles/calendar/js/main_calendar.js') }}"></script>
+    {% endblock %}

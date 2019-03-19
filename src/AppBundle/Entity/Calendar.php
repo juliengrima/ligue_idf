@@ -7,6 +7,14 @@ namespace AppBundle\Entity;
  */
 class Calendar
 {
+    //    Set dateTime pour new event calendar
+    public function __construct ()
+    {
+        $newTime = new \DateTime();
+        $this->setStart($newTime);
+        $this->setEnd($newTime);
+    }
+
     /**
      * @var int
      */

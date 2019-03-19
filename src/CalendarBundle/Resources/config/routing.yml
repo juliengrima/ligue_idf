@@ -1,7 +1,11 @@
-app_clubs:
-    resource: "@AppBundle/Resources/config/routing/clubs.yml"
-    prefix:   /clubs
-    option:
+##########################################
+############   Routes Agenda   ###########
+##########################################
+
+plate_forme_agenda:
+    resource: "@CalendarBundle/Resources/config/routing/agenda.yml"
+    prefix:   /agenda
+    options:
         expose: true
 
 ##########################################
@@ -12,4 +16,3 @@ app_clubs:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
     prefix:   /
-

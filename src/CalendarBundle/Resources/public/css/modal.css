@@ -1,0 +1,122 @@
+
+/*********************************************************/
+/*********************************************************/
+/******************* MODAL CLICK EVENT *******************/
+/*********************************************************/
+/*********************************************************/
+
+/************************************************
+*
+*   1. Calendar position
+$
+************************************************/
+
+.calendar-position{
+    margin-top: 100px;
+}
+
+/************************************************
+*
+*   2. BOUTONS
+$
+************************************************/
+
+.bouton-new {
+    top: 10px;
+}
+/************************************************
+*
+*   3. Boite modal
+$
+************************************************/
+
+.modal-corps{
+    background-color: #515e69;
+    color: #dff1ff;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+}
+
+.modal-header{
+
+}
+
+.modal-body{
+
+}
+
+.modal-body-text{
+    color: black;
+}
+
+.modal-horizontal{
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+}
+
+.modal-body-image{
+    background-color: rgba(118, 135, 146, 0.9);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    height: 150px;
+    width: 200px;
+}
+
+.modal-body-card{
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.modal-footer{
+    background-color: #9F9F9F;
+}
+
+.modal-bouton {
+    width: 145px !important;
+    margin: auto !important;
+    position: relative;
+    left: 37%;
+    border-radius: 50px !important;
+}
+
+.modal-bt-edit{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+}
+
+.modal-bt-delete{
+    top: -10px;
+
+    -moz-box-shadow: 8px 8px 12px #aaa;
+    -webkit-box-shadow: 8px 8px 12px #aaa;
+    box-shadow: 8px 8px 12px #555;
+
+}
+
+/*********************************************************/
+/*********************************************************/
+/********************* ICONES FB ET TW *******************/
+/*********************************************************/
+/*********************************************************/
+
+.icone{
+    width: 48px;
+    height: auto;
+    color: #0f74a8 !important;
+    background-color: rgba(0,0,0,0);
+    padding-top: 10px;
+}
