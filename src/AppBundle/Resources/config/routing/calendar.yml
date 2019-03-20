@@ -12,7 +12,7 @@ calendarJson_index:
 ##########################################
 
 calendar_index:
-    path:     /
+    path:     /admin/calendar
     defaults: { _controller: "AppBundle:Calendar:index" }
     methods:  GET
 
@@ -22,16 +22,16 @@ calendar_show:
     methods:  GET
 
 calendar_new:
-    path:     /new
+    path:     /admin/calendar/new
     defaults: { _controller: "AppBundle:Calendar:new", start: 0 }
     methods:  [GET, POST]
 
 calendar_edit:
-    path:     /{id}/edit
+    path:     /admin/calendar/{id}/edit
     defaults: { _controller: "AppBundle:Calendar:edit" }
     methods:  [GET, POST]
 
 calendar_delete:
-    path:     /{id}/delete
+    path:     /admin/calendar/{id}/delete
     defaults: { _controller: "AppBundle:Calendar:delete" }
     methods:  DELETE

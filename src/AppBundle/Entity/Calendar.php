@@ -15,6 +15,12 @@ class Calendar
         $this->setEnd($newTime);
     }
 
+//    public function __toString()
+//    {
+//        // TODO: Implement __toString() method.
+//        return $this->start;
+//    }
+
     /**
      * @var int
      */

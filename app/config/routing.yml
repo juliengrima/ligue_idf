@@ -22,35 +22,35 @@ homeadmin:
 
 app_clubs:
     resource: "@AppBundle/Resources/config/routing/clubs.yml"
-    prefix:   /clubs
+    prefix:   /admin/clubs
 
 app_categories:
     resource: "@AppBundle/Resources/config/routing/categories.yml"
-    prefix:   /categories
+    prefix:   /admin/categories
 
 app_groups:
     resource: "@AppBundle/Resources/config/routing/groups.yml"
-    prefix:   /groups
+    prefix:   /admin/groups
 
 app_clubcategory:
     resource: "@AppBundle/Resources/config/routing/clubcategory.yml"
-    prefix:   /clubcategory
+    prefix:   /admin/clubcategory
 
 app_categorygroup:
     resource: "@AppBundle/Resources/config/routing/categorygroup.yml"
-    prefix:   /categorygroup
+    prefix:   /admin/categorygroup
 
 app_address:
     resource: "@AppBundle/Resources/config/routing/address.yml"
-    prefix:   /address
+    prefix:   /admin/address
 
 map_index:
-    path:     /map
+    path:     /admin/map
     defaults: { _controller: "AppBundle:Default:map" }
     methods:  GET
 
 fullcalendar_index:
-    path:     /fullcalendar
+    path:     /admin/fullcalendar
     defaults: { _controller: "AppBundle:Default:fullCalendar" }
     methods:  GET
     options:
@@ -58,16 +58,6 @@ fullcalendar_index:
 
 app_calendar:
     resource: "@AppBundle/Resources/config/routing/calendar.yml"
-    prefix:   /calendar
-    options:
-        expose: true
-
-##########################################
-########   Routes Calendrier   ###########
-##########################################
-
-calendar:
-    resource: "@CalendarBundle/Resources/config/routing.yml"
     prefix:   /
     options:
         expose: true
@@ -84,5 +74,5 @@ fos_js_routing:
 ##############   FosJUser   ##############
 ##########################################
 
-#fos_user:
-#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
