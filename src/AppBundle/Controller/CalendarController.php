@@ -41,13 +41,7 @@ class CalendarController extends Controller
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
-//        $fullCalendar = $this->container->get('calendar.interface')->getjsonMatchs();
         $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll(); // appel de la table
-//        $address = $em->getRepository('AppBundle:Address')->findBy(array('id' => $fullCalendar));
-//        $clubCategory = $em->getRepository('AppBundle:ClubCategory')->findBy(array('id' => $fullCalendar));
-//        $club = $em->getRepository('AppBundle:Clubs')->findBy(array('id' => $clubCategory));
-//        $category = $em->getRepository('AppBundle:Categories')->findBy(array('id' => $clubCategory));
-//        $group = $em->getRepository('AppBundle:Groups')->findBy(array('id' => $clubCategory));
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
@@ -56,8 +50,7 @@ class CalendarController extends Controller
         /* Encode Dates */
         $dateCallback = function ($dateTime) {
             return $dateTime instanceof \DateTime
-//                ? $dateTime->format(\DateTime::ISO8601)
-                ? $dateTime->format('d-m-Y H:i:s')
+                ? $dateTime->format(\DateTime::ISO8601)
                 : '';
         };
 
@@ -65,9 +58,8 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
         /* Delet ciclik mapping */
         $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
-            return $fullCalendar->getClub1('clubs');
+            return $fullCalendar->getId('club1');
         });
-//        $normalizer->setIgnoredAttributes(array ('club1', 'club2'));
 
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($fullCalendar, 'json');
