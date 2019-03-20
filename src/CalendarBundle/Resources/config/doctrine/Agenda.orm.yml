@@ -8,31 +8,30 @@ CalendarBundle\Entity\Agenda:
             id: true
             generator:
                 strategy: AUTO
-
     fields:
         start:
             type: datetime
         end:
             type: datetime
-        titre:
-            type: string
-            length: 255
-        texte:
-            type: text
-        lieu:
-            type: string
-            length: 255
-        color:
-            type: string
-            length: 255
-            nullable: true
-        slider:
-            type: boolean
             nullable: true
 
-    manyToOne:
-        media:
-          targetEntity: AppBundle\Entity\Media
-          cascade: ['all']
-
+#    manyToOne:
+#        club1:
+#            targetEntity: AppBundle\Entity\ClubCategory
+#            inversedBy: calendar1
+#            joinColumn:
+#                name: club1_id
+#                referencedColumnName: id
+#        club2:
+#            targetEntity: AppBundle\Entity\ClubCategory
+#            inversedBy: calendar2
+#            joinColumn:
+#                name: club2_id
+#                referencedColumnName: id
+#        address:
+#            targetEntity: AppBundle\Entity\Address
+#            inversedBy: calendar3
+#            joinColumn:
+#                name: address_id
+#                referencedColumnName: id
     lifecycleCallbacks: {  }

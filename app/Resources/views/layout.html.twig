@@ -11,9 +11,18 @@
                 crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
 
             <div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <h3>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</h3>
+                {% endif %}
+            </div>
+
+            <div>
                 <ul>
                     <li><a href="{{ path('homepage') }}">accueil</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="{{ path('homeadmin') }}">administrateur</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}" class="button">Déconnexion</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -34,7 +43,7 @@
             </ul>
             <ul class="copyright">
                 <li>
-                    <a href="{{ path('homeadmin') }}">&copy;</a> Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>
+                    <a href="{{ path('fos_user_security_login') }}">&copy;</a> Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>
                 </li>
             </ul>
         </div>

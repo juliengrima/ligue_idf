@@ -1,8 +1,8 @@
-app_clubs:
-    resource: "@AppBundle/Resources/config/routing/clubs.yml"
-    prefix:   /clubs
-    option:
-        expose: true
+#app_clubs:
+#    resource: "@AppBundle/Resources/config/routing/clubs.yml"
+#    prefix:   /clubs
+#    option:
+#        expose: true
 
 ##########################################
 ########   Routes Agenda Json  ###########

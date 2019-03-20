@@ -29,6 +29,11 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    # Upload Service images
+    calendar.interface:
+        class: AppBundle\Services\JsonServices
+        arguments: ['@service_container']
+
     # add more services, or override services that need manual wiring
     # AppBundle\Service\ExampleService:
     #     arguments:

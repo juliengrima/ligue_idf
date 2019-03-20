@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Calendar controller.
@@ -40,11 +42,6 @@ class CalendarController extends Controller
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
         $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll(); // appel de la table
-        $clubCategory = $em->getRepository('AppBundle:ClubCategory')->findBy(array('id' => $fullCalendar));
-        $address = $em->getRepository('AppBundle:Address')->findBy(array('id' => $fullCalendar));
-        $club = $em->getRepository('AppBundle:Clubs')->findBy(array('id' => $clubCategory));
-        $category = $em->getRepository('AppBundle:Categories')->findBy(array('id' => $clubCategory));
-        $group = $em->getRepository('AppBundle:Groups')->findBy(array('id' => $clubCategory));
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
@@ -61,7 +58,7 @@ class CalendarController extends Controller
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
         /* Delet ciclik mapping */
         $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
-            return $fullCalendar->getClub1('clubcategory').$fullCalendar->getClub2('clubcategory').$fullCalendar->getAddress('address');
+            return $fullCalendar->getId('club1');
         });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
