@@ -9,12 +9,12 @@ AppBundle\Entity\ClubCategory:
             generator:
                 strategy: AUTO
     fields:
-        clubId:
-            type: integer
-            column: club_id
-        categoryId:
-            type: integer
-            column: category_id
+#        clubId:
+#            type: integer
+#            column: club_id
+#        categoryId:
+#            type: integer
+#            column: category_id
 
     manyToOne:
         club:
