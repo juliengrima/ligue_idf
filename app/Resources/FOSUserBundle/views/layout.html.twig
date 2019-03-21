@@ -5,13 +5,11 @@
     <div id="main">
 
         <section id="one">
-            <div class="">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <h3>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</h3>
                 {% else %}
                     <p>non connecté</p>
                 {% endif %}
-            </div>
         </section>
 
         <section id="two">
@@ -24,7 +22,7 @@
         </section>
         <section id="three">
 
-            <div>
+            <div class="">
                 <ul>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <li>

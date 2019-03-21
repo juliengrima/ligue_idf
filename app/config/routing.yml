@@ -56,6 +56,13 @@ fullcalendar_index:
     options:
         expose: true
 
+index_calendar:
+    path:     /calendar_of_matchs
+    defaults: { _controller: "AppBundle:Default:indexCalendar" }
+    methods:  GET
+    options:
+        expose: true
+
 app_calendar:
     resource: "@AppBundle/Resources/config/routing/calendar.yml"
     prefix:   /

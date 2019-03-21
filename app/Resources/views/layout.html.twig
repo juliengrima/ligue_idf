@@ -19,6 +19,7 @@
             <div>
                 <ul>
                     <li><a href="{{ path('homepage') }}">accueil</a></li>
+                    <li><a href="{{ path('index_calendar') }}">Calendrier des matchs</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="{{ path('homeadmin') }}">administrateur</a></li>
                     <li><a href="{{ path('fos_user_security_logout') }}" class="button">Déconnexion</a></li>

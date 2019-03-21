@@ -2,9 +2,6 @@
 
 {% block links %}
     {{ parent() }}
-    <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
-    <link href='{{ asset('assets/css/fullcalendar/fullcalendar.css') }}' rel='stylesheet' />
-    <link href='{{ asset('assets/css/fullcalendar/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
 {% endblock %}
 {% block stylesheets %}
     {{ parent() }}
@@ -25,7 +22,6 @@
         </section>
 
         <section id="two">
-            <div id='calendar' class="calendar"></div>
         </section>
 
     </div>
@@ -35,25 +31,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-
-    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
-    <script>
-        {% if is_granted('ROLE_ADMIN') %}
-        var role = 'admin';
-        {% else %}
-        var role = null;
-        {% endif %}
-    </script>
-    <script src='{{ asset('assets/js/moment.min.js') }}'></script>
-    {#<script src='{{ asset('assets/js/jquery.min.js') }}'></script>#}
-    <script src='{{ asset('assets/js/fullcalendar/fullcalendar.js') }}'></script>
-    <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
-    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
-
-
 {% endblock %}
 
 

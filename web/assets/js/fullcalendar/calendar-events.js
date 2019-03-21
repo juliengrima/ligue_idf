@@ -8,7 +8,9 @@
 jQuery(document).ready(function($) {
 
     // APPEL DE FULL CALENDAR
-     calendar();
+    //  calendar();
+     // modal();
+
 
 });
 
@@ -71,9 +73,9 @@ $(document).ready(function() {
                             '<p>' +
                             event.club1.categories.categoryName +
                             '</p>' +
-                            '<span >' +
+                            '<p>' +
                             event.club1.club.clubName + ' : ' + event.club2.club.clubName +
-                            '</span >'
+                            '</p>'
                         );
                     })
                 },
@@ -89,11 +91,12 @@ $(document).ready(function() {
                     // // MMMMM = mois en character
                     // // YYYY = année en chiffre
 
-                    var ponctuation1 = "de";
+                    // var ponctuation1 = "de";
                     var ponctuation2 = "à";
                     var startTime = moment(calEvent.start._i).format('HH:mm');
-                    var endTime = moment(calEvent.end._i).format("HH:mm");
-                    var Time = 'Le ' + day + '<br>' + ponctuation1 + ' ' + start() + '<br>' + ponctuation2 ;
+                    // var endTime = moment(calEvent.end._i).format("HH:mm");
+                    var category = event.club1.categories.categoryName;
+                    var clubs = calEvent.club1.club.clubName + ' : ' + calEvent.club2.club.clubName;
                     var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
 
                     var editEvent = Routing.generate('calendar_index') + calEvent.id + '/edit';
@@ -102,12 +105,14 @@ $(document).ready(function() {
 
                     console.log('recup des données');
 
-                    $('#modalTime').html(Time);
-                    // $('#modalTitle').html(calEvent.titre);
-                    $('#modalTexte').html(calEvent.texte);
+                    // $('#modalTime').html(startTime);
                     // $('#modalImage').html(picture);
+                    $('#modalTitle').html(category);
+                    $('#modalTexte').html(clubs);
 
-                    $('#fullCalModal').modal('open');
+                    $('#calendarModal').modal({
+                        fadeDuration: 100
+                    });
 
                     $('#edit_event').show();
                     $('#edit_event').attr('href', editEvent);
@@ -128,3 +133,13 @@ $(document).ready(function() {
 
 });
 
+// ********************************************************************
+// *                        Full MODAL
+// ********************************************************************
+
+function modal() {
+    $('#fullCalModal').modal({
+        fadeDuration: 1000,
+        fadeDelay: 0.50
+    });
+}
