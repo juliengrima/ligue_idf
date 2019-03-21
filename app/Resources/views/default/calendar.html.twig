@@ -69,14 +69,14 @@
 <div id='top'>
 
     <div class="left">
-        <a href="{{ path('homeadmin') }}" class="button small">retour à l'accueil</a>
-        <span>|</span>
+        <a href="{{ path('homepage') }}" class="button small">retour à l'accueil</a>
         {%  if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('homeadmin') }}" class="button small">retour à l'administration</a>
-        <span>|</span>
-        <a href="{{ path('calendar_new') }}" class="button primary small">Nouveau match</a>
-        <span>|</span>
-        <a href="#calendarModal" rel="modal:open">Open Modal</a>
+            <span>|</span>
+            <a href="{{ path('homeadmin') }}" class="button small">retour à l'administration</a>
+            <span>|</span>
+            <a href="{{ path('calendar_new') }}" class="button primary small">Nouveau match</a>
+            <span>|</span>
+            <a href="#calendarModal" rel="modal:open">Open Modal</a>
         {% endif %}
     </div>
 
