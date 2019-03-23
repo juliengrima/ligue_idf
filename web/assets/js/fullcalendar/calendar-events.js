@@ -31,6 +31,7 @@ $(document).ready(function() {
                     center: 'title',
                     right: 'month,agendaWeek,agendaDay'
                 },
+                // locale: initialLocaleCode,
                 lang: 'fr',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
                 selectable: true, // Permet de cliquer sur la case pour envoyer au new
@@ -71,10 +72,10 @@ $(document).ready(function() {
                     element.each(function () {
                         element.append(
                             '<p>' +
-                            event.club1.categories.categoryName +
+                            event.category.categoryName +
                             '</p>' +
                             '<p>' +
-                            event.club1.club.clubName + ' : ' + event.club2.club.clubName +
+                            event.club1.clubName + ' : ' + event.club2.clubName +
                             '</p>'
                         );
                     })
@@ -83,7 +84,6 @@ $(document).ready(function() {
                 /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
                 eventClick: function (calEvent) {
 
-                    // window.location = Routing.generate('calendar_index') + event.id + '/show';
                     var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
                     // // .format();
                     // // dddd = jour en character
@@ -95,9 +95,10 @@ $(document).ready(function() {
                     var ponctuation2 = "à";
                     var startTime = moment(calEvent.start._i).format('HH:mm');
                     // var endTime = moment(calEvent.end._i).format("HH:mm");
-                    var category = calEvent.club1.categories.categoryName;
-                    var clubs = calEvent.club1.club.clubName + ' : ' + calEvent.club2.club.clubName;
-                    var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
+                    var category = calEvent.category.categoryName;
+                    var clubs = calEvent.club1.clubName + ' : ' + calEvent.club2.clubName;
+                    var score = calEvent.score;
+                    // var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
 
                     var editEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/edit';
                     var deleteEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/delete';
@@ -110,6 +111,7 @@ $(document).ready(function() {
                     // $('#modalImage').html(picture);
                     $('#modalTitle').html(category);
                     $('#modalTexte').html(clubs);
+                    $('#modalScore').html(score);
 
                     $('#calendarModal').modal({
                         fadeDuration: 100

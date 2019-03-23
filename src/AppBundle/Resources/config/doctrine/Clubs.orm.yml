@@ -16,7 +16,10 @@ AppBundle\Entity\Clubs:
             unique: true
 
     oneToMany:
-        category:
-            targetEntity: AppBundle\Entity\ClubCategory
-            mappedBy: club
+        calendar1:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: club1
+        calendar2:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: club2
     lifecycleCallbacks: {  }
