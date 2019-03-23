@@ -83,7 +83,7 @@ $(document).ready(function() {
                 /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
                 eventClick: function (calEvent) {
 
-                    window.location = Routing.generate('calendar_index') + event.id + '/show';
+                    // window.location = Routing.generate('calendar_index') + event.id + '/show';
                     var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
                     // // .format();
                     // // dddd = jour en character
@@ -95,12 +95,13 @@ $(document).ready(function() {
                     var ponctuation2 = "à";
                     var startTime = moment(calEvent.start._i).format('HH:mm');
                     // var endTime = moment(calEvent.end._i).format("HH:mm");
-                    var category = event.club1.categories.categoryName;
+                    var category = calEvent.club1.categories.categoryName;
                     var clubs = calEvent.club1.club.clubName + ' : ' + calEvent.club2.club.clubName;
                     var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
 
-                    var editEvent = Routing.generate('calendar_index') + calEvent.id + '/edit';
-                    var deleteEvent = Routing.generate('calendar_index') + calEvent.id + '/delete';
+                    var editEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/edit';
+                    var deleteEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/delete';
+                    var showEvent = Routing.generate('calendar_usershow') + '/' + calEvent.id + '/show';
 
 
                     console.log('recup des données');
@@ -113,6 +114,9 @@ $(document).ready(function() {
                     $('#calendarModal').modal({
                         fadeDuration: 100
                     });
+
+                    $('#show_event').show();
+                    $('#show_event').attr('href', showEvent);
 
                     $('#edit_event').show();
                     $('#edit_event').attr('href', editEvent);

@@ -37,6 +37,9 @@ class AddressController extends Controller
         $form = $this->createForm('AppBundle\Form\AddressType', $address);
         $form->handleRequest($request);
 
+        $apiKeyGOGR = "AIzaSyDWi3w0hvwNzy1OYnVcRImnDH2bhBFNV8M";
+        $apiKeyJDD = "AIzaSyAa232Ch8q6OuI0qAkNV4s36dSJKSCaswc";
+
         if ($form->isSubmitted() && $form->isValid()) {
 
 //            Keep address / postal /city
@@ -65,6 +68,7 @@ class AddressController extends Controller
 
             return $this->redirectToRoute('address_show', array(
                 'id' => $address->getId(),
+                'apiKey' => $apiKeyJDD
             ));
         }
 
@@ -171,10 +175,13 @@ class AddressController extends Controller
 
     public function getLatLng($street, $postal, $city){
 
+        $apiKeyGOGR = "AIzaSyDWi3w0hvwNzy1OYnVcRImnDH2bhBFNV8M";
+        $apiKeyJDD = "AIzaSyAa232Ch8q6OuI0qAkNV4s36dSJKSCaswc";
+
         $street = str_replace(" ", "%20", $street);
 
 //        $url = "https://maps.googleapis.com/maps/api/geocode/json?address=". $street . "%20" . $postal . "%20" . $city . "&key=AIzaSyD0M1-1_fcOUWWPgI3L_RXGOJSjZu88oVg";
-        $geocode = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $street . "%20" . $postal . "%20" . $city . "&key=AIzaSyD0M1-1_fcOUWWPgI3L_RXGOJSjZu88oVg";
+        $geocode = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $street . "%20" . $postal . "%20" . $city . "&key=".$apiKeyJDD;
 
         $result_string = file_get_contents($geocode);
 

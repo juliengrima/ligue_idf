@@ -106,11 +106,13 @@ class CalendarController extends Controller
      */
     public function showAction(Calendar $calendar)
     {
-        $deleteForm = $this->createDeleteForm($calendar);
+        $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
+        $apiKeyGOGR = "AIzaSyDWi3w0hvwNzy1OYnVcRImnDH2bhBFNV8M";
+        $apiKeyJDD = "AIzaSyAa232Ch8q6OuI0qAkNV4s36dSJKSCaswc";
 
         return $this->render('calendar/show.html.twig', array(
             'calendar' => $calendar,
-            'delete_form' => $deleteForm->createView(),
+            'apikey' => $apiKeyJDD
         ));
     }
 

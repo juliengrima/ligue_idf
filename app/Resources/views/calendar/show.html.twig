@@ -1,36 +1,171 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+        #map{
+            height: 50%;
+        }
+        .maps{
+            position: absolute !important;
+            width: 50%;
+            height: 50%;
+            margin-left: 10%;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>Calendar</h1>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ calendar.id }}</td>
-            </tr>
-            <tr>
-                <th>Start</th>
-                <td>{% if calendar.start %}{{ calendar.start|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>End</th>
-                <td>{% if calendar.end %}{{ calendar.end|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="main">
+        <section id="one">
+            <h1>Match - {{ calendar.club1.categories }}</h1>
+        </section>
+        <section id="two">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Date et heure de lancement : </th>
+                    <td>{% if calendar.start %}{{ calendar.start|date('d-m-Y H:i:s') }}{% endif %}</td>
+                </tr>
+                <tr>
+                    <th>club à domicile</th>
+                    <td>{{ calendar.club1.club }}</td>
+                </tr>
+                <tr>
+                    <th>Club de l'extérieur</th>
+                    <td>{{ calendar.club1.club }}</td>
+                </tr>
+                <tr>
+                    <th>Lieu de l'évènement</th>
+                    <td>{{ calendar.address.address }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('calendar_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('calendar_edit', { 'id': calendar.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </section>
+
+        <div id="map" class="maps"></div>
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script>
+        initMap();
+
+        var map;
+
+        function initMap() {
+
+            var lat = {{ calendar.address.lat }};
+            var lng = {{ calendar.address.lng }};
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: lat,
+                    lng: lng,
+                },
+                zoom: 18,
+            })
+
+            codeAddress()
+        }
+
+        // function initialize() {
+
+        function codeAddress() {
+
+            var lat = {{ calendar.address.lat }};
+            var lng = {{ calendar.address.lng }};
+
+            var imageMarqueur = {
+                url: "{{ asset('assets/images/MapMarker_PushPin1__Azure.png') }}",
+                size: new google.maps.Size(25, 40),
+                anchor: new google.maps.Point(0, 20)
+            };
+
+            var marker = new google.maps.Marker({
+                map: map,
+                icon: imageMarqueur,
+                position: {lat: lat, lng: lng }
+            });
+
+            var description =
+                '<div id="iw-container">' +
+                '<div class="iw-title">{{ calendar.address.nom }}</div>' +
+                '<div class="iw-content">' +
+                '<p>{{ calendar.address.address }}<br>{{ calendar.address.postal }} {{ calendar.address.city }}<br>'+
+                '</div>' +
+                '<div class="iw-bottom-gradient"></div>' +
+                '</div>';
+
+            var infoWindow = new google.maps.InfoWindow();
+            //Attach click event to the marker.
+            (function (marker, description) {
+                google.maps.event.addListener(marker, "click", function (e) {
+                    //Wrap the content inside an HTML DIV in order to set height and width of InfoWindow.
+                    infoWindow.setContent(description);
+                    infoWindow.open(map, marker);
+                });
+
+                google.maps.event.addListener(map, 'click', function() {
+                    infoWindow.close();
+                });
+            })(marker, description);
+
+            google.maps.event.addListener(infoWindow, 'domready', function() {
+
+                // Reference to the DIV that wraps the bottom of infowindow
+                var iwOuter = $('.gm-style-iw');
+
+                /* Since this div is in a position prior to .gm-div style-iw.
+                 * We use jQuery and create a iwBackground variable,
+                 * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
+                 */
+                var iwBackground = iwOuter.prev();
+
+                // Removes background shadow DIV
+                iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+
+                // Removes white background DIV
+                iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+
+                // Moves the infowindow 115px to the right.
+                iwOuter.parent().parent().css({left: '74px'});
+
+                // Moves the shadow of the arrow 76px to the left margin.
+                iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+                // Moves the arrow 76px to the left margin.
+                iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+                // Changes the desired tail shadow color.
+                iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index' : '1'});
+
+                // Reference to the div that groups the close button elements.
+                var iwCloseBtn = iwOuter.next();
+
+                // Apply the desired effect to the close button
+                iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #48b5e9', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+
+                // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
+                if($('.iw-content').height() < 140){
+                    $('.iw-bottom-gradient').css({display: 'none'});
+                }
+
+                // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+                iwCloseBtn.mouseout(function(){
+                    $(this).css({opacity: '1'});
+                });
+            });
+
+        }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ apikey }}&callback=initMap" async defer></script>
+
 {% endblock %}

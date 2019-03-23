@@ -201,14 +201,13 @@
             <p><span id="modalTexte"></span></p>
         </div>
 
+        <div>
+            <a href="#" id="show_event" class="button small">Voir</a>
         {% if is_granted("ROLE_ADMIN") %}
-
-        <div class="">
             <a href="#" id="edit_event" class="button small">Modifier</a>
             <a href="#" id="delete_event" class="button delete small">Supprimer</a>
-        </div>
-
         {% endif %}
+        </div>
 
     </div>  <!----- FIN DE LA MODAL ----->
 

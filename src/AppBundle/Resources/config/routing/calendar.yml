@@ -16,8 +16,13 @@ calendar_index:
     defaults: { _controller: "AppBundle:Calendar:index" }
     methods:  GET
 
+calendar_usershow:
+    path:     /calendar
+    defaults: { _controller: "AppBundle:Calendar:index" }
+    methods:  GET
+
 calendar_show:
-    path:     /{id}/show
+    path:     /calendar/{id}/show
     defaults: { _controller: "AppBundle:Calendar:show" }
     methods:  GET
 
