@@ -7,6 +7,12 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+index_calendar:
+    path:     /calendar_of_matchs
+    defaults: { _controller: "AppBundle:Default:indexCalendar" }
+    methods:  GET
+    options:
+        expose: true
 ###########################################################
 ###########################################################
 ######################### ADMIN ###########################
@@ -20,6 +26,7 @@ homeadmin:
 #    option:
 #        expose: true
 
+#############################  #################################
 app_clubs:
     resource: "@AppBundle/Resources/config/routing/clubs.yml"
     prefix:   /admin/clubs
@@ -44,6 +51,8 @@ app_address:
     resource: "@AppBundle/Resources/config/routing/address.yml"
     prefix:   /admin/address
 
+############################# CLUBS #################################
+
 map_index:
     path:     /admin/map
     defaults: { _controller: "AppBundle:Default:map" }
@@ -52,13 +61,6 @@ map_index:
 fullcalendar_index:
     path:     /admin/fullcalendar
     defaults: { _controller: "AppBundle:Default:fullCalendar" }
-    methods:  GET
-    options:
-        expose: true
-
-index_calendar:
-    path:     /calendar_of_matchs
-    defaults: { _controller: "AppBundle:Default:indexCalendar" }
     methods:  GET
     options:
         expose: true
