@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class CalendarType extends AbstractType
+class CalendarEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,11 +15,11 @@ class CalendarType extends AbstractType
     {
         $builder->add('start')
             ->add('category')
-            ->add('color')
             ->add('level')
             ->add('club1')
             ->add('club2')
-            ->add('address');
+            ->add('address')
+            ->add('scores');
     }/**
      * {@inheritdoc}
      */

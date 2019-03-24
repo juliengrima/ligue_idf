@@ -3,24 +3,7 @@
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.css') }}' rel='stylesheet' />
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-
-    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
-    <script>
-        {% if is_granted('ROLE_ADMIN') %}
-        var role = 'admin';
-        {% else %}
-        var role = null;
-        {% endif %}
-    </script>
-    <script src='{{ asset('assets/js/moment.min.js') }}'></script>
-    <script src='{{ asset('assets/js/jquery.min.js') }}'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <script src='{{ asset('assets/js/fullcalendar/fullcalendar.js') }}'></script>
-    <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
-    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <style>
 
@@ -63,6 +46,10 @@
             padding: 0 10px;
         }
 
+        .marge{
+            height: 30px;
+        }
+
     </style>
 
 
@@ -76,11 +63,14 @@
             <span>|</span>
             <a href="{{ path('calendar_new') }}" class="button primary small">Nouveau match</a>
             <span>|</span>
-            <a href="#calendarModal" rel="modal:open">Open Modal</a>
+            {#<a href="#calendarModal" rel="modal:open">Open Modal</a>#}
         {% endif %}
     </div>
 
     <div class='right'>
+
+        Locales:
+        <select id='locale-selector'></select>
 
         <div id='theme-system-selector' class='selector'>
             Theme System:
@@ -195,21 +185,42 @@
     <div id="calendarModal" class="modal modal-corps"> <!--- DEBUT DE LA MODAL --><!-- modal-fixed-footer -->
 
         <div class="">
-            <h5 id="modalTitle"></h5>
-
-            <h6 id="modalTime"></h6>
-            <p><span id="modalTexte"></span></p>
+            <h2 id="modalTitle"></h2>
+            <h3 id="modalDay"></h3>
+            <p><span id="modalClub1"></span><span class="modalText"> VS </span><span id="modalClub2"></span></p>
+            <p><span id="modalScore"></span></p>
         </div>
-
         <div>
-            <a href="#" id="show_event" class="button small">Voir</a>
+            <a href="#" id="show_event" class="button align-center">Voir</a>
         {% if is_granted("ROLE_ADMIN") %}
-            <a href="#" id="edit_event" class="button small">Modifier</a>
-            <a href="#" id="delete_event" class="button delete small">Supprimer</a>
+            <a href="#" id="edit_event" class="button buttonDisconnect align-center">Modifier</a>
+            <a href="#" id="delete_event" class="button delete align-center">Supprimer</a>
         {% endif %}
         </div>
 
-    </div>  <!----- FIN DE LA MODAL ----->
+    </div>
+
+    <!----- FIN DE LA MODAL ----->
+
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
+    <script src='{{ asset('assets/js/moment.min.js') }}'></script>
+    <script src='{{ asset('assets/js/jquery.min.js') }}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src='{{ asset('assets/js/fullcalendar/fullcalendar.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/locale-all.js') }}'></script>
+    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
 
 {% endblock %}
 

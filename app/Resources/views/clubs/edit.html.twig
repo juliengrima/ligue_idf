@@ -4,21 +4,62 @@
 
     <div id="main">
 
-        <h1>Club edit</h1>
+        <section id="one">
+            <h1>Modification du club - {{ club.clubName }}</h1>
+        </section>
 
-        {{ form_start(edit_form) }}
-            {{ form_widget(edit_form) }}
-            <input type="submit" value="Edit" />
-        {{ form_end(edit_form) }}
+        <section id="two">
+
+            {{ form_start(edit_form) }}
+            <div class="col-10">
+                <label for=" {{ edit_form.clubName.vars.full_name }}" class="amber-text">Nom du club :</label>
+
+                <input id="{{ edit_form.clubName.vars.id }}"
+                       name=" {{ edit_form.clubName.vars.full_name }}"
+                       type="text" class=""
+                       value="{{ club.clubName }}" required="" >
+                {{ form_errors(edit_form.clubName) }}
+                {% do edit_form.clubName.setRendered %}
+            </div>
+            <input type="submit" value="Enregistrer" />
+            {{ form_end(edit_form) }}
+
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer" class="buttonDisconnect deconnexion">
+            {{ form_end(delete_form) }}
+
+            <a href="{{ path('clubs_index') }}" class="button">Retour à la liste des clubs</a>
+
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {#<h1>Club edit</h1>#}
+
+        {#{{ form_start(edit_form) }}#}
+            {#{{ form_widget(edit_form) }}#}
+            {#<input type="submit" value="Edit" />#}
+        {#{{ form_end(edit_form) }}#}
 
         <ul>
+            {#<li>#}
+                {#<a href="{{ path('clubs_index') }}">Back to the list</a>#}
+            {#</li>#}
             <li>
-                <a href="{{ path('clubs_index') }}">Back to the list</a>
-            </li>
-            <li>
-                {{ form_start(delete_form) }}
-                    <input type="submit" value="Delete">
-                {{ form_end(delete_form) }}
+
             </li>
         </ul>
 

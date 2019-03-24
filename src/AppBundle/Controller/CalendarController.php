@@ -28,7 +28,7 @@ class CalendarController extends Controller
 
         $calendars = $em->getRepository('AppBundle:Calendar')->findAll();
 
-        return $this->render('calendar/index.html.twig', array(
+        return $this->render('default/calendar.html.twig', array(
             'calendars' => $calendars,
         ));
     }

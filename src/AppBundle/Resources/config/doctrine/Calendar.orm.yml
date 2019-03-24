@@ -20,9 +20,11 @@ AppBundle\Entity\Calendar:
         color:
             type: string
             length: 15
+            nullable: true
         scores:
             type: string
             length: 5
+            nullable: true
 
     manyToOne:
         club1:

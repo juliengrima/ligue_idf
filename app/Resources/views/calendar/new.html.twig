@@ -4,62 +4,147 @@
 
     <div id="main">
 
-    <h1>Nouveau match</h1>
+        <section id="one">
+            <h1>Nouveau match</h1>
+        </section>
 
-    {{ form_start(form) }}
+        <section id="two">
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <p>Date et heure de match : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.start) }}
+                            {{ form_errors(form.start) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <p>Catégorie : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.category, { 'id': 'mySelect' }, { 'attr': {'onchange': 'myFunction()'} }) }}  <!-- , { 'attr': {'col': '70'} -->
+                            {{ form_errors(form.category) }}
+                        </div>
+                        <div>
+                            {{ form_widget(form.color, { 'id': 'color'}) }}
+                            {{ form_errors(form.color) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <p>Niveau et poule : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.level) }}
+                            {{ form_errors(form.level) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <p>Club Domicile : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.club1) }}
+                            {{ form_errors(form.club1) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <p>Club extérieur : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.club2) }}
+                            {{ form_errors(form.club2) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <p>Lieu de rencontre : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.address) }}
+                            {{ form_errors(form.address) }}
+                        </div>
+                    </div>
+                </div>
+        </section>
 
-        <div>
-            <div>
-                <p>Date et heure de match : </p>
+        <section id="three">
+            <div class="inline">
+                <input type="submit" value="Enregistrer" class="buttonNew" />
+                {{ form_end(form) }}
+
+                <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
             </div>
-            <div>
-                {{ form_widget(form.start) }}
-                {{ form_errors(form.start) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Club Domicile : </p>
-            </div>
-            <div>
-                {{ form_widget(form.club1) }}
-                {{ form_errors(form.club1) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Club extérieur : </p>
-            </div>
-            <div>
-                {{ form_widget(form.club2) }}
-                {{ form_errors(form.club2) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Lieu de rencontre : </p>
-            </div>
-            <div>
-                {{ form_widget(form.address) }}
-                {{ form_errors(form.address) }}
-            </div>
-        </div>
-
-
-
-
-
-
-
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('calendar_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        </section>
 
     </div>
+
+    <script src="{{ asset('assets/js/addons.js') }}"></script>
+    <script>
+        // function myFunction() {
+        //     var form = document.getElementById("mySelect").option[i].selectedIndex;
+        //
+        //     if(form === 1){
+        //
+        //         document.getElementById( "color" ).value = "#F0F8FF"; // AliceBlue
+        //     }
+        //     else if (form === 2){
+        //
+        //         document.getElementById( "color" ).value = "#FAEBD7"; // AnticWhite
+        //     }
+        //     else if (form === 3){
+        //
+        //         document.getElementById( "color" ).value = "#7FFFD4"; // AquaMarine
+        //     }
+        //     else if (form === 4){
+        //
+        //         document.getElementById( "color" ).value = "#8A2BE2"; // BlueViolet
+        //     }
+        //     else if (form === 5){
+        //
+        //         document.getElementById( "color" ).value = "#DEB887"; // BurlyWood
+        //     }
+        //     else if (form === 6){
+        //
+        //         document.getElementById( "color" ).value = "#6495ED"; // CornflowerBlue
+        //     }
+        //     else if (form === 7){
+        //
+        //         document.getElementById( "color" ).value = "#DC143C"; // Crimson
+        //     }
+        //     else if (form === 8){
+        //
+        //         document.getElementById( "color" ).value = "#FF1493"; // DeepPink
+        //     }
+        //     else if (form === 10){
+        //
+        //         document.getElementById( "color" ).value = "#800000"; // Maroon
+        //     }
+        //     else if (form === 11){
+        //
+        //         document.getElementById( "color" ).value = "#808000"; // Olive
+        //     }
+        //     else if (form === 12){
+        //
+        //         document.getElementById( "color" ).value = "#FF4500"; // DarkRed
+        //     }
+        //     else if (form === 14){
+        //
+        //         document.getElementById( "color" ).value = "#708090"; // SlateGrey
+        //     }
+        //     else if (form === 15){
+        //
+        //         document.getElementById( "color" ).value = "#CD853F"; // Peru
+        //     }
+        // }
+    </script>
+
 {% endblock %}

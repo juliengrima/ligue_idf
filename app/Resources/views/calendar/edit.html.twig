@@ -3,26 +3,159 @@
 {% block body %}
 
     <div id="main">
+
         <section id="one">
-            <h1>Edition </h1>
+            <h1>Modifier le match</h1>
         </section>
 
         <section id="two">
             {{ form_start(edit_form) }}
-                {{ form_widget(edit_form) }}
-                <input type="submit" value="Edit" />
-            {{ form_end(edit_form) }}
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <p>Date et heure de match : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.start) }}
+                        {{ form_errors(edit_form.start) }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <p>Catégorie : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.category, { 'id': 'mySelect' }, { 'attr': {'onchange': 'myFunction()'} }) }}  <!-- , { 'attr': {'col': '70'} -->
+                        {{ form_errors(edit_form.category) }}
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.color, { 'id': 'color'}) }}
+                        {{ form_errors(edit_form.color) }}
 
-            <ul>
-                <li>
-                    <a href="{{ path('calendar_show', { 'id': calendar.id }) }}">Retour au calendrier</a>
-                </li>
-                <li>
-                    {{ form_start(delete_form) }}
-                        <input type="submit" value="Delete">
-                    {{ form_end(delete_form) }}
-                </li>
-            </ul>
+                        {#<input id="{{ form.color.vars.id }}"#}
+                               {#name="{{ form.color.vars.full_name }}"#}
+                               {#type="text" class="color" required="" >#}
+                        {#{{ form_errors(form.color) }}#}
+                        {#{% do form.color.setRendered %}#}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <p>Niveau et poule : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.level) }}
+                        {{ form_errors(edit_form.level) }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <p>Club Domicile : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.club1) }}
+                        {{ form_errors(edit_form.club1) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <p>Club extérieur : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.club2) }}
+                        {{ form_errors(edit_form.club2) }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div>
+                        <p>Lieu de rencontre : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.address) }}
+                        {{ form_errors(edit_form.address) }}
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <section id="three">
+            <div class="inline">
+                <input type="submit" value="Enregistrer" />
+                {{ form_end(edit_form) }}
+
+                {{ form_start(delete_form) }}
+                {{ form_widget(delete_form) }}
+                <input type="submit" value="Modifier" class="buttonDisconnect deconnexion" />
+                {{ form_end(delete_form) }}
+
+                <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
+            </div>
+        </section>
+
     </div>
+
+    <script>
+        function myFunction() {
+            var form = document.getElementById("mySelect").selectedIndex;
+            {#var inputForm = form.getElementsByTagName("{{ form.color.vars.full_name }}");#}
+
+            if(form === 1){
+
+                document.getElementById( "color" ).value = "#F0F8FF"; // AliceBlue
+            }
+            else if (form === 2){
+
+                document.getElementById( "color" ).value = "#FAEBD7"; // AnticWhite
+            }
+            else if (form === 3){
+
+                document.getElementById( "color" ).value = "#7FFFD4"; // AquaMarine
+            }
+            else if (form === 4){
+
+                document.getElementById( "color" ).value = "#8A2BE2"; // BlueViolet
+            }
+            else if (form === 5){
+
+                document.getElementById( "color" ).value = "#DEB887"; // BurlyWood
+            }
+            else if (form === 6){
+
+                document.getElementById( "color" ).value = "#6495ED"; // CornflowerBlue
+            }
+            else if (form === 7){
+
+                document.getElementById( "color" ).value = "#DC143C"; // Crimson
+            }
+            else if (form === 8){
+
+                document.getElementById( "color" ).value = "#FF1493"; // DeepPink
+            }
+            else if (form === 10){
+
+                document.getElementById( "color" ).value = "#800000"; // Maroon
+            }
+            else if (form === 11){
+
+                document.getElementById( "color" ).value = "#808000"; // Olive
+            }
+            else if (form === 12){
+
+                document.getElementById( "color" ).value = "#FF4500"; // DarkRed
+            }
+            else if (form === 14){
+
+                document.getElementById( "color" ).value = "#708090"; // SlateGrey
+            }
+            else if (form === 15){
+
+                document.getElementById( "color" ).value = "#CD853F"; // Peru
+            }
+        }
+    </script>
+
 {% endblock %}

@@ -4,18 +4,27 @@
 
     <div id="main">
 
-        <h1>Club creation</h1>
+        <section id="one">
+            <h1>Enregistrement du nouveau club</h1>
+        </section>
 
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input type="submit" value="Create" />
-        {{ form_end(form) }}
+        <section id="two">
 
-        <ul>
-            <li>
-                <a href="{{ path('clubs_index') }}">Back to the list</a>
-            </li>
-        </ul>
+            {{ form_start(form) }}
+            <div class="col-6">
+                <label for=" {{ form.clubName.vars.full_name }}" class="amber-text">Nom du club :</label>
+
+                <input id="{{ form.clubName.vars.id }}"
+                       name=" {{ form.clubName.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.clubName) }}
+                {% do form.clubName.setRendered %}
+            </div>
+            <input type="submit" value="Enregistrer" />
+            {{ form_end(form) }}
+            <a href="{{ path('clubs_index') }}" class="button">Retour à la liste des clubs</a>
+
+        </section>
 
     </div>
 
