@@ -15,7 +15,7 @@ class CalendarType extends AbstractType
     {
         $builder->add('start')
             ->add('category')
-            ->add('color')
+//            ->add('color')
             ->add('level')
             ->add('club1')
             ->add('club2')

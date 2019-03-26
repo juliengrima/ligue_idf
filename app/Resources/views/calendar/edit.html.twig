@@ -28,16 +28,10 @@
                         {{ form_widget(edit_form.category, { 'id': 'mySelect' }, { 'attr': {'onchange': 'myFunction()'} }) }}  <!-- , { 'attr': {'col': '70'} -->
                         {{ form_errors(edit_form.category) }}
                     </div>
-                    <div>
-                        {{ form_widget(edit_form.color, { 'id': 'color'}) }}
-                        {{ form_errors(edit_form.color) }}
-
-                        {#<input id="{{ form.color.vars.id }}"#}
-                               {#name="{{ form.color.vars.full_name }}"#}
-                               {#type="text" class="color" required="" >#}
-                        {#{{ form_errors(form.color) }}#}
-                        {#{% do form.color.setRendered %}#}
-                    </div>
+                    {#<div>#}
+                        {#{{ form_widget(edit_form.color, { 'id': 'color'}) }}#}
+                        {#{{ form_errors(edit_form.color) }}#}
+                    {#</div>#}
                 </div>
             </div>
             <div class="row">
@@ -83,13 +77,28 @@
         </section>
 
         <section id="three">
+            <h1>Score du match</h1>
+
+            <div class="row">
+                <div class="col-6 align-center">
+                    <div>
+                        {#{{ form_widget(edit_form.scores) }}#}
+                        {#{{ form_errors(edit_form.scores) }}#}
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section id="four">
             <div class="inline">
-                <input type="submit" value="Enregistrer" />
+                <input type="submit" value="Modifier" class="buttonDisconnect" />
                 {{ form_end(edit_form) }}
 
                 {{ form_start(delete_form) }}
                 {{ form_widget(delete_form) }}
-                <input type="submit" value="Modifier" class="buttonDisconnect deconnexion" />
+                <input type="submit" value="Supprimer" class="buttonDisconnect deconnexion" />
                 {{ form_end(delete_form) }}
 
                 <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
@@ -97,65 +106,5 @@
         </section>
 
     </div>
-
-    <script>
-        function myFunction() {
-            var form = document.getElementById("mySelect").selectedIndex;
-            {#var inputForm = form.getElementsByTagName("{{ form.color.vars.full_name }}");#}
-
-            if(form === 1){
-
-                document.getElementById( "color" ).value = "#F0F8FF"; // AliceBlue
-            }
-            else if (form === 2){
-
-                document.getElementById( "color" ).value = "#FAEBD7"; // AnticWhite
-            }
-            else if (form === 3){
-
-                document.getElementById( "color" ).value = "#7FFFD4"; // AquaMarine
-            }
-            else if (form === 4){
-
-                document.getElementById( "color" ).value = "#8A2BE2"; // BlueViolet
-            }
-            else if (form === 5){
-
-                document.getElementById( "color" ).value = "#DEB887"; // BurlyWood
-            }
-            else if (form === 6){
-
-                document.getElementById( "color" ).value = "#6495ED"; // CornflowerBlue
-            }
-            else if (form === 7){
-
-                document.getElementById( "color" ).value = "#DC143C"; // Crimson
-            }
-            else if (form === 8){
-
-                document.getElementById( "color" ).value = "#FF1493"; // DeepPink
-            }
-            else if (form === 10){
-
-                document.getElementById( "color" ).value = "#800000"; // Maroon
-            }
-            else if (form === 11){
-
-                document.getElementById( "color" ).value = "#808000"; // Olive
-            }
-            else if (form === 12){
-
-                document.getElementById( "color" ).value = "#FF4500"; // DarkRed
-            }
-            else if (form === 14){
-
-                document.getElementById( "color" ).value = "#708090"; // SlateGrey
-            }
-            else if (form === 15){
-
-                document.getElementById( "color" ).value = "#CD853F"; // Peru
-            }
-        }
-    </script>
 
 {% endblock %}

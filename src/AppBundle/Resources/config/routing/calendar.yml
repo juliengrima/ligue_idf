@@ -11,10 +11,10 @@ calendarJson_index:
 ########  Routes Calendar CRUD  ##########
 ##########################################
 
-#calendar_index:
-#    path:     /admin/calendar
-#    defaults: { _controller: "AppBundle:Calendar:index" }
-#    methods:  GET
+calendar_index:
+    path:     /admin/calendar
+    defaults: { _controller: "AppBundle:Calendar:index" }
+    methods:  GET
 
 calendar_usershow:
     path:     /calendar
