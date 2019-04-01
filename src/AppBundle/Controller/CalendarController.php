@@ -6,6 +6,9 @@ use AppBundle\Entity\Calendar;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -41,7 +44,7 @@ class CalendarController extends Controller
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll(); // appel de la table
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();// appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
@@ -88,85 +91,85 @@ class CalendarController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $select = $calendar->getCategory();
+            $select = $calendar->getCategory()->getId();
 
             if(isset($select)){
-                if ($select == "1"){
+                if ($select == 1){
 
                     $color = "#F0F8FF";
 
                 }
-                elseif ($select == "2"){
+                elseif ($select == 2){
 
-                    $color = "#FAEBD7";
+                    $color = "#20B2AA";
 
                 }
-                elseif ($select == "3"){
+                elseif ($select == 3){
 
                     $color = "#7FFFD4";
 
                 }
-                elseif ($select == "4"){
+                elseif ($select == 4){
 
                     $color = "#8A2BE2";
 
                 }
-                elseif ($select == "5"){
+                elseif ($select == 5){
 
                     $color = "#DEB887";
 
                 }
-                elseif ($select == "6"){
+                elseif ($select == 6){
 
                     $color = "#6495ED";
 
                 }
-                elseif ($select == "7"){
+                elseif ($select == 7){
 
                     $color = "#DC143C";
 
                 }
-                elseif ($select == "7"){
+                elseif ($select == 7){
 
                     $color = "#FF1493";
 
                 }
-                elseif ($select == "8"){
+                elseif ($select == 8){
 
                     $color = "#D8BFD8";
 
                 }
-                elseif ($select == "9"){
+                elseif ($select == 9){
 
                     $color = "#D2B48C";
 
                 }
-                elseif ($select == "10"){
+                elseif ($select == 10){
 
                     $color = "#808000";
 
                 }
-                elseif ($select == "11"){
+                elseif ($select == 11){
 
                     $color = "#FF4500";
 
                 }
-                elseif ($select == "12"){
+                elseif ($select == 12){
 
                     $color = "#708090";
 
                 }
-                elseif ($select == "13"){
+                elseif ($select == 13){
 
                     $color = "#F0F8FF";
 
                 }
-                elseif ($select == "14"){
+                elseif ($select == 14){
 
                     $color = "#CD853F";
 
                 }
-                elseif ($select == "15"){
+                elseif ($select == 15){
 
                     $color = "#9ACD32";
 
@@ -186,7 +189,6 @@ class CalendarController extends Controller
 
             return $this->redirectToRoute('calendar_show', array(
                 'id' => $calendar->getId (),
-                'select' => $select
             ));
         }
 

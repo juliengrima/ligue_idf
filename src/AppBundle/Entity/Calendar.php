@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Calendar
  */
@@ -18,7 +21,7 @@ class Calendar
 //    public function __toString()
 //    {
 //        // TODO: Implement __toString() method.
-//        return $this->start;
+//        return $this->category;
 //    }
 
 //    GENERATED CODE ------------------------------------>
