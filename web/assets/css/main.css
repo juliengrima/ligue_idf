@@ -3364,5 +3364,11 @@ input, select, textarea {
 	margin-left: 20%;
 }
 
-
-
+.logo{
+	width: 110%;
+	margin-top: -40%;
+	margin-bottom: -20%;
+}
+	.logo.text{
+		text-decoration: none;
+	}
