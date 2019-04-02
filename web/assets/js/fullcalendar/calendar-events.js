@@ -86,7 +86,7 @@ $(document).ready(function() {
                 /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
                 eventClick: function (calEvent) {
 
-                    var day = moment(calEvent.start._d).format('D MM Y');
+                    var day = moment(calEvent.start._d).format('D / MM / Y');
                     // // .format();
                     // // dddd = jour en charactère
                     // // Do = date du jour en chiffre (fontionne uniquement apres dddd)
