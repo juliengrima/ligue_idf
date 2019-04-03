@@ -2,6 +2,8 @@
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.css') }}' rel='stylesheet' />
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
+    <link href='{{ asset('assets/js/fullcalendar/packages/core/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('assets/js/fullcalendar/packages/daygrid/main.css') }}' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
@@ -72,10 +74,10 @@
         Locales:
         <select id='locale-selector'></select>
 
-        <div id='theme-system-selector' class='selector'>
-            Theme System:
+        <div id='theme-system-selector' class='selector' style='display:none'>
+           <!-- Theme System: -->
 
-            <select>
+            <select style='display:none'>
                 <option value='jquery-ui'selected>jQuery UI</option>
                 <option value='bootstrap4'>Bootstrap 4</option>
                 <option value='bootstrap3'>Bootstrap 3</option>
@@ -84,9 +86,9 @@
         </div>
 
         <div data-theme-system="bootstrap3" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value=''>Default</option>
                 <option value='cosmo'>Cosmo</option>
                 <option value='cyborg'>Cyborg</option>
@@ -108,9 +110,9 @@
         </div>
 
         <div data-theme-system="bootstrap4" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value=''>Default</option>
                 <option value='cerulean'>Cerulean</option>
                 <option value='cosmo'>Cosmo</option>
@@ -137,9 +139,9 @@
         </div>
 
         <div data-theme-system="jquery-ui" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value='vader' selected>Vader</option>
                 <option value='black-tie'>Black Tie</option>
                 <option value='blitzer'>Blitzer</option>
@@ -221,6 +223,9 @@
     <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
     <script src='{{ asset('assets/js/fullcalendar/locale-all.js') }}'></script>
     <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/interaction/main.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/core/main.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/daygrid/main.js') }}'></script>
 
 {% endblock %}
 
