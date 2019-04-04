@@ -34,11 +34,6 @@ $(document).ready(function() {
                     right: 'dayGridMonth,dayGridWeek,dayGridDay'
                     // right: 'month,agendaWeek,agendaDay'
                 },
-                // header: {
-                //     left: 'prev,next today',
-                //     center: 'title',
-                //     right: 'month,agendaWeek,agendaDay'
-                // },
                 locale: initialLocaleCode,
                 lang: 'fr-FR',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
@@ -78,15 +73,18 @@ $(document).ready(function() {
                 eventRender: function (event, element) {
 
                     element.each(function () {
+
                         element.append(
+
                             '<p>' +
                             event.category.categoryName +
                             ' -> ' +
                             event.club1.clubName +
-                            '<span >VS</span> ' +
+                            '<span style=\'color:#8B0000\'> VS </span>' +
                             event.club2.clubName +
                             '</p>'
                         );
+
                     })
                 },
 

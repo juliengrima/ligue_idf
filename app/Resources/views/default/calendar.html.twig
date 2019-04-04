@@ -59,6 +59,8 @@
 
     <div class="left">
         <a href="{{ path('homepage') }}" class="button small">retour à l'accueil</a>
+        <span>|</span>
+        <a href="{{ path('fullcalendar_index') }}" class="button small">mois</a>
         {%  if is_granted('ROLE_ADMIN') %}
             <span>|</span>
             <a href="{{ path('homeadmin') }}" class="button small">retour à l'administration</a>

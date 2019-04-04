@@ -8,8 +8,22 @@
             <h1>Modifier le match</h1>
         </section>
 
-        <section id="two">
+
+        <section id="three">
             {{ form_start(edit_form) }}
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <h6 class="scores">SCORES (ex: 1 / 1):</h6>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div>
+                        {{ form_widget(edit_form.scores) }}
+                        {{ form_errors(edit_form.scores) }}
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-6">
                     <div>
@@ -21,46 +35,58 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div>
-                        <p>Catégorie : </p>
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <p>Catégorie : </p>
+                            </div>
+                            <div>
+                                {{ form_widget(edit_form.category, {'attr': {'multiple': 'multiple', 'class': 'main-selectCategory'}} ) }}  <!-- , { 'attr': {'onchange': 'myFunction("select")'} } -->
+                                {{ form_errors(edit_form.category) }}
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        {{ form_widget(edit_form.category, { 'id': 'mySelect' }, { 'attr': {'onchange': 'myFunction()'} }) }}  <!-- , { 'attr': {'col': '70'} -->
-                        {{ form_errors(edit_form.category) }}
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <p>Niveau et poule : </p>
+                            </div>
+                            <div>
+                                {{ form_widget(edit_form.level) }}
+                                {{ form_errors(edit_form.level) }}
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
-                    <div>
-                        <p>Niveau et poule : </p>
-                    </div>
-                    <div>
-                        {{ form_widget(edit_form.level) }}
-                        {{ form_errors(edit_form.level) }}
-                    </div>
-                </div>
-                <div class="col-6">
+                <div class="col-5">
                     <div>
                         <p>Club Domicile : </p>
                     </div>
                     <div>
-                        {{ form_widget(edit_form.club1) }}
+                        {{ form_widget(edit_form.club1, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
                         {{ form_errors(edit_form.club1) }}
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
+                <div class="col-2">
+                    <div>
+                        <p class="vsText align-center"> VS </p>
+                    </div>
+                </div>
+                <div class="col-5">
                     <div>
                         <p>Club extérieur : </p>
                     </div>
                     <div>
-                        {{ form_widget(edit_form.club2) }}
+                        {{ form_widget(edit_form.club2, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
                         {{ form_errors(edit_form.club2) }}
                     </div>
                 </div>
-                <div class="col-6">
+            </div>
+            <div class="row">
+                <div class="col-12">
                     <div>
                         <p>Lieu de rencontre : </p>
                     </div>
@@ -70,21 +96,6 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="three">
-            <h1>Score du match</h1>
-
-            <div class="row">
-                <div class="col-6 align-center">
-                    <div>
-                        {#{{ form_widget(edit_form.scores) }}#}
-                        {#{{ form_errors(edit_form.scores) }}#}
-                    </div>
-                </div>
-            </div>
-
-
         </section>
 
         <section id="four">

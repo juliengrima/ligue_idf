@@ -221,7 +221,7 @@ class CalendarController extends Controller
     public function editAction(Request $request, Calendar $calendar)
     {
         $deleteForm = $this->createDeleteForm($calendar);
-        $editForm = $this->createForm('AppBundle\Form\CalendarType', $calendar);
+        $editForm = $this->createForm('AppBundle\Form\CalendarEditType', $calendar);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
