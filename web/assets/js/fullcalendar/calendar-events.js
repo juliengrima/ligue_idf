@@ -27,13 +27,13 @@ $(document).ready(function() {
         init: function(themeSystem) {
             $('#calendar').fullCalendar({
                 plugins: [ 'interaction', 'dayGrid' ],
-                themeSystem: themeSystem,
                 header: {
-                    left: 'prev,next, today',
+                    left: 'prevYear,prev,next,nextYear today',
                     center: 'title',
                     right: 'dayGridMonth,dayGridWeek,dayGridDay'
                     // right: 'month,agendaWeek,agendaDay'
                 },
+                themeSystem: themeSystem,
                 locale: initialLocaleCode,
                 lang: 'fr-FR',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
@@ -42,11 +42,11 @@ $(document).ready(function() {
 
                 firstDay: 1, // jour ou l'agenda commentce 1 = lundi, 2 = mardi , etc...
                 weekNumbers: true, // affichage du numéro de la semaine en cour
-                // businessHours: { // heure de travail
-                //     start: '09:00',
-                //     end: '23:00',
-                //     dow: [1, 2, 3, 4, 5]
-                // },
+                businessHours: { // heure de travail
+                    start: '09:00',
+                    end: '23:00',
+                    dow: [1, 2, 3, 4, 5]
+                },
                 handleWindowResize: true, // redimensionne auto du calendrier en fonction de la width du navigateur
                 weekends: true, // affichage des weekends
                 slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
@@ -111,7 +111,7 @@ $(document).ready(function() {
                     var showEvent = Routing.generate('calendar_usershow') + '/' + calEvent.id + '/show';
 
                     //Datas to send
-                    console.log('recup des données');
+                    // console.log('recup des données');
 
                     // $('#modalTime').html(startTime);
                     // $('#modalImage').html(picture);
