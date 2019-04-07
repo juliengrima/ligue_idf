@@ -6,6 +6,12 @@
 
         <h1>Liste des catégories </h1>
 
+        <ul>
+            <li>
+                <a href="{{ path('categories_new') }}" class="buttonNew">Enregistrer une nouvelle catégorie</a>
+            </li>
+        </ul>
+
         <table>
             <thead>
                 <tr>
@@ -28,12 +34,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('categories_new') }}" class="buttonNew">Enregistrer une nouvelle catégorie</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}

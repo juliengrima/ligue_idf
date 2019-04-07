@@ -5,6 +5,12 @@
 
         <h1>Liste des clubs</h1>
 
+        <ul>
+            <li>
+                <a href="{{ path('clubs_new') }}" class="buttonNew">Enregistrer un nouveau club</a>
+            </li>
+        </ul>
+
         <table>
             <thead>
                 <tr>
@@ -27,12 +33,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('clubs_new') }}" class="buttonNew">Enregistrer un nouveau club</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}

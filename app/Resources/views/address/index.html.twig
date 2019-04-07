@@ -5,6 +5,12 @@
 
         <h1>Liste des lieux de rencontres</h1>
 
+        <ul>
+            <li>
+                <a href="{{ path('address_new') }}" class="buttonNew">Enregistrer un lieux</a>
+            </li>
+        </ul>
+
         <table>
             <thead>
                 <tr>
@@ -36,12 +42,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('address_new') }}" class="buttonNew">Enregistrer un lieux</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}
