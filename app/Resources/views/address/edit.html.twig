@@ -1,0 +1,77 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div id="main">
+
+        <section id="one">
+            <h1>Enregistrement du lieux de rencontre</h1>
+        </section>
+
+        <section id="two">
+
+            {{ form_start(edit_form) }}
+            <div class="col-6">
+                <label for=" {{ edit_form.nom.vars.full_name }}" class="amber-text">Nom du lieu :</label>
+
+                <input id="{{ edit_form.nom.vars.id }}"
+                       name=" {{ edit_form.nom.vars.full_name }}"
+                       type="text" class="validate amber-text"
+                       value="{{ address.nom }}" required="" >
+                {{ form_errors(edit_form.nom) }}
+                {% do edit_form.nom.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ edit_form.address.vars.full_name }}" class="amber-text">Adresse :</label>
+
+                <input id="{{ edit_form.address.vars.id }}"
+                       name=" {{ edit_form.address.vars.full_name }}"
+                       type="text" class="validate amber-text"
+                       value="{{ address.address }}" required="" >
+                {{ form_errors(edit_form.address) }}
+                {% do edit_form.address.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ edit_form.postal.vars.full_name }}" class="amber-text">Code postal :</label>
+
+                <input id="{{ edit_form.postal.vars.id }}"
+                       name=" {{ edit_form.postal.vars.full_name }}"
+                       type="text" class="validate amber-text"
+                       value="{{ address.postal }}" required="" >
+                {{ form_errors(edit_form.postal) }}
+                {% do edit_form.postal.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ edit_form.city.vars.full_name }}" class="amber-text">
+                    <span>Ville (ex:</span>
+                    <span class="wrong">saint mammes</span>
+                    <span> / </span>
+                    <span class="good">saint-mammes</span>
+                    <span>) :</span>
+                </label>
+
+                <input id="{{ edit_form.city.vars.id }}"
+                       name=" {{ edit_form.city.vars.full_name }}"
+                       type="text" class="validate amber-text"
+                       value="{{ address.city }}" required="" >
+                {{ form_errors(edit_form.city) }}
+                {% do edit_form.city.setRendered %}
+            </div>
+        </section>
+        <section id="three">
+            <div class="inline">
+                <input type="submit" value="Enregistrer" />
+                {{ form_end(edit_form) }}
+
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="buttonDisconnect deconnexion">
+                {{ form_end(delete_form) }}
+
+                <a href="{{ path('address_index') }}" class="button">Retour à la liste des clubs</a>
+
+            </div>
+        </section>
+
+    </div>
+
+{% endblock %}

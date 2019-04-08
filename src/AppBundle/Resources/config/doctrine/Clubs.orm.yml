@@ -1,0 +1,25 @@
+AppBundle\Entity\Clubs:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ClubsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        clubName:
+            type: string
+            length: 255
+            column: club_name
+            unique: true
+
+    oneToMany:
+        calendar1:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: club1
+        calendar2:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: club2
+    lifecycleCallbacks: {  }

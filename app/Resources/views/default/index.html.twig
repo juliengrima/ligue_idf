@@ -1,8 +1,11 @@
 {% extends 'layout.html.twig' %}
 
+{% block links %}
+    {{ parent() }}
+{% endblock %}
 {% block stylesheets %}
-    <style>
-    </style>
+    {{ parent() }}
+
 {% endblock %}
 
 {% block body %}
@@ -15,27 +18,19 @@
             <header class="major">
                 <h2>Calendrier des matchs</h2>
             </header>
-            <p>Vous trouverz dans cette section tout les matchs</p>
+            <p>Vous trouverez dans cette section tout les matchs</p>
         </section>
 
-        <!-- Two -->
         <section id="two">
-            <h2>Recent Work</h2>
-            <div class="row">
-                <article class="col-6 col-12-xsmall work-item">
-                    <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
-                    {#<h3>Magna sed consequat tempus</h3>#}
-                    {#<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>#}
-                </article>
-            </div>
-            {#<ul class="actions">#}
-                {#<li><a href="#" class="button">Full Portfolio</a></li>#}
-            {#</ul>#}
         </section>
 
     </div>
 
 
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
 {% endblock %}
 
 

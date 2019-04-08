@@ -1,0 +1,54 @@
+AppBundle\Entity\Calendar:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CalendarRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        start:
+            type: datetime
+        end:
+            type: datetime
+            nullable: true
+        level:
+            type: string
+            length: 30
+        color:
+            type: string
+            length: 15
+            nullable: true
+        scores:
+            type: string
+            length: 5
+            nullable: true
+
+    manyToOne:
+        club1:
+            targetEntity: AppBundle\Entity\Clubs
+            inversedBy: calendar1
+            joinColumn:
+                name: club1_id
+                referencedColumnName: id
+        club2:
+            targetEntity: AppBundle\Entity\Clubs
+            inversedBy: calendar2
+            joinColumn:
+                name: club2_id
+                referencedColumnName: id
+        category:
+            targetEntity: AppBundle\Entity\Categories
+            inversedBy: calendar4
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+        address:
+            targetEntity: AppBundle\Entity\Address
+            inversedBy: calendar3
+            joinColumn:
+                name: address_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

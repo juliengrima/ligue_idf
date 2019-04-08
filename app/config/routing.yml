@@ -1,3 +1,81 @@
+###########################################################
+###########################################################
+########################## VIEWS ##########################
+###########################################################
+###########################################################
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+###########################################################
+###########################################################
+######################### ADMIN ###########################
+###########################################################
+###########################################################
+
+homeadmin:
+    path:     /admin
+    defaults: { _controller: "AppBundle:Default:homeAdmin" }
+    methods:  GET
+#    option:
+#        expose: true
+
+#############################  #################################
+app_clubs:
+    resource: "@AppBundle/Resources/config/routing/clubs.yml"
+    prefix:   /admin/clubs
+
+app_categories:
+    resource: "@AppBundle/Resources/config/routing/categories.yml"
+    prefix:   /admin/categories
+
+app_groups:
+    resource: "@AppBundle/Resources/config/routing/groups.yml"
+    prefix:   /admin/groups
+
+app_clubcategory:
+    resource: "@AppBundle/Resources/config/routing/clubcategory.yml"
+    prefix:   /admin/clubcategory
+
+app_categorygroup:
+    resource: "@AppBundle/Resources/config/routing/categorygroup.yml"
+    prefix:   /admin/categorygroup
+
+app_address:
+    resource: "@AppBundle/Resources/config/routing/address.yml"
+    prefix:   /admin/address
+
+app_calendar:
+    resource: "@AppBundle/Resources/config/routing/calendar.yml"
+    prefix:   /
+    options:
+        expose: true
+
+#############################  #################################
+
+map_index:
+    path:     /admin/map
+    defaults: { _controller: "AppBundle:Default:map" }
+    methods:  GET
+
+fullcalendar_index:
+    path:     /calendar_of_matches
+    defaults: { _controller: "AppBundle:Default:fullCalendar" }
+    methods:  GET
+    options:
+        expose: true
+
+##########################################
+############   FosJSRoutung   ############
+##########################################
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    prefix:   /
+
+##########################################
+##############   FosJUser   ##############
+##########################################
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

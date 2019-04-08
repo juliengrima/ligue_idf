@@ -1,0 +1,24 @@
+clubcategory_index:
+    path:     /
+    defaults: { _controller: "AppBundle:ClubCategory:index" }
+    methods:  GET
+
+clubcategory_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:ClubCategory:show" }
+    methods:  GET
+
+clubcategory_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:ClubCategory:new" }
+    methods:  [GET, POST]
+
+clubcategory_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:ClubCategory:edit" }
+    methods:  [GET, POST]
+
+clubcategory_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:ClubCategory:delete" }
+    methods:  DELETE

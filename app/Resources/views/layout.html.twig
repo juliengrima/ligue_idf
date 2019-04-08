@@ -4,11 +4,29 @@
 
     <!-- Header -->
     <header id="header">
+
         <div class="inner">
-            <a href="#" class="image avatar"><img src="{{ asset('assets/images/avatar.jpg') }}" alt="" /></a>
-            <h1><strong>I am Strata</strong>, a super simple<br />
-                responsive site template freebie<br />
-                crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+            {#<a href="{{ path('homepage') }}" class="avatar left text">#}
+                <img src="{{ asset('assets/images/Logo.png') }}" alt="direct-match_logo" class="logo"/>
+            {#</a>#}
+            <h1><strong>DirectMatch IDF</strong></h1>
+
+            <div>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <h3>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}</h3>
+                {% endif %}
+            </div>
+
+            <div>
+                <ul>
+                    <li><a href="{{ path('homepage') }}">accueil</a></li>
+                    <li><a href="{{ path('fullcalendar_index') }}">Calendrier des matchs</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <li><a href="{{ path('homeadmin') }}">administrateur</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}" class="buttonDisconnect">Déconnexion</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </header>
 
@@ -26,7 +44,9 @@
                 <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
             </ul>
             <ul class="copyright">
-                <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                <li>
+                    <a href="{{ path('fos_user_security_login') }}">&copy;</a> Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>
+                </li>
             </ul>
         </div>
     </footer>

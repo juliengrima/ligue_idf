@@ -1,0 +1,22 @@
+AppBundle\Entity\Categories:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CategoriesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        categoryName:
+            type: string
+            length: 255
+            column: category_name
+            unique: true
+
+    oneToMany:
+        calendar4:
+            targetEntity: AppBundle\Entity\Calendar
+            mappedBy: category
+    lifecycleCallbacks: {  }

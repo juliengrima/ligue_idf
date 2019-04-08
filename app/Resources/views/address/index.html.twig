@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div id="main">
+
+        <h1>Liste des lieux de rencontres</h1>
+
+        <ul>
+            <li>
+                <a href="{{ path('address_new') }}" class="buttonNew">Enregistrer un lieux</a>
+            </li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Adresses</th>
+                    <th>Codes postaux</th>
+                    <th>Villes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for address in addresses %}
+                <tr>
+                    <td>{{ address.nom }}</td>
+                    <td>{{ address.address }}</td>
+                    <td>{{ address.postal }}</td>
+                    <td>{{ address.city }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('address_show', { 'id': address.id }) }}" class="button">Voir</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('address_edit', { 'id': address.id }) }}" class="buttonDisconnect">Modifier</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

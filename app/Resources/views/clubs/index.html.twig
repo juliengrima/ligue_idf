@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div id="main">
+
+        <h1>Liste des clubs</h1>
+
+        <ul>
+            <li>
+                <a href="{{ path('clubs_new') }}" class="buttonNew">Enregistrer un nouveau club</a>
+            </li>
+        </ul>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="header-text-table">Nom du club</th>
+                    <th class="header-text-table">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for club in clubs %}
+                <tr>
+                    <td>{{ club.clubName }}</td>
+                    <td>
+                        <ul class="align-center">
+                            <li>
+                                <a href="{{ path('clubs_edit', { 'id': club.id }) }}" class="buttonDisconnect">Modifier</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

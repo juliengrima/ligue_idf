@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div id="main">
+
+        <!-- One -->
+        <section id="one">
+            <header class="major">
+                <h2>Admininstration du site</h2>
+            </header>
+            <p>Vous trouverez dans cette section tout les éléments pour administrer le site</p>
+        </section>
+
+        <!-- Two -->
+        <section id="two">
+            <h2>Administration</h2>
+            <div class="row">
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('clubs_index') }}" class="button primary">Administration des clubs</a>
+                </article>
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('categories_index') }}" class="button primary">Administration des catégories</a>
+                </article>
+                {#<article class="col-6 col-12-xsmall work-item">#}
+                    {#<a href="{{ path('groups_index') }}" class="button primary">Administration des poules</a>#}
+                {#</article>#}
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('address_index') }}" class="button primary">Administration des adresses</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Three -->
+        <section id="three">
+            <div class="row">
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('fullcalendar_index') }}" class="button primary">Calendrier des matchs </a>
+                </article>
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('map_index') }}" class="button primary">Voir tout les lieux de rencontres</a>
+                </article>
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('calendar_new') }}" class="button primary">Nouveau match</a>
+                </article>
+            </div>
+
+        </section>
+
+    </div>
+
+{% endblock %}

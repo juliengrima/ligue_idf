@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div id="main">
+
+        <section id="one">
+            <h1>Modification de la catégorie - {{ category.categoryName }}</h1>
+        </section>
+
+        <section id="two">
+
+            {{ form_start(edit_form) }}
+            <div class="col-6">
+                <label for=" {{ edit_form.categoryName.vars.full_name }}" class="amber-text">Nom de la catégorie :</label>
+
+                <input id="{{ edit_form.categoryName.vars.id }}"
+                       name=" {{ edit_form.categoryName.vars.full_name }}"
+                       type="text" class="validate amber-text"
+                       value="{{ category.categoryName }}" required="" >
+                {{ form_errors(edit_form.categoryName) }}
+                {% do edit_form.categoryName.setRendered %}
+            </div>
+            <input type="submit" value="Enregistrer" />
+            {{ form_end(edit_form) }}
+
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+
+            <a href="{{ path('categories_index') }}" class="button">Retour à la liste des clubs</a>
+        </section>
+
+    </div>
+
+{% endblock %}
