@@ -15,7 +15,6 @@
         <!-- Two -->
         <section id="two">
             <h2>Administration</h2>
-            <h2>Clubs / Catégories / Groupes / Lieux de rencontres</h2>
             <div class="row">
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('clubs_index') }}" class="button primary">Administration des clubs</a>
@@ -23,9 +22,9 @@
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('categories_index') }}" class="button primary">Administration des catégories</a>
                 </article>
-                <article class="col-6 col-12-xsmall work-item">
-                    <a href="{{ path('groups_index') }}" class="button primary">Administration des poules</a>
-                </article>
+                {#<article class="col-6 col-12-xsmall work-item">#}
+                    {#<a href="{{ path('groups_index') }}" class="button primary">Administration des poules</a>#}
+                {#</article>#}
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('address_index') }}" class="button primary">Administration des adresses</a>
                 </article>
@@ -34,24 +33,18 @@
 
         <!-- Three -->
         <section id="three">
-            <h2>Gestion des Clubs</h2>
             <div class="row">
-                <article class="col-6 col-12-xsmall work-item">
-                    <a href="{{ path('clubcategory_index') }}" class="button primary">Lier une catégorie et une poule</a>
-                </article>
                 <article class="col-6 col-12-xsmall work-item">
                     <a href="{{ path('fullcalendar_index') }}" class="button primary">Calendrier des matchs </a>
                 </article>
-            </div>
-        </section>
-
-        <section id="four">
-            <h2>Gestion des matchs</h2>
-            <div class="row">
                 <article class="col-6 col-12-xsmall work-item">
-                    <a href="{{ path('map_index') }}" class="button primary">map</a>
+                    <a href="{{ path('map_index') }}" class="button primary">Voir tout les lieux de rencontres</a>
+                </article>
+                <article class="col-6 col-12-xsmall work-item">
+                    <a href="{{ path('calendar_new') }}" class="button primary">Nouveau match</a>
                 </article>
             </div>
+
         </section>
 
     </div>

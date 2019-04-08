@@ -3,7 +3,13 @@
 {% block body %}
     <div id="main">
 
-        <h1>Addresses list</h1>
+        <h1>Liste des lieux de rencontres</h1>
+
+        <ul>
+            <li>
+                <a href="{{ path('address_new') }}" class="buttonNew">Enregistrer un lieux</a>
+            </li>
+        </ul>
 
         <table>
             <thead>
@@ -12,8 +18,6 @@
                     <th>Adresses</th>
                     <th>Codes postaux</th>
                     <th>Villes</th>
-                    <th>Latitudes</th>
-                    <th>Longitudes</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -24,15 +28,13 @@
                     <td>{{ address.address }}</td>
                     <td>{{ address.postal }}</td>
                     <td>{{ address.city }}</td>
-                    <td>{{ address.lat }}</td>
-                    <td>{{ address.lng }}</td>
                     <td>
                         <ul>
                             <li>
-                                <a href="{{ path('address_show', { 'id': address.id }) }}">show</a>
+                                <a href="{{ path('address_show', { 'id': address.id }) }}" class="button">Voir</a>
                             </li>
                             <li>
-                                <a href="{{ path('address_edit', { 'id': address.id }) }}">edit</a>
+                                <a href="{{ path('address_edit', { 'id': address.id }) }}" class="buttonDisconnect">Modifier</a>
                             </li>
                         </ul>
                     </td>
@@ -40,12 +42,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('address_new') }}">Create a new address</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}

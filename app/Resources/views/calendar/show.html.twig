@@ -18,7 +18,7 @@
 
     <div id="main">
         <section id="one">
-            <h1>Match - {{ calendar.club1.categories }}</h1>
+            <h1>Match - {{ calendar.category }}</h1>
         </section>
         <section id="two">
             <table>
@@ -29,16 +29,22 @@
                 </tr>
                 <tr>
                     <th>club à domicile</th>
-                    <td>{{ calendar.club1.club }}</td>
+                    <td>{{ calendar.club1 }}</td>
                 </tr>
                 <tr>
                     <th>Club de l'extérieur</th>
-                    <td>{{ calendar.club1.club }}</td>
+                    <td>{{ calendar.club2 }}</td>
                 </tr>
                 <tr>
                     <th>Lieu de l'évènement</th>
-                    <td>{{ calendar.address.address }}</td>
+                    <td>{{ calendar.address }}</td>
                 </tr>
+                {% if calendar.scores > 0 %}
+                    <tr>
+                        <th>Tableau des scores</th>
+                        <td>{{ calendar.scores }}</td>
+                    </tr>
+                {% endif %}
                 </tbody>
             </table>
 

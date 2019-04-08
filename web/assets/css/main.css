@@ -2460,6 +2460,154 @@ input, select, textarea {
 			color: #49bf9d !important;
 		}
 
+		/*-------Disconnect Button----------*/
+
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		.buttonDisconnect {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			background-color: transparent;
+			border-radius: 0.35em;
+			border: solid 3px #efefef;
+			color: darkorange !important;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: 400;
+			height: 3.15em;
+			height: calc(2.75em + 6px);
+			line-height: 2.75em;
+			min-width: 10em;
+			padding: 0 1.5em;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		.buttonDisconnect:hover {
+			border-color: #F5871F;
+			color: crimson !important;
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		.buttonDisconnect:active {
+			background-color: rgba(73, 191, 157, 0.1);
+			border-color: #49bf9d;
+			color: #49bf9d !important;
+		}
+
+		input[type="submit"].deconnexion,
+		input[type="reset"].deconnexion,
+		input[type="button"].deconnexion,
+		.buttonDisconnect.deconnexion {
+			background-color: #F5871F;
+			border-color: #49bf9d;
+			color: #ffffff !important;
+		}
+
+			input[type="submit"].deconnexion:hover,
+			input[type="reset"].deconnexion:hover,
+			input[type="button"].deconnexion:hover,
+			.buttonDisconnect.deconnexion:hover {
+				background-color: crimson;
+				border-color: #5cc6a7;
+			}
+
+			input[type="submit"].deconnexion:active,
+			input[type="reset"].deconnexion:active,
+			input[type="button"].deconnexion:active,
+			.buttonDisconnect.deconnexion:active {
+				background-color: #3eb08f;
+				border-color: #3eb08f;
+			}
+
+		/*-------Newer Button----------*/
+
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		.buttonNew {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+			background-color: transparent;
+			border-radius: 0.35em;
+			border: solid 3px #49bf9d;
+			color: #49bf9d !important;
+			cursor: pointer;
+			display: inline-block;
+			font-weight: 400;
+			height: 3.15em;
+			height: calc(2.75em + 6px);
+			line-height: 2.75em;
+			min-width: 10em;
+			padding: 0 1.5em;
+			text-align: center;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		.buttonNew:hover {
+			border-color: darkgoldenrod;
+			color: #66dd66 !important;
+		}
+
+		input[type="submit"]:active,
+		input[type="reset"]:active,
+		input[type="button"]:active,
+		.buttonNew:active {
+			background-color: rgba(73, 191, 157, 0.1);
+			border-color: #49bf9d;
+			color: #49bf9d !important;
+		}
+
+		input[type="submit"].new,
+		input[type="reset"].new,
+		input[type="button"].new,
+		.buttonNew.new {
+			background-color: #F5871F;
+			border-color: #49bf9d;
+			color: #ffffff !important;
+		}
+
+		input[type="submit"].new:hover,
+		input[type="reset"].new:hover,
+		input[type="button"].new:hover,
+		.buttonDisconnect.new:hover {
+			background-color: #5cc6a7;
+			border-color: #5cc6a7;
+		}
+
+		input[type="submit"].new:active,
+		input[type="reset"].new:active,
+		input[type="button"].new:active,
+		.buttonDisconnect.new:active {
+			background-color: #3eb08f;
+			border-color: #3eb08f;
+		}
+
+		/*--------------------------*/
+
 		input[type="submit"].icon,
 		input[type="reset"].icon,
 		input[type="button"].icon,
@@ -3195,4 +3343,70 @@ input, select, textarea {
 
 #maps{
 	height: 100%;
+	margin-bottom: 5%;
+}
+
+/* Additionnal CSS */
+
+.header-text-table{
+	text-align: center;
+}
+
+.wrong{
+	color: darkred;
+}
+.good{
+	color: darkgreen;
+}
+
+.inline{
+	display: inline-flex !important;
+	margin-left: 20%;
+}
+
+.logo{
+	width: 110%;
+	margin-top: -40%;
+	margin-bottom: -20%;
+}
+	.logo.text{
+		text-decoration: none;
+	}
+
+.main-select{
+	width: 300px;
+	height: 400px !important;
+	float: left;
+	border-style: solid;
+	border-color: #1e2b37;
+	border-width: 1px 1px 1px 1px;
+	background-color: #C9C9C9;
+	/*color: #ffff;*/
+}
+	.main-selectCategory{
+		width: 300px;
+		height: 145px !important;
+		float: left;
+		border-style: solid;
+		border-color: #1e2b37;
+		border-width: 1px 1px 1px 1px;
+		background-color: #C9C9C9;
+		/*color: #ffff;*/
+	}
+
+.vsText{
+	color: darkred;
+	font-size: 2.6em;
+	font-family: 'Indie Flower', cursive;
+	margin-top: 250%;
+}
+
+.scores{
+	color: darkred;
+	font-size: 2.6em;
+	font-family: 'Indie Flower', cursive;
+}
+
+select option{
+	background-color: #C9C9C9!important;
 }

@@ -78,7 +78,7 @@ class CategoriesController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categories_edit', array('id' => $category->getId()));
+            return $this->redirectToRoute('categories_index', array('id' => $category->getId()));
         }
 
         return $this->render('categories/edit.html.twig', array(

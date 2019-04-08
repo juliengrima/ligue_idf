@@ -25,19 +25,6 @@ class Groups
     private $groupName;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Get id
      *
      * @return integer
@@ -69,39 +56,5 @@ class Groups
     public function getGroupName()
     {
         return $this->groupName;
-    }
-
-    /**
-     * Add category
-     *
-     * @param \AppBundle\Entity\ClubCategory $category
-     *
-     * @return Groups
-     */
-    public function addCategory(\AppBundle\Entity\ClubCategory $category)
-    {
-        $this->category[] = $category;
-
-        return $this;
-    }
-
-    /**
-     * Remove category
-     *
-     * @param \AppBundle\Entity\ClubCategory $category
-     */
-    public function removeCategory(\AppBundle\Entity\ClubCategory $category)
-    {
-        $this->category->removeElement($category);
-    }
-
-    /**
-     * Get category
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 }

@@ -20,18 +20,22 @@ jQuery(document).ready(function($) {
 
 $(document).ready(function() {
 
+    var initialLocaleCode = 'fr';
+
     initThemeChooser({
 
         init: function(themeSystem) {
             $('#calendar').fullCalendar({
-                themeSystem: themeSystem,
-                // defaultDate: '2019-03-12',
+                plugins: [ 'interaction', 'dayGrid' ],
                 header: {
-                    left: 'prev,next today',
+                    left: 'prevYear,prev,next,nextYear today',
                     center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
+                    right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                    // right: 'month,agendaWeek,agendaDay'
                 },
-                lang: 'fr',
+                themeSystem: themeSystem,
+                locale: initialLocaleCode,
+                lang: 'fr-FR',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
                 selectable: true, // Permet de cliquer sur la case pour envoyer au new
                 selectHelper: true,
@@ -60,7 +64,7 @@ $(document).ready(function() {
                     /* VERIFICATION QUE LA DATE NE SOIT PAS INFERIRIEUR A LA SELECTION / DEFINITION DES ROLES */
                     if (date._d >= current_date_time && roles.indexOf("ROLE_SUPER_ADMIN")) {
                         // lors du click sur la case il renvoie la date vers la page new
-                        window.location = Routing.generate('calendar_index') + date.format() + '/new';
+                        window.location = Routing.generate('calendar_index') + '/' + date.format() + '/new';
                     }
                 },
 
@@ -69,52 +73,60 @@ $(document).ready(function() {
                 eventRender: function (event, element) {
 
                     element.each(function () {
+
                         element.append(
+
                             '<p>' +
-                            event.club1.categories.categoryName +
-                            '</p>' +
-                            '<p>' +
-                            event.club1.club.clubName + ' : ' + event.club2.club.clubName +
+                            event.category.categoryName +
+                            ' -> ' +
+                            event.club1.clubName +
+                            '<span style=\'color:#8B0000\'> VS </span>' +
+                            event.club2.clubName +
                             '</p>'
                         );
+
                     })
                 },
 
                 /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
                 eventClick: function (calEvent) {
 
-                    // window.location = Routing.generate('calendar_index') + event.id + '/show';
-                    var day = moment(calEvent.start._d).format("dddd Do MMMM YYYY");
+                    var day = moment(calEvent.start._d).format('D / MM / Y');
                     // // .format();
-                    // // dddd = jour en character
+                    // // dddd = jour en charactère
                     // // Do = date du jour en chiffre (fontionne uniquement apres dddd)
                     // // MMMMM = mois en character
                     // // YYYY = année en chiffre
 
                     // var ponctuation1 = "de";
-                    var ponctuation2 = "à";
+
                     var startTime = moment(calEvent.start._i).format('HH:mm');
-                    // var endTime = moment(calEvent.end._i).format("HH:mm");
-                    var category = calEvent.club1.categories.categoryName;
-                    var clubs = calEvent.club1.club.clubName + ' : ' + calEvent.club2.club.clubName;
-                    var picture = '<img src="'+(calEvent.media)+'" alt="'+(calEvent.media)+'">';
+                    var category = calEvent.category.categoryName + ' - ' + calEvent.level;
+                    var club1 = calEvent.club1.clubName;
+                    var club2 = calEvent.club2.clubName;
+                    var score = calEvent.score;
 
                     var editEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/edit';
                     var deleteEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/delete';
                     var showEvent = Routing.generate('calendar_usershow') + '/' + calEvent.id + '/show';
 
-
-                    console.log('recup des données');
+                    //Datas to send
+                    // console.log('recup des données');
 
                     // $('#modalTime').html(startTime);
                     // $('#modalImage').html(picture);
+                    $('#modalDay').html(day);
                     $('#modalTitle').html(category);
-                    $('#modalTexte').html(clubs);
+                    $('#modalClub1').html(club1);
+                    $('#modalClub2').html(club2);
+                    $('#modalScore').html(score);
 
                     $('#calendarModal').modal({
-                        fadeDuration: 100
+                        fadeDuration: 300,
+                        fadeDelay: 1
                     });
 
+                    //Buttons
                     $('#show_event').show();
                     $('#show_event').attr('href', showEvent);
 
@@ -135,8 +147,25 @@ $(document).ready(function() {
 
     });
 
+    $.each($.fullCalendar.locales, function(localeCode) {
+        $('#locale-selector').append(
+            $('<option/>')
+                .attr('value', localeCode)
+                .prop('selected', localeCode == initialLocaleCode)
+                .text(localeCode)
+        );
+    });
+
+    // when the selected option changes, dynamically change the calendar option
+    $('#locale-selector').on('change', function() {
+        if (this.value) {
+            $('#calendar').fullCalendar('option', 'locale', this.value);
+        }
+    });
+
 });
 
+/*
 // ********************************************************************
 // *                        Full MODAL
 // ********************************************************************
@@ -146,4 +175,4 @@ function modal() {
         fadeDuration: 1000,
         fadeDelay: 0.50
     });
-}
+}*/

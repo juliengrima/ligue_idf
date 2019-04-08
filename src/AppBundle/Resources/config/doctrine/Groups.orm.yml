@@ -15,8 +15,8 @@ AppBundle\Entity\Groups:
             column: group_name
             unique: true
 
-    oneToMany:
-        category:
-            targetEntity: AppBundle\Entity\ClubCategory
-            mappedBy: categories
+#    oneToMany:
+#        category:
+#            targetEntity: AppBundle\Entity\ClubCategory
+#            mappedBy: categories
     lifecycleCallbacks: {  }

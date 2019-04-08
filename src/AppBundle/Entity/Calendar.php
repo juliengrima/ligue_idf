@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Calendar
  */
@@ -18,11 +21,14 @@ class Calendar
 //    public function __toString()
 //    {
 //        // TODO: Implement __toString() method.
-//        return $this->start;
+//        return $this->category;
 //    }
 
+//    GENERATED CODE ------------------------------------>
+
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -36,11 +42,46 @@ class Calendar
      */
     private $end;
 
+    /**
+     * @var string
+     */
+    private $level;
+
+    /**
+     * @var string
+     */
+    private $color;
+
+    /**
+     * @var string
+     */
+    private $scores;
+
+    /**
+     * @var \AppBundle\Entity\Clubs
+     */
+    private $club1;
+
+    /**
+     * @var \AppBundle\Entity\Clubs
+     */
+    private $club2;
+
+    /**
+     * @var \AppBundle\Entity\Categories
+     */
+    private $category;
+
+    /**
+     * @var \AppBundle\Entity\Address
+     */
+    private $address;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -94,30 +135,87 @@ class Calendar
     {
         return $this->end;
     }
-    /**
-     * @var \AppBundle\Entity\ClubCategory
-     */
-    private $club1;
 
     /**
-     * @var \AppBundle\Entity\ClubCategory
+     * Set level
+     *
+     * @param string $level
+     *
+     * @return Calendar
      */
-    private $club2;
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
 
     /**
-     * @var \AppBundle\Entity\Address
+     * Get level
+     *
+     * @return string
      */
-    private $address;
+    public function getLevel()
+    {
+        return $this->level;
+    }
 
+    /**
+     * Set color
+     *
+     * @param string $color
+     *
+     * @return Calendar
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set scores
+     *
+     * @param string $scores
+     *
+     * @return Calendar
+     */
+    public function setScores($scores)
+    {
+        $this->scores = $scores;
+
+        return $this;
+    }
+
+    /**
+     * Get scores
+     *
+     * @return string
+     */
+    public function getScores()
+    {
+        return $this->scores;
+    }
 
     /**
      * Set club1
      *
-     * @param \AppBundle\Entity\ClubCategory $club1
+     * @param \AppBundle\Entity\Clubs $club1
      *
      * @return Calendar
      */
-    public function setClub1(\AppBundle\Entity\ClubCategory $club1 = null)
+    public function setClub1(\AppBundle\Entity\Clubs $club1 = null)
     {
         $this->club1 = $club1;
 
@@ -127,7 +225,7 @@ class Calendar
     /**
      * Get club1
      *
-     * @return \AppBundle\Entity\ClubCategory
+     * @return \AppBundle\Entity\Clubs
      */
     public function getClub1()
     {
@@ -137,11 +235,11 @@ class Calendar
     /**
      * Set club2
      *
-     * @param \AppBundle\Entity\ClubCategory $club2
+     * @param \AppBundle\Entity\Clubs $club2
      *
      * @return Calendar
      */
-    public function setClub2(\AppBundle\Entity\ClubCategory $club2 = null)
+    public function setClub2(\AppBundle\Entity\Clubs $club2 = null)
     {
         $this->club2 = $club2;
 
@@ -151,11 +249,35 @@ class Calendar
     /**
      * Get club2
      *
-     * @return \AppBundle\Entity\ClubCategory
+     * @return \AppBundle\Entity\Clubs
      */
     public function getClub2()
     {
         return $this->club2;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Categories $category
+     *
+     * @return Calendar
+     */
+    public function setCategory(\AppBundle\Entity\Categories $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Categories
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 
     /**

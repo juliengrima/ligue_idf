@@ -3,26 +3,115 @@
 {% block body %}
 
     <div id="main">
+
         <section id="one">
-            <h1>Edition </h1>
+            <h1>Modifier le match</h1>
         </section>
 
-        <section id="two">
+
+        <section id="three">
             {{ form_start(edit_form) }}
-                {{ form_widget(edit_form) }}
-                <input type="submit" value="Edit" />
-            {{ form_end(edit_form) }}
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <h6 class="scores">SCORES (ex: 1 / 1):</h6>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div>
+                        {{ form_widget(edit_form.scores) }}
+                        {{ form_errors(edit_form.scores) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <p>Date et heure de match : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.start) }}
+                        {{ form_errors(edit_form.start) }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <p>Catégorie : </p>
+                            </div>
+                            <div>
+                                {{ form_widget(edit_form.category, {'attr': {'multiple': 'multiple', 'class': 'main-selectCategory'}} ) }}  <!-- , { 'attr': {'onchange': 'myFunction("select")'} } -->
+                                {{ form_errors(edit_form.category) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div>
+                                <p>Niveau et poule : </p>
+                            </div>
+                            <div>
+                                {{ form_widget(edit_form.level) }}
+                                {{ form_errors(edit_form.level) }}
+                            </div>
+                        </div>
+                    </div>
 
-            <ul>
-                <li>
-                    <a href="{{ path('calendar_show', { 'id': calendar.id }) }}">Retour au calendrier</a>
-                </li>
-                <li>
-                    {{ form_start(delete_form) }}
-                        <input type="submit" value="Delete">
-                    {{ form_end(delete_form) }}
-                </li>
-            </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <div>
+                        <p>Club Domicile : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.club1, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
+                        {{ form_errors(edit_form.club1) }}
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div>
+                        <p class="vsText align-center"> VS </p>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div>
+                        <p>Club extérieur : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.club2, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
+                        {{ form_errors(edit_form.club2) }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div>
+                        <p>Lieu de rencontre : </p>
+                    </div>
+                    <div>
+                        {{ form_widget(edit_form.address) }}
+                        {{ form_errors(edit_form.address) }}
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <section id="four">
+            <div class="inline">
+                <input type="submit" value="Modifier" class="buttonDisconnect" />
+                {{ form_end(edit_form) }}
+
+                {{ form_start(delete_form) }}
+                {{ form_widget(delete_form) }}
+                <input type="submit" value="Supprimer" class="buttonDisconnect deconnexion" />
+                {{ form_end(delete_form) }}
+
+                <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
+            </div>
+        </section>
+
     </div>
+
 {% endblock %}

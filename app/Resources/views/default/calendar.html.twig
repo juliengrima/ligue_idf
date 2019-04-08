@@ -2,25 +2,10 @@
     <link href='https://use.fontawesome.com/releases/v5.0.6/css/all.css' rel='stylesheet'>
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.css') }}' rel='stylesheet' />
     <link href='{{ asset('assets/css/fullcalendar/fullcalendar.print.css') }}' rel='stylesheet' media='print' />
+    <link href='{{ asset('assets/js/fullcalendar/packages/core/main.css') }}' rel='stylesheet' />
+    <link href='{{ asset('assets/js/fullcalendar/packages/daygrid/main.css') }}' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
-    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
-    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
-
-    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
-    <script>
-        {% if is_granted('ROLE_ADMIN') %}
-        var role = 'admin';
-        {% else %}
-        var role = null;
-        {% endif %}
-    </script>
-    <script src='{{ asset('assets/js/moment.min.js') }}'></script>
-    <script src='{{ asset('assets/js/jquery.min.js') }}'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <script src='{{ asset('assets/js/fullcalendar/fullcalendar.js') }}'></script>
-    <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
-    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
     <style>
 
@@ -63,6 +48,10 @@
             padding: 0 10px;
         }
 
+        .marge{
+            height: 30px;
+        }
+
     </style>
 
 
@@ -70,22 +59,27 @@
 
     <div class="left">
         <a href="{{ path('homepage') }}" class="button small">retour à l'accueil</a>
+        <span>|</span>
+        <a href="{{ path('fullcalendar_index') }}" class="button small">mois</a>
         {%  if is_granted('ROLE_ADMIN') %}
             <span>|</span>
             <a href="{{ path('homeadmin') }}" class="button small">retour à l'administration</a>
             <span>|</span>
             <a href="{{ path('calendar_new') }}" class="button primary small">Nouveau match</a>
             <span>|</span>
-            <a href="#calendarModal" rel="modal:open">Open Modal</a>
+            {#<a href="#calendarModal" rel="modal:open">Open Modal</a>#}
         {% endif %}
     </div>
 
     <div class='right'>
 
-        <div id='theme-system-selector' class='selector'>
-            Theme System:
+        Locales:
+        <select id='locale-selector'></select>
 
-            <select>
+        <div id='theme-system-selector' class='selector' style='display:none'>
+           <!-- Theme System: -->
+
+            <select style='display:none'>
                 <option value='jquery-ui'selected>jQuery UI</option>
                 <option value='bootstrap4'>Bootstrap 4</option>
                 <option value='bootstrap3'>Bootstrap 3</option>
@@ -94,9 +88,9 @@
         </div>
 
         <div data-theme-system="bootstrap3" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value=''>Default</option>
                 <option value='cosmo'>Cosmo</option>
                 <option value='cyborg'>Cyborg</option>
@@ -118,9 +112,9 @@
         </div>
 
         <div data-theme-system="bootstrap4" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value=''>Default</option>
                 <option value='cerulean'>Cerulean</option>
                 <option value='cosmo'>Cosmo</option>
@@ -147,9 +141,9 @@
         </div>
 
         <div data-theme-system="jquery-ui" class='selector' style='display:none'>
-            Theme Name:
+           <!-- Theme Name: -->
 
-            <select>
+            <select style='display:none'>
                 <option value='vader' selected>Vader</option>
                 <option value='black-tie'>Black Tie</option>
                 <option value='blitzer'>Blitzer</option>
@@ -195,21 +189,45 @@
     <div id="calendarModal" class="modal modal-corps"> <!--- DEBUT DE LA MODAL --><!-- modal-fixed-footer -->
 
         <div class="">
-            <h5 id="modalTitle"></h5>
-
-            <h6 id="modalTime"></h6>
-            <p><span id="modalTexte"></span></p>
+            <h2 id="modalTitle"></h2>
+            <h3 id="modalDay"></h3>
+            <p><span id="modalClub1"></span><span class="modalText"> VS </span><span id="modalClub2"></span></p>
+            <p><span id="modalScore"></span></p>
         </div>
-
         <div>
-            <a href="#" id="show_event" class="button small">Voir</a>
+            <a href="#" id="show_event" class="button align-center">Voir</a>
         {% if is_granted("ROLE_ADMIN") %}
-            <a href="#" id="edit_event" class="button small">Modifier</a>
-            <a href="#" id="delete_event" class="button delete small">Supprimer</a>
+            <a href="#" id="edit_event" class="button buttonDisconnect align-center">Modifier</a>
+            <a href="#" id="delete_event" class="button delete align-center">Supprimer</a>
         {% endif %}
         </div>
 
-    </div>  <!----- FIN DE LA MODAL ----->
+    </div>
+
+    <!----- FIN DE LA MODAL ----->
+
+
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+    {# SCRIPT DES ROLES POUR ADMINISTRATION #}
+    <script>
+        {% if is_granted('ROLE_ADMIN') %}
+        var role = 'admin';
+        {% else %}
+        var role = null;
+        {% endif %}
+    </script>
+    <script src='{{ asset('assets/js/moment.min.js') }}'></script>
+    <script src='{{ asset('assets/js/jquery.min.js') }}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src='{{ asset('assets/js/fullcalendar/fullcalendar.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/theme-chooser.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/locale-all.js') }}'></script>
+    <script src="{{ asset('assets/js/fullcalendar/calendar-events.js') }}"></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/interaction/main.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/core/main.js') }}'></script>
+    <script src='{{ asset('assets/js/fullcalendar/packages/daygrid/main.js') }}'></script>
 
 {% endblock %}
 

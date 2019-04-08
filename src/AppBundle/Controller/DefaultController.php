@@ -32,8 +32,6 @@ class DefaultController extends Controller
         $map = $em->getRepository('AppBundle:Address')->findAll();
         $ip = $this->get_ip_address();
 
-//        $map = $em->getRepository('AppBundle:Address')->findBy( array('slider' => 1) );
-        // replace this example code with whatever you need
         return $this->render('default/map.html.twig', array(
             'maps' => $map,
             'key' => $apiKey,
@@ -43,23 +41,6 @@ class DefaultController extends Controller
 
     public function fullCalendarAction(Request $request)
     {
-//        $em = $this->getDoctrine()->getManager();
-//        $map = $em->getRepository('AppBundle:Address')->findAll();
-
-
-//        $map = $em->getRepository('AppBundle:Address')->findBy( array('slider' => 1) );
-        // replace this example code with whatever you need
-        return $this->render('calendar/calendar.html.twig');
-    }
-
-    public function indexCalendarAction(Request $request)
-    {
-//        $em = $this->getDoctrine()->getManager();
-//        $map = $em->getRepository('AppBundle:Address')->findAll();
-
-
-//        $map = $em->getRepository('AppBundle:Address')->findBy( array('slider' => 1) );
-        // replace this example code with whatever you need
         return $this->render('default/calendar.html.twig');
     }
 

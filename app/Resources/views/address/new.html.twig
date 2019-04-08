@@ -1,20 +1,65 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+
     <div id="main">
 
-        <h1>Nouveau stade</h1>
+        <section id="one">
+            <h1>Enregistrement du lieux de rencontre</h1>
+        </section>
 
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input type="submit" value="Create" />
-        {{ form_end(form) }}
+        <section id="two">
 
-        <ul>
-            <li>
-                <a href="{{ path('address_index') }}">Back to the list</a>
-            </li>
-        </ul>
+            {{ form_start(form) }}
+            <div class="col-6">
+                <label for=" {{ form.nom.vars.full_name }}" class="amber-text">Nom du lieu :</label>
+
+                <input id="{{ form.nom.vars.id }}"
+                       name=" {{ form.nom.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.nom) }}
+                {% do form.nom.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ form.address.vars.full_name }}" class="amber-text">Adresse :</label>
+
+                <input id="{{ form.address.vars.id }}"
+                       name=" {{ form.address.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.address) }}
+                {% do form.address.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ form.postal.vars.full_name }}" class="amber-text">Code postal :</label>
+
+                <input id="{{ form.postal.vars.id }}"
+                       name=" {{ form.postal.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.postal) }}
+                {% do form.postal.setRendered %}
+            </div>
+            <div class="col-6">
+                <label for=" {{ form.city.vars.full_name }}" class="amber-text">
+                    <span>Ville (ex:</span>
+                    <span class="wrong">saint mammes</span>
+                    <span> / </span>
+                    <span class="good">saint-mammes</span>
+                    <span>) :</span>
+                </label>
+
+                <input id="{{ form.city.vars.id }}"
+                       name=" {{ form.city.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.city) }}
+                {% do form.city.setRendered %}
+            </div>
+
+            <input type="submit" value="Enregistrer" />
+            {{ form_end(form) }}
+            <a href="{{ path('address_index') }}" class="button">Retour à la liste des clubs</a>
+
+        </section>
 
     </div>
+
 {% endblock %}

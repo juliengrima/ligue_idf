@@ -4,18 +4,28 @@
 
     <div id="main">
 
-        <h1>Category creation</h1>
+        <section id="one">
+            <h1>Enregistrement d'une catégorie</h1>
+        </section>
 
-        {{ form_start(form) }}
-            {{ form_widget(form) }}
-            <input type="submit" value="Create" />
-        {{ form_end(form) }}
+        <section id="two">
 
-        <ul>
-            <li>
-                <a href="{{ path('categories_index') }}">Back to the list</a>
-            </li>
-        </ul>
+            {{ form_start(form) }}
+            <div class="col-6">
+                <label for=" {{ form.categoryName.vars.full_name }}" class="amber-text">Nom de la catégorie :</label>
+
+                <input id="{{ form.categoryName.vars.id }}"
+                       name=" {{ form.categoryName.vars.full_name }}"
+                       type="text" class="validate amber-text" required="" >
+                {{ form_errors(form.categoryName) }}
+                {% do form.categoryName.setRendered %}
+            </div>
+            <input type="submit" value="Enregistrer" />
+            {{ form_end(form) }}
+            <a href="{{ path('categories_index') }}" class="button">Retour à la liste des clubs</a>
+
+        </section>
 
     </div>
+
 {% endblock %}

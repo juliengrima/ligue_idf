@@ -3,24 +3,29 @@
 {% block body %}
     <div id="main">
 
-        <h1>Clubs list</h1>
+        <h1>Liste des clubs</h1>
+
+        <ul>
+            <li>
+                <a href="{{ path('clubs_new') }}" class="buttonNew">Enregistrer un nouveau club</a>
+            </li>
+        </ul>
 
         <table>
             <thead>
                 <tr>
-                    <th>Clubname</th>
-                    <th>Actions</th>
+                    <th class="header-text-table">Nom du club</th>
+                    <th class="header-text-table">Actions</th>
                 </tr>
             </thead>
             <tbody>
             {% for club in clubs %}
                 <tr>
-                    <td><a href="{{ path('clubs_show', { 'id': club.id }) }}">{{ club.id }}</a></td>
                     <td>{{ club.clubName }}</td>
                     <td>
-                        <ul>
+                        <ul class="align-center">
                             <li>
-                                <a href="{{ path('clubs_edit', { 'id': club.id }) }}" class="button primary">edit</a>
+                                <a href="{{ path('clubs_edit', { 'id': club.id }) }}" class="buttonDisconnect">Modifier</a>
                             </li>
                         </ul>
                     </td>
@@ -28,12 +33,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('clubs_new') }}" class="button">Create a new club</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}

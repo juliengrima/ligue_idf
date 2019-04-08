@@ -4,62 +4,95 @@
 
     <div id="main">
 
-    <h1>Nouveau match</h1>
+        <section id="one">
+            <h1>Nouveau match</h1>
+        </section>
 
-    {{ form_start(form) }}
+        <section id="two">
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <p>Date et heure de match : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.start) }}
+                            {{ form_errors(form.start) }}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <p>Catégorie : </p>
+                                </div>
+                                <div>
+                                    {{ form_widget(form.category, {'attr': {'multiple': 'multiple', 'class': 'main-selectCategory'}} ) }}  <!-- , { 'attr': {'onchange': 'myFunction("select")'} } -->
+                                    {{ form_errors(form.category) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div>
+                                    <p>Niveau et poule (ex : R2 --> P3): </p>
+                                </div>
+                                <div>
+                                    {{ form_widget(form.level) }}
+                                    {{ form_errors(form.level) }}
+                                </div>
+                            </div>
+                        </div>
 
-        <div>
-            <div>
-                <p>Date et heure de match : </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <div>
+                            <p>Club Domicile : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.club1, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
+                            {{ form_errors(form.club1) }}
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div>
+                            <p class="vsText align-center"> VS </p>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div>
+                            <p>Club extérieur : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.club2, {'attr': {'multiple': 'multiple', 'class': 'main-select'}}) }}
+                            {{ form_errors(form.club2) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <p>Lieu de rencontre : </p>
+                        </div>
+                        <div>
+                            {{ form_widget(form.address) }}
+                            {{ form_errors(form.address) }}
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section id="three">
+            <div class="inline">
+                <input type="submit" value="Enregistrer" class="buttonNew" />
+                {{ form_end(form) }}
+
+                <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
             </div>
-            <div>
-                {{ form_widget(form.start) }}
-                {{ form_errors(form.start) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Club Domicile : </p>
-            </div>
-            <div>
-                {{ form_widget(form.club1) }}
-                {{ form_errors(form.club1) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Club extérieur : </p>
-            </div>
-            <div>
-                {{ form_widget(form.club2) }}
-                {{ form_errors(form.club2) }}
-            </div>
-        </div>
-        <div>
-            <div>
-                <p>Lieu de rencontre : </p>
-            </div>
-            <div>
-                {{ form_widget(form.address) }}
-                {{ form_errors(form.address) }}
-            </div>
-        </div>
-
-
-
-
-
-
-
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('calendar_index') }}">Back to the list</a>
-        </li>
-    </ul>
+        </section>
 
     </div>
+
 {% endblock %}

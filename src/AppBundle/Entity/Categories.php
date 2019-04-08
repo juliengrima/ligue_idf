@@ -13,6 +13,8 @@ class Categories
         return $this->categoryName;
     }
 
+//    GENERATED CODE ------------------------------------>
+
 
     /**
      * @var integer
@@ -27,14 +29,14 @@ class Categories
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $category;
+    private $calendar4;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->calendar4 = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -72,36 +74,36 @@ class Categories
     }
 
     /**
-     * Add category
+     * Add calendar4
      *
-     * @param \AppBundle\Entity\ClubCategory $category
+     * @param \AppBundle\Entity\Calendar $calendar4
      *
      * @return Categories
      */
-    public function addCategory(\AppBundle\Entity\ClubCategory $category)
+    public function addCalendar4(\AppBundle\Entity\Calendar $calendar4)
     {
-        $this->category[] = $category;
+        $this->calendar4[] = $calendar4;
 
         return $this;
     }
 
     /**
-     * Remove category
+     * Remove calendar4
      *
-     * @param \AppBundle\Entity\ClubCategory $category
+     * @param \AppBundle\Entity\Calendar $calendar4
      */
-    public function removeCategory(\AppBundle\Entity\ClubCategory $category)
+    public function removeCalendar4(\AppBundle\Entity\Calendar $calendar4)
     {
-        $this->category->removeElement($category);
+        $this->calendar4->removeElement($calendar4);
     }
 
     /**
-     * Get category
+     * Get calendar4
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategory()
+    public function getCalendar4()
     {
-        return $this->category;
+        return $this->calendar4;
     }
 }

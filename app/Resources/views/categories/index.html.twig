@@ -4,28 +4,29 @@
 
     <div id="main">
 
-        <h1>Categories list</h1>
+        <h1>Liste des catégories </h1>
+
+        <ul>
+            <li>
+                <a href="{{ path('categories_new') }}" class="buttonNew">Enregistrer une nouvelle catégorie</a>
+            </li>
+        </ul>
 
         <table>
             <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Categoryname</th>
-                    <th>Actions</th>
+                    <th class="align-center">Nom des catégories</th>
+                    <th class="align-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
             {% for category in categories %}
                 <tr>
-                    <td><a href="{{ path('categories_show', { 'id': category.id }) }}">{{ category.id }}</a></td>
                     <td>{{ category.categoryName }}</td>
-                    <td>
+                    <td class="align-center">
                         <ul>
                             <li>
-                                <a href="{{ path('categories_show', { 'id': category.id }) }}">show</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('categories_edit', { 'id': category.id }) }}">edit</a>
+                                <a href="{{ path('categories_edit', { 'id': category.id }) }}" class="buttonDisconnect">Modifier</a>
                             </li>
                         </ul>
                     </td>
@@ -33,12 +34,6 @@
             {% endfor %}
             </tbody>
         </table>
-
-        <ul>
-            <li>
-                <a href="{{ path('categories_new') }}">Create a new category</a>
-            </li>
-        </ul>
 
     </div>
 {% endblock %}

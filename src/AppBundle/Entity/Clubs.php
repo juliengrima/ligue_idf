@@ -13,6 +13,8 @@ class Clubs
         return $this->clubName;
     }
 
+//    GENERATED CODE ------------------------------------>
+
 
     /**
      * @var integer
@@ -27,14 +29,20 @@ class Clubs
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $category;
+    private $calendar1;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $calendar2;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->calendar1 = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->calendar2 = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -72,36 +80,70 @@ class Clubs
     }
 
     /**
-     * Add category
+     * Add calendar1
      *
-     * @param \AppBundle\Entity\ClubCategory $category
+     * @param \AppBundle\Entity\Calendar $calendar1
      *
      * @return Clubs
      */
-    public function addCategory(\AppBundle\Entity\ClubCategory $category)
+    public function addCalendar1(\AppBundle\Entity\Calendar $calendar1)
     {
-        $this->category[] = $category;
+        $this->calendar1[] = $calendar1;
 
         return $this;
     }
 
     /**
-     * Remove category
+     * Remove calendar1
      *
-     * @param \AppBundle\Entity\ClubCategory $category
+     * @param \AppBundle\Entity\Calendar $calendar1
      */
-    public function removeCategory(\AppBundle\Entity\ClubCategory $category)
+    public function removeCalendar1(\AppBundle\Entity\Calendar $calendar1)
     {
-        $this->category->removeElement($category);
+        $this->calendar1->removeElement($calendar1);
     }
 
     /**
-     * Get category
+     * Get calendar1
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCategory()
+    public function getCalendar1()
     {
-        return $this->category;
+        return $this->calendar1;
+    }
+
+    /**
+     * Add calendar2
+     *
+     * @param \AppBundle\Entity\Calendar $calendar2
+     *
+     * @return Clubs
+     */
+    public function addCalendar2(\AppBundle\Entity\Calendar $calendar2)
+    {
+        $this->calendar2[] = $calendar2;
+
+        return $this;
+    }
+
+    /**
+     * Remove calendar2
+     *
+     * @param \AppBundle\Entity\Calendar $calendar2
+     */
+    public function removeCalendar2(\AppBundle\Entity\Calendar $calendar2)
+    {
+        $this->calendar2->removeElement($calendar2);
+    }
+
+    /**
+     * Get calendar2
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCalendar2()
+    {
+        return $this->calendar2;
     }
 }

@@ -72,7 +72,7 @@ class ClubsController extends Controller
     public function editAction(Request $request, Clubs $club)
     {
         $deleteForm = $this->createDeleteForm($club);
-        $editForm = $this->createForm('AppBundle\Form\ClubsEditType', $club);
+        $editForm = $this->createForm('AppBundle\Form\ClubsType', $club);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

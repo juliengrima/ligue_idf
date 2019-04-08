@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
-            new CalendarBundle\CalendarBundle(),
+//            new CalendarBundle\CalendarBundle(),
             new AdminBundle\AdminBundle(),
         ];
 

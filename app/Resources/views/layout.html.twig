@@ -4,8 +4,11 @@
 
     <!-- Header -->
     <header id="header">
+
         <div class="inner">
-            <a href="{{ path('homepage') }}" class="image avatar"><img src="{{ asset('assets/images/avatar.jpg') }}" alt="" /></a>
+            {#<a href="{{ path('homepage') }}" class="avatar left text">#}
+                <img src="{{ asset('assets/images/Logo.png') }}" alt="direct-match_logo" class="logo"/>
+            {#</a>#}
             <h1><strong>DirectMatch IDF</strong></h1>
 
             <div>
@@ -17,10 +20,10 @@
             <div>
                 <ul>
                     <li><a href="{{ path('homepage') }}">accueil</a></li>
-                    <li><a href="{{ path('index_calendar') }}">Calendrier des matchs</a></li>
+                    <li><a href="{{ path('fullcalendar_index') }}">Calendrier des matchs</a></li>
                     {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="{{ path('homeadmin') }}">administrateur</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}" class="button">Déconnexion</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}" class="buttonDisconnect">Déconnexion</a></li>
                     {% endif %}
                 </ul>
             </div>

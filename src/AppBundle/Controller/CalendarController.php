@@ -6,6 +6,9 @@ use AppBundle\Entity\Calendar;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -28,7 +31,7 @@ class CalendarController extends Controller
 
         $calendars = $em->getRepository('AppBundle:Calendar')->findAll();
 
-        return $this->render('calendar/index.html.twig', array(
+        return $this->render('default/calendar.html.twig', array(
             'calendars' => $calendars,
         ));
     }
@@ -41,7 +44,7 @@ class CalendarController extends Controller
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll(); // appel de la table
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();// appel de la table
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
@@ -87,11 +90,106 @@ class CalendarController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $select = $calendar->getCategory()->getId();
+
+            if(isset($select)){
+                if ($select == 1){
+
+                    $color = "#F0F8FF";
+
+                }
+                elseif ($select == 2){
+
+                    $color = "#20B2AA";
+
+                }
+                elseif ($select == 3){
+
+                    $color = "#7FFFD4";
+
+                }
+                elseif ($select == 4){
+
+                    $color = "#8A2BE2";
+
+                }
+                elseif ($select == 5){
+
+                    $color = "#DEB887";
+
+                }
+                elseif ($select == 6){
+
+                    $color = "#6495ED";
+
+                }
+                elseif ($select == 7){
+
+                    $color = "#DC143C";
+
+                }
+                elseif ($select == 7){
+
+                    $color = "#FF1493";
+
+                }
+                elseif ($select == 8){
+
+                    $color = "#D8BFD8";
+
+                }
+                elseif ($select == 9){
+
+                    $color = "#D2B48C";
+
+                }
+                elseif ($select == 10){
+
+                    $color = "#808000";
+
+                }
+                elseif ($select == 11){
+
+                    $color = "#FF4500";
+
+                }
+                elseif ($select == 12){
+
+                    $color = "#708090";
+
+                }
+                elseif ($select == 13){
+
+                    $color = "#F0F8FF";
+
+                }
+                elseif ($select == 14){
+
+                    $color = "#CD853F";
+
+                }
+                elseif ($select == 15){
+
+                    $color = "#9ACD32";
+
+                }
+                else{
+
+                    $color = "#0000FF";
+                }
+
+            }
+
+            $calendar->setColor($color);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($calendar);
             $em->flush();
 
-            return $this->redirectToRoute('fullcalendar_index', array('id' => $calendar->getId()));
+            return $this->redirectToRoute('calendar_show', array(
+                'id' => $calendar->getId (),
+            ));
         }
 
         return $this->render('calendar/new.html.twig', array(
@@ -123,7 +221,7 @@ class CalendarController extends Controller
     public function editAction(Request $request, Calendar $calendar)
     {
         $deleteForm = $this->createDeleteForm($calendar);
-        $editForm = $this->createForm('AppBundle\Form\CalendarType', $calendar);
+        $editForm = $this->createForm('AppBundle\Form\CalendarEditType', $calendar);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
