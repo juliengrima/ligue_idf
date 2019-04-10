@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use AppBundle\Entity\Address;
 
 class CalendarType extends AbstractType
 {
@@ -15,11 +16,11 @@ class CalendarType extends AbstractType
     {
         $builder->add('start')
             ->add('category')
-//            ->add('color')
-            ->add('level')
+//            ->add('level')
             ->add('club1')
             ->add('club2')
             ->add('address');
+
     }/**
      * {@inheritdoc}
      */

@@ -15,7 +15,7 @@ class CalendarEditType extends AbstractType
     {
         $builder->add('start')
             ->add('category')
-            ->add('level')
+//            ->add('level')
             ->add('club1')
             ->add('club2')
             ->add('address')
