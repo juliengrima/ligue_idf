@@ -174,6 +174,56 @@ class CalendarController extends Controller
                     $color = "#9ACD32";
 
                 }
+                elseif ($select == 16){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 17){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 18){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 19){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 20){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 21){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 22){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 23){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 24){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 25){
+
+                    $color = "#9ACD32";
+
+                }
                 else{
 
                     $color = "#0000FF";
@@ -227,7 +277,7 @@ class CalendarController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fullcalendar_index', array('id' => $calendar->getId()));
+            return $this->redirectToRoute('calendar_show', array('id' => $calendar->getId()));
         }
 
         return $this->render('calendar/edit.html.twig', array(

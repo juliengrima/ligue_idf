@@ -16,12 +16,12 @@ class CalendarType extends AbstractType
     {
         $builder->add('start')
             ->add('category')
-//            ->add('level')
             ->add('club1')
             ->add('club2')
             ->add('address');
 
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

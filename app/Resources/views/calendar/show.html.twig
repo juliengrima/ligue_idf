@@ -19,6 +19,11 @@
     <div id="main">
         <section id="one">
             <h1>Match - {{ calendar.category }}</h1>
+            {%  if is_granted('ROLE_ADMIN') %}
+            <div>
+                <a href="{{ path('calendar_new') }}" class="button primary small">Nouveau match</a>
+            </div>
+            {% endif %}
         </section>
         <section id="two">
             <table>
