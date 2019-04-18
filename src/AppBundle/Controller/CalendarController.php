@@ -43,8 +43,15 @@ class CalendarController extends Controller
     public function getEventsJsonObjectAction()
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();
 
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();// appel de la table
+//        $qb = $em->getRepository('AppBundle:Calendar')
+//            ->createQueryBuilder('c')
+//            ->leftJoin('c.club1','c1')// appel de la table
+//            ->leftJoin('c.club2','c2')// appel de la table
+//            ->leftJoin('c.address','a');// appel de la table
+//
+//        $fullCalendar = $qb->getQuery()->execute();
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
