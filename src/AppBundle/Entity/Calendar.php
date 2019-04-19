@@ -45,11 +45,6 @@ class Calendar
     /**
      * @var string
      */
-    private $level;
-
-    /**
-     * @var string
-     */
     private $color;
 
     /**
@@ -134,30 +129,6 @@ class Calendar
     public function getEnd()
     {
         return $this->end;
-    }
-
-    /**
-     * Set level
-     *
-     * @param string $level
-     *
-     * @return Calendar
-     */
-    public function setLevel($level)
-    {
-        $this->level = $level;
-
-        return $this;
-    }
-
-    /**
-     * Get level
-     *
-     * @return string
-     */
-    public function getLevel()
-    {
-        return $this->level;
     }
 
     /**
