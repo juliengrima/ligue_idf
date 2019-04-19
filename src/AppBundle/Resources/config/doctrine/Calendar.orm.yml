@@ -14,9 +14,6 @@ AppBundle\Entity\Calendar:
         end:
             type: datetime
             nullable: true
-        level:
-            type: string
-            length: 30
         color:
             type: string
             length: 15

@@ -43,8 +43,15 @@ class CalendarController extends Controller
     public function getEventsJsonObjectAction()
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();
 
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();// appel de la table
+//        $qb = $em->getRepository('AppBundle:Calendar')
+//            ->createQueryBuilder('c')
+//            ->leftJoin('c.club1','c1')// appel de la table
+//            ->leftJoin('c.club2','c2')// appel de la table
+//            ->leftJoin('c.address','a');// appel de la table
+//
+//        $fullCalendar = $qb->getQuery()->execute();
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
 
@@ -174,6 +181,56 @@ class CalendarController extends Controller
                     $color = "#9ACD32";
 
                 }
+                elseif ($select == 16){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 17){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 18){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 19){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 20){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 21){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 22){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 23){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 24){
+
+                    $color = "#9ACD32";
+
+                }
+                elseif ($select == 25){
+
+                    $color = "#9ACD32";
+
+                }
                 else{
 
                     $color = "#0000FF";
@@ -227,7 +284,7 @@ class CalendarController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('fullcalendar_index', array('id' => $calendar->getId()));
+            return $this->redirectToRoute('calendar_show', array('id' => $calendar->getId()));
         }
 
         return $this->render('calendar/edit.html.twig', array(
