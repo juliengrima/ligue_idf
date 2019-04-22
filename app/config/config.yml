@@ -10,6 +10,8 @@ parameters:
     locale: fr
 
 framework:
+    serializer:
+        enabled: true
     #esi: ~
     translator: ~
     secret: '%secret%'
