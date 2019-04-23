@@ -10,4 +10,20 @@ namespace AppBundle\Repository;
  */
 class CalendarRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getMatches(){
+//        Alias 'ca' = category
+//        Alias 'fc' = calendar
+//        Alias 'cb1' = club1
+//        Alias 'cb2' = club2
+
+        $qb = $this->createQueryBuilder('fc')
+            ->select('fc.id', 'fc.start', 'fc.end', 'fc.scores')
+            ->join ('fc.category', 'a')
+            ->addSelect ( 'a.categoryName')
+            ->leftJoin ('fc.club1', 'cb1')
+            ->addSelect ( 'cb1.clubName')
+            ->leftJoin ('fc.club2', 'cb2')
+            ->addSelect ( 'cb2.clubName as clubName2');
+        return $qb->getQuery()->getResult();
+    }
 }
