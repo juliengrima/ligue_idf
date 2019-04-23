@@ -8,8 +8,6 @@
 jQuery(document).ready(function($) {
 
     // APPEL DE FULL CALENDAR
-    //  calendar();
-     // modal();
 
 
 });
@@ -37,13 +35,13 @@ $(document).ready(function() {
                 locale: initialLocaleCode,
                 lang: 'fr-FR',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
-                selectable: true, // Permet de cliquer sur la case pour envoyer au new
+                selectable: false, // Permet de cliquer sur la case pour envoyer au new
                 selectHelper: true,
 
                 firstDay: 1, // jour ou l'agenda commentce 1 = lundi, 2 = mardi , etc...
                 weekNumbers: true, // affichage du numéro de la semaine en cour
                 businessHours: { // heure de travail
-                    start: '09:00',
+                    start: '07:00',
                     end: '23:00',
                     dow: [1, 2, 3, 4, 5]
                 },
@@ -51,10 +49,10 @@ $(document).ready(function() {
                 weekends: true, // affichage des weekends
                 slotLabelFormat: 'HH:mm', // format de l'heure sur les slots
                 timeFormat: 'HH:mm',
-                minTime: "08:00:00", // heure de début du calendar
+                minTime: "07:00:00", // heure de début du calendar
                 slotEventOverlap: false, // Les évènements ne se chevauchent pas
 
-                editable: true,
+                editable: false,
                 eventLimit: true, // allow "more" link when too many events
 
                 events: Routing.generate('calendarJson_index'),
@@ -77,11 +75,11 @@ $(document).ready(function() {
                         element.append(
 
                             '<p>' +
-                            event.category.categoryName +
+                            event.categoryName +
                             ' -> ' +
-                            event.club1.clubName +
+                            event.clubName +
                             '<span style=\'color:#8B0000\'> VS </span>' +
-                            event.club2.clubName +
+                            event.clubName2 +
                             '</p>'
                         );
 
@@ -101,10 +99,10 @@ $(document).ready(function() {
                     // var ponctuation1 = "de";
 
                     var startTime = moment(calEvent.start._i).format('HH:mm');
-                    var category = calEvent.category.categoryName + ' - ' + calEvent.level;
-                    var club1 = calEvent.club1.clubName;
-                    var club2 = calEvent.club2.clubName;
-                    var score = calEvent.score;
+                    var category = calEvent.categoryName;
+                    var club1 = calEvent.clubName;
+                    var club2 = calEvent.clubName2;
+                    var score = calEvent.scores;
 
                     var editEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/edit';
                     var deleteEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/delete';
@@ -116,6 +114,7 @@ $(document).ready(function() {
                     // $('#modalTime').html(startTime);
                     // $('#modalImage').html(picture);
                     $('#modalDay').html(day);
+                    $('#modalTime').html(startTime);
                     $('#modalTitle').html(category);
                     $('#modalClub1').html(club1);
                     $('#modalClub2').html(club2);
@@ -136,7 +135,6 @@ $(document).ready(function() {
                     $('#delete_event').show();
                     $('#delete_event').attr('href', deleteEvent);
                 }
-
 
             });
         },
@@ -164,15 +162,3 @@ $(document).ready(function() {
     });
 
 });
-
-/*
-// ********************************************************************
-// *                        Full MODAL
-// ********************************************************************
-
-function modal() {
-    $('#fullCalModal').modal({
-        fadeDuration: 1000,
-        fadeDelay: 0.50
-    });
-}*/

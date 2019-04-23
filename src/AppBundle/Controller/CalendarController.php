@@ -43,18 +43,10 @@ class CalendarController extends Controller
     public function getEventsJsonObjectAction()
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();
 
-//        $qb = $em->getRepository('AppBundle:Calendar')
-//            ->createQueryBuilder('c')
-//            ->leftJoin('c.club1','c1')// appel de la table
-//            ->leftJoin('c.club2','c2')// appel de la table
-//            ->leftJoin('c.address','a');// appel de la table
-//
-//        $fullCalendar = $qb->getQuery()->execute();
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->getMatches();
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
-
         $encoder = new JsonEncoder(); // Encode to JSON
 
         /* Encode Dates */
@@ -66,10 +58,11 @@ class CalendarController extends Controller
 
         /* Creating array for DATE */
         $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
-        /* Delet ciclik mapping */
-        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
-            return $fullCalendar->getId('club1');
-        });
+
+        /* Delete ciclik mapping */
+//        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
+//            return $fullCalendar->getId('club1');
+//        });
 
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($fullCalendar, 'json');
