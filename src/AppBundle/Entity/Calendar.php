@@ -18,11 +18,11 @@ class Calendar
         $this->setEnd($newTime);
     }
 
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->category;
-//    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->start->format(\DateTime::ISO8601) .  $this->end->format(\DateTime::ISO8601);
+    }
 
 //    GENERATED CODE ------------------------------------>
 

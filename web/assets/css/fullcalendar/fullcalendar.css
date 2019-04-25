@@ -713,6 +713,7 @@ NOTE: use percentage font sizes or else old IE chokes
 --------------------------------------------------------------------------------------------------*/
 .fc-popover > .ui-widget-header + .ui-widget-content {
   border-top: 0;
+  width: max-content;
   /* where they meet, let the header have the border */ }
 
 /* Global Event Styles

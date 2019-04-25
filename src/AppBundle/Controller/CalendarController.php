@@ -49,7 +49,7 @@ class CalendarController extends Controller
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
         $encoder = new JsonEncoder(); // Encode to JSON
 
-        /* Encode Dates */
+        /* Encode Dates to string */
         $dateCallback = function ($dateTime) {
             return $dateTime instanceof \DateTime
                 ? $dateTime->format(\DateTime::ISO8601)
@@ -57,7 +57,7 @@ class CalendarController extends Controller
         };
 
         /* Creating array for DATE */
-        $normalizer->setCallbacks(array('start' => $dateCallback, 'end' => $dateCallback));
+        $normalizer->setCallbacks(array('start' => $dateCallback)); //, $fullCalendar = 'fc.end' => $dateCallback
 
         /* Delete ciclik mapping */
 //        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
