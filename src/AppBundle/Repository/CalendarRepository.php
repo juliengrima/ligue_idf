@@ -17,13 +17,14 @@ class CalendarRepository extends \Doctrine\ORM\EntityRepository
 //        Alias 'cb2' = club2
 
         $qb = $this->createQueryBuilder('fc')
-            ->select('fc.id', 'fc.start', 'fc.end', 'fc.scores')
+            ->select('fc.id', 'fc.start', 'fc.scores')
             ->join ('fc.category', 'a')
             ->addSelect ( 'a.categoryName')
             ->leftJoin ('fc.club1', 'cb1')
             ->addSelect ( 'cb1.clubName')
             ->leftJoin ('fc.club2', 'cb2')
             ->addSelect ( 'cb2.clubName as clubName2');
+//            ->orderBy('fc.start', 'DESC');
         return $qb->getQuery()->getResult();
     }
 }

@@ -89,7 +89,8 @@ $(document).ready(function() {
                 /* ------------------------- FONCTION DU CLICK SUR EVENT ------------------------------*/
                 eventClick: function (calEvent) {
 
-                    var day = moment(calEvent.start._d).format('D / MM / Y');
+                    // var day = moment(calEvent.start._d).format('D / MM / Y');
+                    var day = calEvent.start.format('D / MM / Y');
                     // // .format();
                     // // dddd = jour en charactère
                     // // Do = date du jour en chiffre (fontionne uniquement apres dddd)
@@ -98,7 +99,7 @@ $(document).ready(function() {
 
                     // var ponctuation1 = "de";
 
-                    var startTime = moment(calEvent.start._i).format('HH:mm');
+                    // var startTime = moment(calEvent.start._d).format('hh:mm');
                     var category = calEvent.categoryName;
                     var club1 = calEvent.clubName;
                     var club2 = calEvent.clubName2;
@@ -114,7 +115,7 @@ $(document).ready(function() {
                     // $('#modalTime').html(startTime);
                     // $('#modalImage').html(picture);
                     $('#modalDay').html(day);
-                    $('#modalTime').html(startTime);
+                    // $('#modalTime').html(startTime);
                     $('#modalTitle').html(category);
                     $('#modalClub1').html(club1);
                     $('#modalClub2').html(club2);
