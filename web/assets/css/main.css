@@ -3410,3 +3410,7 @@ input, select, textarea {
 select option{
 	background-color: #C9C9C9!important;
 }
+
+.display{
+	display: ruby;
+}

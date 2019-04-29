@@ -59,11 +59,6 @@ class CalendarController extends Controller
         /* Creating array for DATE */
         $normalizer->setCallbacks(array('start' => $dateCallback)); //, $fullCalendar = 'fc.end' => $dateCallback
 
-        /* Delete ciclik mapping */
-//        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
-//            return $fullCalendar->getId('club1');
-//        });
-
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($fullCalendar, 'json');
 

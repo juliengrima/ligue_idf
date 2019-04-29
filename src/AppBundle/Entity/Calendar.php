@@ -11,18 +11,18 @@ use Doctrine\ORM\Mapping as ORM;
 class Calendar
 {
     //    Set dateTime pour new event calendar
-    public function __construct ()
-    {
-        $newTime = new \DateTime();
-        $this->setStart($newTime);
-        $this->setEnd($newTime);
-    }
+//    public function __construct ()
+//    {
+//        $newTime = new \DateTime();
+//        $this->setStart($newTime);
+//        $this->setEnd($newTime);
+//    }
 
-    public function __toString()
-    {
-        // TODO: Implement __toString() method.
-        return $this->start->format(\DateTime::ISO8601) .  $this->end->format(\DateTime::ISO8601);
-    }
+//    public function __toString()
+//    {
+//        // TODO: Implement __toString() method.
+//        return $this->start->format(\DateTime::ISO8601) .  $this->end->format(\DateTime::ISO8601);
+//    }
 
 //    GENERATED CODE ------------------------------------>
 
@@ -32,15 +32,6 @@ class Calendar
      */
     private $id;
 
-    /**
-     * @var \DateTime
-     */
-    private $start;
-
-    /**
-     * @var \DateTime
-     */
-    private $end;
 
     /**
      * @var string
@@ -83,53 +74,6 @@ class Calendar
         return $this->id;
     }
 
-    /**
-     * Set start
-     *
-     * @param \DateTime $start
-     *
-     * @return Calendar
-     */
-    public function setStart($start)
-    {
-        $this->start = $start;
-
-        return $this;
-    }
-
-    /**
-     * Get start
-     *
-     * @return \DateTime
-     */
-    public function getStart()
-    {
-        return $this->start;
-    }
-
-    /**
-     * Set end
-     *
-     * @param \DateTime $end
-     *
-     * @return Calendar
-     */
-    public function setEnd($end)
-    {
-        $this->end = $end;
-
-        return $this;
-    }
-
-    /**
-     * Get end
-     *
-     * @return \DateTime
-     */
-    public function getEnd()
-    {
-        return $this->end;
-    }
 
     /**
      * Set color
@@ -273,5 +217,34 @@ class Calendar
     public function getAddress()
     {
         return $this->address;
+    }
+    /**
+     * @var string
+     */
+    private $start;
+
+
+    /**
+     * Set start
+     *
+     * @param string $start
+     *
+     * @return Calendar
+     */
+    public function setStart($start)
+    {
+        $this->start = $start;
+
+        return $this;
+    }
+
+    /**
+     * Get start
+     *
+     * @return string
+     */
+    public function getStart()
+    {
+        return $this->start;
     }
 }
