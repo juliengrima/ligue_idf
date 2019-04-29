@@ -44,29 +44,39 @@ class CalendarController extends Controller
     {
         $em = $this->getDoctrine()->getManager(); //appel doctrine methode BDD
 
-        $fullCalendar = $em->getRepository('AppBundle:Calendar')->getMatches();
+        $fullCalendar = $em->getRepository('AppBundle:Calendar')->findAll();
+//        $fullCalendar = $em->getRepository('AppBundle:Calendar')->getMatches();
+
+//        foreach($fullCalendarA as $key => $date){
+//            $date = $fullCalendarA[0]['start'];
+//            $date1 = $date->format(\DateTime::ISO8601);
+//            $date2 = array(0 => $date1);
+//            $fullCalendar = array_replace($fullCalendarA, $date2);
+//        }
+
+        var_dump($fullCalendar);
 
         $normalizer = new ObjectNormalizer(); //Normalizer data to encode JSON
         $encoder = new JsonEncoder(); // Encode to JSON
-
-        /* Encode Dates to string */
+//
+////        /* Encode Dates to string */
         $dateCallback = function ($dateTime) {
             return $dateTime instanceof \DateTime
                 ? $dateTime->format(\DateTime::ISO8601)
                 : '';
         };
 
-        /* Creating array for DATE */
-        $normalizer->setCallbacks(array('start' => $dateCallback)); //, $fullCalendar = 'fc.end' => $dateCallback
+//        /* Creating array for DATE */
+        $normalizer->setCallbacks(array($fullCalendar[0]['start'] => $dateCallback)); //, $fullCalendar = 'fc.end' => $dateCallback
 
-        /* Delete ciclik mapping */
-//        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
-//            return $fullCalendar->getId('club1');
-//        });
-
+//        /* Delete ciclik mapping */
+        $normalizer->setCircularReferenceHandler(function ($fullCalendar) {
+            return $fullCalendar->getId('club1');
+        });
+//
         $serializer = new Serializer(array($normalizer), array($encoder));
         $jsonObject = $serializer->serialize($fullCalendar, 'json');
-
+//
         $response = new Response();
         $response->setContent($jsonObject);
 
