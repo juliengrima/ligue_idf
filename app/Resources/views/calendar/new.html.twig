@@ -1,5 +1,10 @@
 {% extends 'layout.html.twig' %}
 
+{% block links %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js" />
+{% endblock %}
+
 {% block body %}
 
     <div id="main">
@@ -11,16 +16,20 @@
         <section id="two">
             {{ form_start(form) }}
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <div>
                             <p>Date et heure de match : </p>
                         </div>
-                        <div>
-                            {{ form_widget(form.start) }}
+                        <div class="display">
+                            <input id="{{ form.start.vars.id }}"
+                                   name="{{ form.start.vars.full_name }}"
+                                   type="text" data-format="YYYY-MM-DD HH:mm:ss"
+                                   class="datetime24">
                             {{ form_errors(form.start) }}
+                            {% do form.start.setRendered %}
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12">
                         <div class="row">
                             <div class="col-12">
                                 <div>
@@ -82,5 +91,17 @@
         </section>
 
     </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('assets/js/combodate.js') }}"></script>
+        <script>
+            $(function(){
+                $('.datetime24').combodate();
+            });
+        </script>
+
+    {% endblock %}
 
 {% endblock %}
