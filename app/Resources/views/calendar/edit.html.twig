@@ -8,6 +8,8 @@
             <h1>Modifier le match</h1>
         </section>
 
+        {{ dump() }}
+
 
         <section id="three">
             {{ form_start(edit_form) }}
@@ -25,16 +27,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div>
                         <p>Date et heure de match : </p>
+                        <p>{{ calendar.start }}</p>
                     </div>
-                    <div>
-                        {{ form_widget(edit_form.start) }}
+                    <div class="display">
+                        <input id="{{ edit_form.start.vars.id }}"
+                               name="{{ edit_form.start.vars.full_name }}"
+                               type="text" data-format="YYYY-MM-DD HH:mm:ss"
+                               class="datetime24">
                         {{ form_errors(edit_form.start) }}
+                        {% do edit_form.start.setRendered %}
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-12">
                     <div class="row">
                         <div class="col-12">
                             <div>
@@ -101,5 +108,17 @@
         </section>
 
     </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('assets/js/combodate.js') }}"></script>
+        <script>
+            $(function(){
+                $('.datetime24').combodate();
+            });
+        </script>
+
+    {% endblock %}
 
 {% endblock %}
