@@ -10,10 +10,11 @@ AppBundle\Entity\Calendar:
                 strategy: AUTO
     fields:
         start:
-            type: datetime
-        end:
-            type: datetime
-            nullable: true
+            type: string
+            length: 30
+#        end:
+#            type: datetime
+#            nullable: true
         color:
             type: string
             length: 15
