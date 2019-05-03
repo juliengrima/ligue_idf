@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use AppBundle\Entity\Address;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class CalendarType extends AbstractType
 {
@@ -18,7 +19,7 @@ class CalendarType extends AbstractType
             ->add('category')
             ->add('club1')
             ->add('club2')
-            ->add('address');
+            ->add('address', Choice::CLASS);
 
     }
     /**
