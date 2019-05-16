@@ -10,7 +10,7 @@ class Address
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->nom;
+        return $this->nom . $this->address;
     }
 
     /**

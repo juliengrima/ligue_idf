@@ -21,7 +21,7 @@ class Calendar
 //    public function __toString()
 //    {
 //        // TODO: Implement __toString() method.
-//        return $this->start->format(\DateTime::ISO8601) .  $this->end->format(\DateTime::ISO8601);
+//        return $this->address;
 //    }
 
 //    GENERATED CODE ------------------------------------>
