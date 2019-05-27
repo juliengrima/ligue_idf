@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class AddressRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAddresses(){
+//        Alias 'a' = Address
+
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.address', 'a.city', 'a.id', 'a.nom', 'a.postal', 'a.lat', 'a.lng')
+            ->orderBy('a.city', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
+
 }

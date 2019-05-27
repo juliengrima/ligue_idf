@@ -74,7 +74,7 @@
                             <p>Lieu de rencontre : </p>
                         </div>
                         <div>
-                            {{ form_widget(form.address) }}
+                            {{ form_widget(form.address, {'attr': {'type': 'list', 'class': ''}}) }}
                             {{ form_errors(form.address) }}
                         </div>
                     </div>

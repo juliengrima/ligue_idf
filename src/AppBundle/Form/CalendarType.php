@@ -2,16 +2,13 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Calendar;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Address;
+use Doctrine\ORM\EntityRepository;
 use AppBundle\Repository\AddressRepository;
-use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class CalendarType extends AbstractType
 {
@@ -27,6 +24,12 @@ class CalendarType extends AbstractType
             ->add('address', EntityType::class, [
                     // looks for choices from this entity
                     'class' => Address::class,
+
+                    'query_builder' => function (EntityRepository $er) {
+                        return $er->createQueryBuilder('a')
+                            ->orderBy('a.city', 'ASC');
+                    },
+
                     'choice_label' => 'fullAddress'
                 ]);
 
