@@ -10,8 +10,20 @@ class Address
     public function __toString()
     {
         // TODO: Implement __toString() method.
-        return $this->nom;
+        return $this->nom . $this->address;
     }
+
+    public $fullAddress;
+
+
+    public function getFullAddress()
+    {
+
+        return $this->city.' '.$this->postal.' '.$this->nom. '-'. $this->address;
+
+    }
+
+//    ----------------------------------------------------
 
     /**
      * @var int
