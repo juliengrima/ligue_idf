@@ -24,11 +24,13 @@ $(document).ready(function() {
 
         init: function(themeSystem) {
             $('#calendar').fullCalendar({
-                plugins: [ 'interaction', 'dayGrid' ],
+                plugins: [ 'dayGrid' ],
+                // plugins: [ 'interaction', 'dayGrid', 'list' ],
+                // defaultView: 'dayGridDay',
                 header: {
-                    left: 'prevYear,prev,next,nextYear today',
+                    left: 'prev,next, today',
                     center: 'title',
-                    right: 'dayGridMonth,dayGridWeek,dayGridDay'
+                    right: 'month, dayGridDay, dayGridWeek',
                     // right: 'month,agendaWeek,agendaDay'
                 },
                 themeSystem: themeSystem,
@@ -36,7 +38,7 @@ $(document).ready(function() {
                 lang: 'fr-FR',
                 navLinks: true, // Peut cliquer sur jour/semaine pour avoir une vue
                 selectable: false, // Permet de cliquer sur la case pour envoyer au new
-                selectHelper: true,
+                selectHelper: false,
 
                 firstDay: 1, // jour ou l'agenda commentce 1 = lundi, 2 = mardi , etc...
                 weekNumbers: true, // affichage du numéro de la semaine en cour
@@ -52,7 +54,7 @@ $(document).ready(function() {
                 minTime: "07:00:00", // heure de début du calendar
                 slotEventOverlap: false, // Les évènements ne se chevauchent pas
 
-                editable: false,
+                editable: true,
                 eventLimit: true, // allow "more" link when too many events
 
                 events: Routing.generate('calendarJson_index'),
