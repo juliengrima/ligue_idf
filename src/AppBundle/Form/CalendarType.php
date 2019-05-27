@@ -25,12 +25,10 @@ class CalendarType extends AbstractType
             ->add('club1')
             ->add('club2')
             ->add('address', EntityType::class, [
-                        'class' => Address::class,
-                        'query_builder' => function (EntityRepository $er) {
-                            return $er->createQueryBuilder('c')
-                                ->orderBy('c.city', 'DESC');
-                        },
-    ]);
+                    // looks for choices from this entity
+                    'class' => Address::class,
+                    'choice_label' => 'fullAddress'
+                ]);
 
     }
     /**

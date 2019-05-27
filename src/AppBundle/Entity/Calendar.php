@@ -10,13 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Calendar
 {
-    //    Set dateTime pour new event calendar
-//    public function __construct ()
-//    {
-//        $newTime = new \DateTime();
-//        $this->setStart($newTime);
-//        $this->setEnd($newTime);
-//    }
 
 //    public function __toString()
 //    {

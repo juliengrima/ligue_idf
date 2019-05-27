@@ -13,6 +13,18 @@ class Address
         return $this->nom . $this->address;
     }
 
+    public $fullAddress;
+
+
+    public function getFullAddress()
+    {
+
+        return $this->city.' '.$this->postal.' '.$this->nom. '-'. $this->address;
+
+    }
+
+//    ----------------------------------------------------
+
     /**
      * @var int
      */
