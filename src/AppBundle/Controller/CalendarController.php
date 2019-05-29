@@ -90,138 +90,88 @@ class CalendarController extends Controller
 
             if(isset($select)){
                 if ($select == 1){
-
-                    $color = "#F0F8FF";
-
+                    $color = "#607d8b";
                 }
                 elseif ($select == 2){
-
                     $color = "#20B2AA";
-
                 }
-                elseif ($select == 3){
-
-                    $color = "#7FFFD4";
-
+                elseif ($select == 3 || $select == 4 || $select == 5){
+                    $color = "#a1887f";
                 }
-                elseif ($select == 4){
-
-                    $color = "#8A2BE2";
-
-                }
-                elseif ($select == 5){
-
-                    $color = "#DEB887";
-
-                }
-                elseif ($select == 6){
-
-                    $color = "#6495ED";
-
-                }
-                elseif ($select == 7){
-
-                    $color = "#DC143C";
-
-                }
-                elseif ($select == 7){
-
-                    $color = "#FF1493";
-
+                elseif ($select == 6 || $select == 7){
+                    $color = "#ff5722";
                 }
                 elseif ($select == 8){
-
                     $color = "#D8BFD8";
-
                 }
                 elseif ($select == 9){
-
                     $color = "#D2B48C";
-
                 }
-                elseif ($select == 10){
-
+                elseif ($select == 10 || $select == 11){
                     $color = "#808000";
-
                 }
-                elseif ($select == 11){
-
-                    $color = "#FF4500";
-
-                }
-                elseif ($select == 12){
-
+                elseif ($select >= 12 && $select <=21){
                     $color = "#708090";
-
                 }
-                elseif ($select == 13){
-
-                    $color = "#F0F8FF";
-
+                elseif ($select >= 22 && $select <= 28 ){
+                    $color = "#9ccc65";
                 }
-                elseif ($select == 14){
-
+                elseif ($select >= 29 && $select <= 38 ){
                     $color = "#CD853F";
-
                 }
-                elseif ($select == 15){
-
-                    $color = "#9ACD32";
-
+                elseif ($select == 39 || $select == 40){
+                    $color = "#c0ca33";
                 }
-                elseif ($select == 16){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 41 && $select <= 48){
+                    $color = "#4caf50";
                 }
-                elseif ($select == 17){
-
-                    $color = "#9ACD32";
-
+                elseif ($select == 49 || $select == 50){
+                    $color = "#009688";
                 }
-                elseif ($select == 18){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 51 && $select <= 53){
+                    $color = "#03a9f4";
                 }
-                elseif ($select == 19){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 54 && $select <= 59){
+                    $color = "#2196f3";
                 }
-                elseif ($select == 20){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 60 && $select <= 62){
+                    $color = "#5c6bc0";
                 }
-                elseif ($select == 21){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 63 && $select <= 68){
+                    $color = "#7e57c2";
                 }
-                elseif ($select == 22){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 69 && $select <= 72){
+                    $color = "#d500f9";
                 }
-                elseif ($select == 23){
-
-                    $color = "#9ACD32";
-
+                elseif ($select >= 73 && $select <= 79){
+                    $color = "#ba68c8";
                 }
-                elseif ($select == 24){
-
-                    $color = "#9ACD32";
-
+                elseif ($select == 80){
+                    $color = "#f06292";
                 }
-                elseif ($select == 25){
-
-                    $color = "#9ACD32";
-
+                elseif ($select == 81){
+                    $color = "#e57373";
+                }
+                elseif ($select == 82){
+                    $color = "#1de9b6";
+                }
+                elseif ($select >= 83 && $select <= 86){
+                    $color = "#2979ff";
+                }
+                elseif ($select == 87){
+                    $color = "#651fff";
+                }
+                elseif ($select == 88){
+                    $color = "#64dd17";
+                }
+                elseif ($select >= 89 && $select <= 96){
+                    $color = "#ffd600";
+                }
+                elseif ($select >= 97 && $select <= 98){
+                    $color = "#9e9e9e";
                 }
                 else{
-
-                    $color = "#0000FF";
+                    $color = "#00b8d4";
                 }
 
             }

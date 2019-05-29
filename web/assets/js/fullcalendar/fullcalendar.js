@@ -14309,7 +14309,7 @@ var ListEventRenderer = /** @class */ (function (_super) {
             '<td class="fc-list-item-marker ' + theme.getClass('widgetContent') + '">' +
             '<span class="fc-event-dot"' +
             (bgColor ?
-                ' style="background-color:' + bgColor + '"' :
+                ' style="background-color:' + bgColor + '' :
                 '') +
             '></span>' +
             '</td>' +

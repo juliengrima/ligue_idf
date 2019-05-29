@@ -25,8 +25,6 @@ $(document).ready(function() {
         init: function(themeSystem) {
             $('#calendar').fullCalendar({
                 plugins: [ 'dayGrid' ],
-                // plugins: [ 'interaction', 'dayGrid', 'list' ],
-                // defaultView: 'dayGridDay',
                 header: {
                     left: 'prev,next, today',
                     center: 'title',
@@ -98,8 +96,6 @@ $(document).ready(function() {
                     // // Do = date du jour en chiffre (fontionne uniquement apres dddd)
                     // // MMMMM = mois en character
                     // // YYYY = année en chiffre
-
-                    // var ponctuation1 = "de";
 
                     // var startTime = moment(calEvent.start._d).format('hh:mm');
                     var category = calEvent.categoryName;
