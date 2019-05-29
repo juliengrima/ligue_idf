@@ -166,62 +166,62 @@ class CalendarController extends Controller
                 }
                 elseif ($select == 15){
 
-                    $color = "#9ACD32";
+                    $color = "#c0ca33";
 
                 }
                 elseif ($select == 16){
 
-                    $color = "#9ACD32";
+                    $color = "#4caf50";
 
                 }
                 elseif ($select == 17){
 
-                    $color = "#9ACD32";
+                    $color = "#009688";
 
                 }
                 elseif ($select == 18){
 
-                    $color = "#9ACD32";
+                    $color = "#03a9f4";
 
                 }
                 elseif ($select == 19){
 
-                    $color = "#9ACD32";
+                    $color = "#2196f3";
 
                 }
                 elseif ($select == 20){
 
-                    $color = "#9ACD32";
+                    $color = "#5c6bc0";
 
                 }
                 elseif ($select == 21){
 
-                    $color = "#9ACD32";
+                    $color = "#7e57c2";
 
                 }
                 elseif ($select == 22){
 
-                    $color = "#9ACD32";
+                    $color = "#d500f9";
 
                 }
                 elseif ($select == 23){
 
-                    $color = "#9ACD32";
+                    $color = "#ba68c8";
 
                 }
                 elseif ($select == 24){
 
-                    $color = "#9ACD32";
+                    $color = "#f06292";
 
                 }
                 elseif ($select == 25){
 
-                    $color = "#9ACD32";
+                    $color = "#e57373";
 
                 }
                 else{
 
-                    $color = "#0000FF";
+                    $color = "";
                 }
 
             }
