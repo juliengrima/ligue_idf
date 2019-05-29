@@ -24,9 +24,7 @@ $(document).ready(function() {
 
         init: function(themeSystem) {
             $('#calendar').fullCalendar({
-                plugins: [ 'interaction', 'dayGrid' ],
-                // plugins: [ 'interaction', 'dayGrid', 'list' ],
-                // defaultView: 'dayGridDay',
+                plugins: [ 'dayGrid' ],
                 header: {
                     left: 'prev,next, today',
                     center: 'title',

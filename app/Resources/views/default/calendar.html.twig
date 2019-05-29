@@ -72,8 +72,8 @@
 
     <div class='right'>
 
-        Locales:
-        <select id='locale-selector'></select>
+        <p style='display:none'>Locales:</p>
+        <select id='locale-selector' style='display:none'></select>
 
         <div id='theme-system-selector' class='selector' style='display:none'>
            <!-- Theme System: -->
@@ -174,8 +174,6 @@
 
     </div>
 
-
-
     <div class='clear'></div>
 </div>
 
@@ -204,7 +202,6 @@
     </div>
 
     <!----- FIN DE LA MODAL ----->
-
 
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>

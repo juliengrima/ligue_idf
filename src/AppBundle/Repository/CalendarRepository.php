@@ -17,7 +17,7 @@ class CalendarRepository extends \Doctrine\ORM\EntityRepository
 //        Alias 'cb2' = club2
 
         $qb = $this->createQueryBuilder('fc')
-            ->select('fc.id', 'fc.start', 'fc.scores')
+            ->select('fc.id', 'fc.start', 'fc.scores', 'fc.color')
             ->join ('fc.category', 'a')
             ->addSelect ( 'a.categoryName')
             ->leftJoin ('fc.club1', 'cb1')
