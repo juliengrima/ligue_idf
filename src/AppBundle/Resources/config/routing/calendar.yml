@@ -35,6 +35,11 @@ calendar_edit:
     path:     /admin/calendar/{id}/edit
     defaults: { _controller: "AppBundle:Calendar:edit" }
     methods:  [GET, POST]
+    
+calendar_scores:
+    path:     /admin/calendar/{id}/scores
+    defaults: { _controller: "AppBundle:Calendar:scores" }
+    methods:  [GET, POST]
 
 calendar_delete:
     path:     /admin/calendar/{id}/delete

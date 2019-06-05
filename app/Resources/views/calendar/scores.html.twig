@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+
+    <div id="main">
+
+        <section id="one">
+            <h1>Modifier le match</h1>
+        </section>
+
+        <section id="three">
+            {{ form_start(edit_form) }}
+            <div class="row">
+                <div class="col-6">
+                    <p>{{ calendar.club1 }} / {{ calendar.club2 }}</p>
+                    <p>{{ calendar.category }}</p>
+                </div>
+                <div class="col-6">
+                    <p>{{ calendar.address.nom }}</p>
+                    <p>{{ calendar.address.address }}</p>
+                    <p>{{ calendar.address.postal }} {{ calendar.address.city }}</p>
+                </div>
+                <div class="col-6">
+                   <p>Tableau des scores</p>
+                </div>
+                <div class="col-6">
+                    <p>{{ form_widget(edit_form.scores) }}</p>
+                    {{ form_errors(edit_form.scores) }}
+                </div>
+            </div>
+        </section>
+
+        <section id="four">
+            <div class="inline">
+                <input type="submit" value="Modifier" class="buttonDisconnect" />
+                {{ form_end(edit_form) }}
+
+                {{ form_start(delete_form) }}
+                {{ form_widget(delete_form) }}
+                <input type="submit" value="Supprimer" class="buttonDisconnect deconnexion" />
+                {{ form_end(delete_form) }}
+
+                <a href="{{ path('fullcalendar_index') }}" class="button">Retour au calendrier</a>
+            </div>
+        </section>
+
+    </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+
+        <script src="{{ asset('assets/js/combodate.js') }}"></script>
+        <script>
+            $(function(){
+                $('.datetime24').combodate();
+            });
+        </script>
+
+    {% endblock %}
+
+{% endblock %}

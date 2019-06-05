@@ -190,12 +190,13 @@
             <h3 id="modalDay"></h3>
             <p id="modalTime"></p>
             <p><span id="modalClub1"></span><span class="modalText"> VS </span><span id="modalClub2"></span></p>
-            <p><span id="modalScore"></span></p>
+            <p>Tableau des scores : <span id="modalScore"></span></p>
         </div>
         <div>
             <a href="#" id="show_event" class="button align-center">Voir</a>
         {% if is_granted("ROLE_ADMIN") %}
             <a href="#" id="edit_event" class="button buttonDisconnect align-center">Modifier</a>
+            <a href="#" id="scores_event" class="button buttonDisconnect align-center">Ajouter/Modifier un scores</a>
         {% endif %}
         </div>
 

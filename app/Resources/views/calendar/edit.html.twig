@@ -11,27 +11,11 @@
         <section id="three">
             {{ form_start(edit_form) }}
             <div class="row">
-                <div class="col-6">
-                    <div>
-                        <h6 class="scores">SCORES (ex: 1 / 1):</h6>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div>
-                        {{ form_widget(edit_form.scores) }}
-                        {{ form_errors(edit_form.scores) }}
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-12">
-                    <div>
-                        <p>Date et heure de match : </p>
-                        <p>{{ calendar.start }}</p>
-                    </div>
                     <div class="display">
                         <input id="{{ edit_form.start.vars.id }}"
                                name="{{ edit_form.start.vars.full_name }}"
+                               value="{{ calendar.start }}"
                                type="text" data-format="YYYY-MM-DD HH:mm:ss"
                                class="datetime24">
                         {{ form_errors(edit_form.start) }}

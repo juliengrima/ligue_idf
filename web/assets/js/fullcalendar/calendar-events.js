@@ -104,6 +104,7 @@ $(document).ready(function() {
                     var score = calEvent.scores;
 
                     var editEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/edit';
+                    var scoresEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/scores';
                     var deleteEvent = Routing.generate('calendar_index') + '/' + calEvent.id + '/delete';
                     var showEvent = Routing.generate('calendar_usershow') + '/' + calEvent.id + '/show';
 
@@ -130,6 +131,9 @@ $(document).ready(function() {
 
                     $('#edit_event').show();
                     $('#edit_event').attr('href', editEvent);
+
+                    $('#scores_event').show();
+                    $('#scores_event').attr('href', scoresEvent);
 
                     $('#delete_event').show();
                     $('#delete_event').attr('href', deleteEvent);

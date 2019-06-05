@@ -20,7 +20,6 @@ class CalendarEditType extends AbstractType
                 ->add('category')
                 ->add('club1')
                 ->add('club2')
-                ->add('scores')
                 ->add('address', EntityType::class, [
                     // looks for choices from this entity
                     'class' => Address::class,
