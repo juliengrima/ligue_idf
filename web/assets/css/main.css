@@ -3414,3 +3414,9 @@ select option{
 .display{
 	display: ruby;
 }
+
+.index-img{
+	margin-left: 10%;
+	width: 70%;
+	height: auto;
+}
